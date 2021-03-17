@@ -19,11 +19,10 @@ namespace Fakultät_von_n_berechnen
             {
                 result *= i;
             }
-            // Hallo ich heiße Pascal
             // Ergebnis ausgeben
+            // Moin ich bin der Fehler
             Console.WriteLine(result);
             Console.ReadKey();
-            console.Readke(Hallo);
         }
     }
 }
