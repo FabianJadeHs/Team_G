@@ -21,6 +21,7 @@ namespace Fakultät_von_n_berechnen
             }
             // Ergebnis ausgeben
             // Moin ich bin der Fehler
+            // Nein, Arne ist der Fehler
             Console.WriteLine(result);
             Console.ReadKey();
         }
