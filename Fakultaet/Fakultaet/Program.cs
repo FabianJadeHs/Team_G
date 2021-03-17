@@ -23,6 +23,7 @@ namespace Fakultät_von_n_berechnen
             // Ergebnis ausgeben
             Console.WriteLine(result);
             Console.ReadKey();
+            console.Readke(Hallo);
         }
     }
 }
