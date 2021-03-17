@@ -7,13 +7,13 @@ namespace Fakultät_von_n_berechnen
         static void Main(string[] args)
         {
             // Fenster Titel
-            Console.Title = "Fakultät von n berechnen";
+            Console.Title = "Fakultaet von n berechnen";
 
             // Eingabe von n
-            Console.Write("Fakultät von n: ");
+            Console.Write("Fakultaet von n: ");
             int n = Convert.ToInt32(Console.ReadLine());
 
-            // Fakultät berechnen
+            // Fakultaet berechnen
             long result = 1;
             for (int i = 1; i <= n; i++)
             {
