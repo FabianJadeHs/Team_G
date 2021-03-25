@@ -20,7 +20,7 @@ namespace Fakultät_von_n_berechnen
                 result *= i;
             }
             // Ergebnis ausgeben
-            // Moin ich bin der Fehler
+            // Moin ich bin der Fehler, wirklich?
                         
             Console.WriteLine(result);
             Console.ReadKey();
