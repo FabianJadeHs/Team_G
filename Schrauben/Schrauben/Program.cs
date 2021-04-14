@@ -67,6 +67,8 @@ namespace Schrauben
             //Daten werden aus csv Datein eingelesen; wird zeilenweise als strings eingelesen
             
             string[] zeilen = File.ReadAllLines(@"C:\Users\SENTIMENT\Documents\GitHub\Team_G\Schrauben\Schrauben.csv");
+          
+
 
             //für jede Zeile wird der string in Werte getrennt und als Array erzeugt
             foreach (string zeile in zeilen)
