@@ -64,8 +64,8 @@ namespace Schrauben
             //neue leere Liste
             liste = new List<Schrauben>();
 
-            //Daten werden aus csv Datein eingelesen; wird zeilenweise als strings eingelesen
-            string[] zeilen = File.ReadAllLines(@"https://github.com/FabianJadeHs/Team_G.git\Schrauben\Schrauben.csv");
+            //Daten werden aus csv Datein eingelesen; wird zeilenweise als strings eingelesen Die Verknüpfung funktioniert noch nicht
+            string[] zeilen = File.ReadAllLines(@"https:\\github.com\FabianJadeHs\Team_G.git\Schrauben\Schrauben.csv");
 
             //für jede Zeile wird der string in Werte getrennt und als Array erzeugt
             foreach (string zeile in zeilen)
