@@ -11,19 +11,7 @@ namespace Schrauben
     {
         static void Main(string[] args)
         {
-            double Schaftlaenge, Gewindelaenge,Schraubenlaengee;
-
-            Console.WriteLine("Wie lang soll der Schaft sein?");
-            Schaftlaenge = double.Parse(Console.ReadLine());
-
-            Console.WriteLine("Wie lang soll das Gewinde sein?");
-            Gewindelaenge = double.Parse(Console.ReadLine());
-
-            Schraubenlaengee = Schraubenlaenge(Schaftlaenge,Gewindelaenge) ;
-
-            Console.WriteLine(Schraubenlaengee);
-            Console.ReadKey();
-
+           
         }
 
         static void Rundung()
@@ -41,7 +29,7 @@ namespace Schrauben
             string wunschgewinde = Console.ReadLine();
 
             //Array wird zeilenweise durchgegangen
-            foreach (Schrauben m in tab.getAll())
+            foreach (Schraubenarray m in tab.getAll())
             {
                 //in Zeilen werden die Gewindebezeichnungen auf gleichheit mit dem Wunschgewinde geprüft
                 if (wunschgewinde == m.Gewindebezeichnung)
@@ -56,16 +44,9 @@ namespace Schrauben
 
         } //Unterprogramm Rundung Eingabe/Ausgabe
 
-        static double Schraubenlaenge(double Schaftlaenge, double Gewindelaenge) //Unterprogramm Schraubenlaenge, Eingabe Schaftlaenge/Gewindelaenge, Ausgabe Schraubenlaenge
-        {
-            double Schraubenlaengee;
-
-            Schraubenlaengee = Schaftlaenge + Gewindelaenge;
-
-            return Schraubenlaengee;
-        }
+        
     }
-    class Schrauben
+    class Schraubenarray
     {
         //Eigenschaften des Arrays werden definiert
         public string Gewindebezeichnung { get; set; }
@@ -84,7 +65,7 @@ namespace Schrauben
     class Tabelle
     {
         //Liste kann nicht direkt eingesehen oder geändert werden um Datenhoheit zu haben
-        private List<Schrauben> liste;
+        private List<Schraubenarray> liste;
 
         public Tabelle()
         {
@@ -109,9 +90,61 @@ namespace Schrauben
             }
         }
         //Ausgabe der Daten als Array weil Array kann nicht verändert werden
-        public Schrauben[] getAll()
+        public Schraubenarray[] getAll()
         {
             return liste.ToArray();
+        }
+    }
+
+    class Schraube
+    {
+        private double Gewindelaenge;
+        private double Schaftlaenge;
+        private double Material;
+       
+
+        public Schraube()
+        {
+            Gewindelaenge = 10;
+            Schaftlaenge = 0;
+            Material=7.85;
+
+        }
+
+        public Schraube(double Gewindelaenge, double Schaftlaenge)
+        {
+            this.Gewindelaenge = Gewindelaenge;
+            this.Schaftlaenge = Schaftlaenge;
+            Material = 7.85;
+        }
+
+        public void setGewindelaenge(double local_Gewindelaenge)
+        {
+            Gewindelaenge = local_Gewindelaenge;
+        }
+
+        public void setSchaftlaenge(double local_Schaftlaenge)
+        {
+            Schaftlaenge = local_Schaftlaenge;
+        }
+
+        public void setMaterial(double local_Material)
+        {
+            Material = local_Material;
+        }
+                
+        public double getSchraubenlaenge()
+        {
+            double res;
+            res = (Schaftlaenge + Gewindelaenge);
+            return res;
+        }
+
+        public double getVolumen()
+        {
+            double Volumen;
+            Volumen = (Math.PI * Math.Pow(r, 2));
+            return Volumen;
         }
     }
 }
