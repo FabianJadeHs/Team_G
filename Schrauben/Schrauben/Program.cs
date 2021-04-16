@@ -11,6 +11,23 @@ namespace Schrauben
     {
         static void Main(string[] args)
         {
+            double Schaftlaenge, Gewindelaenge,Schraubenlaengee;
+
+            Console.WriteLine("Wie lang soll der Schaft sein?");
+            Schaftlaenge = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Wie lang soll das Gewinde sein?");
+            Gewindelaenge = double.Parse(Console.ReadLine());
+
+            Schraubenlaengee = Schraubenlaenge(Schaftlaenge,Gewindelaenge) ;
+
+            Console.WriteLine(Schraubenlaengee);
+            Console.ReadKey();
+
+        }
+
+        static void Rundung()
+        {
             //Rundung soll berechnet werden; immer mit static void Main. Die Rundungsberechnung ist nur ein Beispiel für euch wie mit dem Array gearbeitet werden muss
             //neue Tabelle wird deklariert
             Tabelle tab = new Tabelle();
@@ -36,6 +53,16 @@ namespace Schrauben
             //Ausgabe des Rundungswertes
             Console.WriteLine(rundung);
             Console.ReadKey();
+
+        } //Unterprogramm Rundung Eingabe/Ausgabe
+
+        static double Schraubenlaenge(double Schaftlaenge, double Gewindelaenge) //Unterprogramm Schraubenlaenge, Eingabe Schaftlaenge/Gewindelaenge, Ausgabe Schraubenlaenge
+        {
+            double Schraubenlaengee;
+
+            Schraubenlaengee = Schaftlaenge + Gewindelaenge;
+
+            return Schraubenlaengee;
         }
     }
     class Schrauben
