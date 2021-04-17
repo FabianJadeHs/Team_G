@@ -105,5 +105,41 @@ namespace Versuche
     }
 
 }
-    
+
+public Schraube()
+{
+    Gewindelaenge = 10;
+    Schaftlaenge = 0;
+    Material = 7.85;
+
+}
+
+public Schraube(double Gewindelaenge, double Schaftlaenge)
+{
+    this.Gewindelaenge = Gewindelaenge;
+    this.Schaftlaenge = Schaftlaenge;
+    Material = 7.85;
+}
+
+public void setGewindelaenge(double local_Gewindelaenge)
+{
+    Gewindelaenge = local_Gewindelaenge;
+}
+
+public void setSchaftlaenge(double local_Schaftlaenge)
+{
+    Schaftlaenge = local_Schaftlaenge;
+}
+
+public void setMaterial(double local_Material)
+{
+    Material = local_Material;
+}
+
+public double getSchraubenlaenge()
+{
+    double res;
+    res = (Schaftlaenge + Gewindelaenge);
+    return res;
+}
 
