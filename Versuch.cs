@@ -38,6 +38,36 @@ namespace Versuche
         }
     }
 
+    static void Rundung()
+    {
+        //Rundung soll berechnet werden; immer mit static void Main. Die Rundungsberechnung ist nur ein Beispiel für euch wie mit dem Array gearbeitet werden muss
+        //neue Tabelle wird deklariert
+        Tabelle tab = new Tabelle();
+
+        double rundung = 0;
+
+        //Frage nach gewünschtem Gewinde
+        Console.WriteLine("Von welchem Gewinde soll die Rundung berechnet werden? (ohne Leerzeichen eingeben und Großbuchstaben verwenden)");
+
+        //Eingegebener Wert wird als string gespeichert
+        string wunschgewinde = Console.ReadLine();
+
+        //Array wird zeilenweise durchgegangen
+        foreach (Schraubenarray m in tab.getAll())
+        {
+            //in Zeilen werden die Gewindebezeichnungen auf gleichheit mit dem Wunschgewinde geprüft
+            if (wunschgewinde == m.Gewindebezeichnung)
+            {
+                //Die Rundung wird berechnet
+                rundung = 0.1443 * m.Steigung;
+            }
+        }
+        //Ausgabe des Rundungswertes
+        Console.WriteLine(rundung);
+        Console.ReadKey();
+
+    } //Unterprogramm Rundung Eingabe/Ausgabe
+
 }
-    }
-}
+    
+
