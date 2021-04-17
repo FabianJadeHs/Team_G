@@ -12,7 +12,20 @@ namespace Schrauben
         static void Main(string[] args)
         {
             Schraube test1 = new Schraube();
-            test1.Eingaben();
+
+            //Kundeneingaben wie er die Schraube haben möchte
+            Console.WriteLine("Welches Gewinde ist gewünsch?(also M8 etc.)(ohne Leerzeichen eingeben und Großbuchstaben verwenden)");
+            test1.Wunschgewindeart = Console.ReadLine();
+
+            Console.WriteLine("Wie lang soll das Gewinde sein?");
+            test1.Wunschgewindelaenge = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Wie lang soll der Schafft sein?");
+            test1.Wunschschaftlaenge = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Aus welchem Material soll die Schraube sein?");
+            test1.Wunschmaterial = Console.ReadLine();
+            
             test1.Rundung();
             Console.ReadKey();
             
@@ -118,27 +131,10 @@ namespace Schrauben
         public double Schaftlaenge { get; set; }
         public double Material { get; set; }
         public double Gewindebezeichnung { get; set; }
-        public string wunschgewindeart { get; set; }
-        public double wunschgewindelaenge { get; set; }
-        public double wunschschaftlaenge { get; set; }
-        public string wunschmaterial { get; set; }
-
-
-        public void Eingaben()
-        {
-            //Kundeneingaben wie er die Schraube haben möchte
-            Console.WriteLine("Welches Gewinde ist gewünsch?(also M8 etc.)(ohne Leerzeichen eingeben und Großbuchstaben verwenden)");
-            string wunschgewindeart = Console.ReadLine();
-
-            Console.WriteLine("Wie lang soll das Gewinde sein?");
-            string wunschgewindelaenge = Console.ReadLine();
-            
-            Console.WriteLine("Wie lang soll der Schafft sein?");
-            string wunschschaftlaenge = Console.ReadLine();
-
-            Console.WriteLine("Aus welchem Material soll die Schraube sein?");
-            string wunschmaterial = Console.ReadLine();
-        }
+        public string Wunschgewindeart { get; set; }
+        public double Wunschgewindelaenge { get; set; }
+        public double Wunschschaftlaenge { get; set; }
+        public string Wunschmaterial { get; set; }
 
         public void Rundung()
         {
@@ -150,8 +146,8 @@ namespace Schrauben
             //Array wird zeilenweise durchgegangen
             foreach (Schraubenarray m in tab.getAll())
             {
-                //in Zeilen werden die Gewindebezeichnungen auf gleichheit mit dem Wunschgewinde geprüft
-                if (wunschgewindeart == m.Gewindebezeichnung)
+                //in Zeilen werden die Gewindebezeichnungen auf Gleichheit mit dem Wunschgewinde geprüft
+                if ( Wunschgewindeart == m.Gewindebezeichnung)
                 {
                     //Die Rundung wird berechnet
                     rundung = 0.1443 * m.Steigung;
