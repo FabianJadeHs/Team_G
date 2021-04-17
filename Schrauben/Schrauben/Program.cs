@@ -28,10 +28,17 @@ namespace Schrauben
 
             test1.Rundung();
             test1.Volumen();
+            test1.Gewicht();
             Console.ReadKey();
 
         }
+
+
     }
+
+
+
+
     class Schraubenarray
     {
         //Eigenschaften des Arrays werden definiert
@@ -228,11 +235,12 @@ namespace Schrauben
                 //in Zeilen werden die Gewindebezeichnungen auf Gleichheit mit dem Wunschgewinde geprüft
                 if (Wunschmaterial == n.Materialbezeichnung)
                 {
-                    gewicht = volumen * n.Materialdichte;
+                    gewicht = volumen * (n.Materialdichte/1000) ;
                 }
 
             }
             Console.WriteLine(gewicht);
         }
 
-
+    }
+}
