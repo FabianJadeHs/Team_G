@@ -34,15 +34,11 @@ namespace Schrauben
             test1.Volumen();
             test1.Gewicht();
             test1.Preis();
+            test1.Spannungsquerschnitt();
             Console.ReadKey();
 
         }
-
-
     }
-
-
-
 
     class Schraubenarray
     {
@@ -287,8 +283,27 @@ namespace Schrauben
 
             }
             Console.WriteLine(preis + " in Euro pro Stück");
+        }
+        public void Spannungsquerschnitt()
+        {
+            Tabelle tab = new Tabelle();
 
+            double d2 = 0;
+            double d3 = 0;
+            double spannungsquerschnitt = 0;
 
+            //Array wird zeilenweise durchgegangen
+            foreach (Schraubenarray m in tab.getAll())
+            {
+                //in Zeilen werden die Gewindebezeichnungen auf gleichheit mit dem Wunschgewinde geprüft
+                if (Wunschgewindeart == m.Gewindebezeichnung)
+                {
+                    d2 = m.Nenndurchmesser - 0.6495 * m.Steigung;
+                    d3 = m.Nenndurchmesser - 1.2269 * m.Steigung;
+                    spannungsquerschnitt = (Math.PI / 4) * Math.Pow(((d2 + d3) / 2), 2);
+                }
+            }
+            Console.WriteLine(spannungsquerschnitt + " in mm²");
         }
 
     }
