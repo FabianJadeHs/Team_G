@@ -70,7 +70,7 @@ namespace Schrauben
         public Tabelle()
         {
             //neue leere Liste
-            liste = new List<Schrauben>();
+            liste = new List<Schraubenarray>();
 
             //Daten werden aus csv Datein eingelesen; wird zeilenweise als strings eingelesen
 
@@ -86,13 +86,52 @@ namespace Schrauben
                 double Nenndurchmesser = double.Parse(daten[3]);
 
                 //liste wird einer Schraube angefügt
-                liste.Add(new Schrauben { Gewindebezeichnung = Gewindebezeichnung, Steigung = Steigung, Schluesselweite = Schluesselweite, Nenndurchmesser = Nenndurchmesser });
+                liste.Add(new Schraubenarray { Gewindebezeichnung = Gewindebezeichnung, Steigung = Steigung, Schluesselweite = Schluesselweite, Nenndurchmesser = Nenndurchmesser });
             }
         }
         //Ausgabe der Daten als Array weil Array kann nicht verändert werden
         public Schraubenarray[] getAll()
         {
             return liste.ToArray();
+        }
+    }
+
+    class Materialtabellen
+    {
+        struct Material
+        {
+            //deklariere Struktur mit Variablen
+            public string Materialbezeichnung;
+            public double Preis;
+            public double Dichte;
+        };
+
+        public double Materialarray(string Materialbezeichnung, double Preis, double Dichte)
+        {
+            //deklariere Feld
+            Material[] Materialien = new Material[5];
+
+            //speichere Werte; Preis in Euro pro Kilogramm; Dichte in Gramm pro Kubikzentimeter 
+            Materialien[0].Materialbezeichnung = "Baustahl";
+            Materialien[0].Preis = 0.5;
+            Materialien[0].Dichte = 7.85;
+
+            Materialien[1].Materialbezeichnung = "V4A";
+            Materialien[1].Preis = 1.5;
+            Materialien[1].Dichte = 8;
+
+            Materialien[2].Materialbezeichnung = "Messing";
+            Materialien[2].Preis = 3.35;
+            Materialien[2].Dichte = 8.73;
+
+            Materialien[3].Materialbezeichnung = "Aluminium";
+            Materialien[3].Preis = 1.95;
+            Materialien[3].Dichte = 2.7;
+
+            Materialien[4].Materialbezeichnung = "Kupfer";
+            Materialien[4].Preis = 7.76;
+            Materialien[4].Dichte = 8.96;
+
         }
     }
 
