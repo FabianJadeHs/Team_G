@@ -16,11 +16,12 @@ namespace Schrauben
             //Kundeneingaben wie er die Schraube haben möchte
             Console.WriteLine("Welches Gewinde ist gewünsch?(also M8 etc.)(ohne Leerzeichen eingeben und Großbuchstaben verwenden)");
             test1.Wunschgewindeart = Console.ReadLine();
+            test1.Wunschgewindeart = test1.Wunschgewindeart.ToUpper();
 
             Console.WriteLine("Wie lang soll das Gewinde sein?");
             test1.Wunschgewindelaenge = double.Parse(Console.ReadLine());
 
-            Console.WriteLine("Wie lang soll der Schafft sein?");
+            Console.WriteLine("Wie lang soll der Schaft sein?");
             test1.Wunschschaftlaenge = double.Parse(Console.ReadLine());
 
             Console.WriteLine("Aus welchem Material soll die Schraube sein?");
