@@ -11,40 +11,12 @@ namespace Schrauben
     {
         static void Main(string[] args)
         {
-           
-        }
-
-        static void Rundung()
-        {
-            //Rundung soll berechnet werden; immer mit static void Main. Die Rundungsberechnung ist nur ein Beispiel für euch wie mit dem Array gearbeitet werden muss
-            //neue Tabelle wird deklariert
-            Tabelle tab = new Tabelle();
-
-            double rundung = 0;
-
-            //Frage nach gewünschtem Gewinde
-            Console.WriteLine("Von welchem Gewinde soll die Rundung berechnet werden? (ohne Leerzeichen eingeben und Großbuchstaben verwenden)");
-
-            //Eingegebener Wert wird als string gespeichert
-            string wunschgewinde = Console.ReadLine();
-
-            //Array wird zeilenweise durchgegangen
-            foreach (Schraubenarray m in tab.getAll())
-            {
-                //in Zeilen werden die Gewindebezeichnungen auf gleichheit mit dem Wunschgewinde geprüft
-                if (wunschgewinde == m.Gewindebezeichnung)
-                {
-                    //Die Rundung wird berechnet
-                    rundung = 0.1443 * m.Steigung;
-                }
-            }
-            //Ausgabe des Rundungswertes
-            Console.WriteLine(rundung);
+            Schraube test1 = new Schraube();
+            test1.Eingaben();
+            test1.Rundung();
             Console.ReadKey();
-
-        } //Unterprogramm Rundung Eingabe/Ausgabe
-
-        
+            
+        }
     }
     class Schraubenarray
     {
@@ -141,10 +113,56 @@ namespace Schrauben
 
     class Schraube
     {
-        private double Gewindelaenge;
-        private double Schaftlaenge;
-        private double Material;
-       
+        //Eigenschaften der Schraube
+        public double Gewindelaenge { get; set; }
+        public double Schaftlaenge { get; set; }
+        public double Material { get; set; }
+        public double Gewindebezeichnung { get; set; }
+        public string wunschgewindeart { get; set; }
+        public double wunschgewindelaenge { get; set; }
+        public double wunschschaftlaenge { get; set; }
+        public string wunschmaterial { get; set; }
+
+
+        public void Eingaben()
+        {
+            //Kundeneingaben wie er die Schraube haben möchte
+            Console.WriteLine("Welches Gewinde ist gewünsch?(also M8 etc.)(ohne Leerzeichen eingeben und Großbuchstaben verwenden)");
+            string wunschgewindeart = Console.ReadLine();
+
+            Console.WriteLine("Wie lang soll das Gewinde sein?");
+            string wunschgewindelaenge = Console.ReadLine();
+            
+            Console.WriteLine("Wie lang soll der Schafft sein?");
+            string wunschschaftlaenge = Console.ReadLine();
+
+            Console.WriteLine("Aus welchem Material soll die Schraube sein?");
+            string wunschmaterial = Console.ReadLine();
+        }
+
+        public void Rundung()
+        {
+            //Rundung soll berechnet werden; immer mit static void Main. Die Rundungsberechnung ist nur ein Beispiel für euch wie mit dem Array gearbeitet werden muss
+            //neue Tabelle wird deklariert
+            Tabelle tab = new Tabelle();
+            double rundung = 0;
+
+            //Array wird zeilenweise durchgegangen
+            foreach (Schraubenarray m in tab.getAll())
+            {
+                //in Zeilen werden die Gewindebezeichnungen auf gleichheit mit dem Wunschgewinde geprüft
+                if (wunschgewindeart == m.Gewindebezeichnung)
+                {
+                    //Die Rundung wird berechnet
+                    rundung = 0.1443 * m.Steigung;
+                }
+            }
+            //Ausgabe des Rundungswertes
+            Console.WriteLine(rundung);
+            Console.ReadKey();
+
+        } //Unterprogramm Rundung Eingabe/Ausgabe
+
 
         public Schraube()
         {
@@ -183,11 +201,6 @@ namespace Schrauben
             return res;
         }
 
-        public double getVolumen()
-        {
-            double Volumen;
-            Volumen = (Math.PI * Math.Pow(r, 2));
-            return Volumen;
-        }
+        
     }
 }
