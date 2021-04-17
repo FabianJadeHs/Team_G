@@ -53,11 +53,13 @@ namespace Schrauben
         public double Steigung { get; set; }
         public double Schluesselweite { get; set; }
         public double Nenndurchmesser { get; set; }
+        public double Schraubenkopfhoehe { get; set; }
+        public double Schraubenkopfbreite { get; set; }
 
         // bei Ausgabe werden die Spalten getrennt
         public override string ToString()
         {
-            return Gewindebezeichnung + "|" + Steigung + "|" + Schluesselweite + "|" + Nenndurchmesser;
+            return Gewindebezeichnung + "|" + Steigung + "|" + Schluesselweite + "|" + Nenndurchmesser + "|" + Schraubenkopfhoehe + "|" + Schraubenkopfbreite;
         }
 
     }
@@ -84,9 +86,11 @@ namespace Schrauben
                 double Steigung = double.Parse(daten[1]);
                 double Schluesselweite = double.Parse(daten[2]);
                 double Nenndurchmesser = double.Parse(daten[3]);
+                double Schraubenkopfhoehe = double.Parse(daten[4]);
+                double Schraubenkopfbreite = double.Parse(daten[5]);
 
                 //liste wird einer Schraube angefügt
-                liste.Add(new Schraubenarray { Gewindebezeichnung = Gewindebezeichnung, Steigung = Steigung, Schluesselweite = Schluesselweite, Nenndurchmesser = Nenndurchmesser });
+                liste.Add(new Schraubenarray { Gewindebezeichnung = Gewindebezeichnung, Steigung = Steigung, Schluesselweite = Schluesselweite, Nenndurchmesser = Nenndurchmesser, Schraubenkopfhoehe = Schraubenkopfhoehe, Schraubenkopfbreite = Schraubenkopfbreite });
             }
         }
         //Ausgabe der Daten als Array weil Array kann nicht verändert werden
@@ -104,9 +108,9 @@ namespace Schrauben
             public string Materialbezeichnung;
             public double Preis;
             public double Dichte;
-        };
+        }
 
-        public double Materialarray(string Materialbezeichnung, double Preis, double Dichte)
+        public void Materialarray()
         {
             //deklariere Feld
             Material[] Materialien = new Material[5];
