@@ -173,7 +173,7 @@ namespace Schrauben
                 }
             }
             //Ausgabe des Rundungswertes
-            Console.WriteLine(rundung + " in mm");
+            Console.WriteLine("Die Rundung beträgt " + rundung + " mm");
         }
         public void Volumen() //Unterprogramm Volumenberechnung
         {
@@ -202,7 +202,7 @@ namespace Schrauben
                 }
             }
             //Ausgabe Volumen
-            Console.WriteLine(volumen + " in mm³");
+            Console.WriteLine("Das Volumen beträgt " + volumen + " mm³");
         }
 
         public void Gewicht() //Unterprogramm Gewichtsberechnung
@@ -242,7 +242,7 @@ namespace Schrauben
                 }
 
             }
-            Console.WriteLine(gewicht + " in g");
+            Console.WriteLine("Das Gewicht beträgt " + gewicht + " in g");
         }
         public void Preis()
         {
@@ -283,7 +283,7 @@ namespace Schrauben
                 }
 
             }
-            Console.WriteLine(preis + " in Euro pro Stück");
+            Console.WriteLine("Der Preis beziffert sich auf " + preis + " Euro pro Stück");
         }
         public void Spannungsquerschnitt()
         {
@@ -304,7 +304,7 @@ namespace Schrauben
                     spannungsquerschnitt = (Math.PI / 4) * Math.Pow(((d2 + d3) / 2), 2);
                 }
             }
-            Console.WriteLine(spannungsquerschnitt + " in mm²");
+            Console.WriteLine("Der Spannungsquerschnitt beträgt " + spannungsquerschnitt + " mm²");
         }
 
     }
