@@ -68,6 +68,42 @@ namespace Versuche
 
     } //Unterprogramm Rundung Eingabe/Ausgabe
 
+
+    public void Materialarray()
+    {
+        struct Material
+    {
+        //deklariere Struktur mit Variablen
+        public string Materialbezeichnung;
+        public double Preis;
+        public double Dichte;
+    } 
+    //deklariere Feld
+    Material[] Materialien = new Material[5];
+
+        //speichere Werte; Preis in Euro pro Kilogramm; Dichte in Gramm pro Kubikzentimeter 
+        Materialien[0].Materialbezeichnung = "Baustahl";
+        Materialien[0].Preis = 0.5;
+        Materialien[0].Dichte = 7.85;
+
+        Materialien[1].Materialbezeichnung = "V4A";
+        Materialien[1].Preis = 1.5;
+        Materialien[1].Dichte = 8;
+
+        Materialien[2].Materialbezeichnung = "Messing";
+        Materialien[2].Preis = 3.35;
+        Materialien[2].Dichte = 8.73;
+
+        Materialien[3].Materialbezeichnung = "Aluminium";
+        Materialien[3].Preis = 1.95;
+        Materialien[3].Dichte = 2.7;
+
+        Materialien[4].Materialbezeichnung = "Kupfer";
+        Materialien[4].Preis = 7.76;
+        Materialien[4].Dichte = 8.96;
+
+    }
+
 }
     
 
