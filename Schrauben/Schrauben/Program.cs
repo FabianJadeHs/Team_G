@@ -14,7 +14,7 @@ namespace Schrauben
             Schraube test1 = new Schraube();
 
             //Kundeneingaben wie er die Schraube haben möchte
-            Console.WriteLine("Welches Gewinde ist gewünsch?(also M8 etc.)(ohne Leerzeichen eingeben und Großbuchstaben verwenden)");
+            Console.WriteLine("Welches Gewinde ist gewünsch?(also M8 etc.)(ohne Leerzeichen eingeben)");
             test1.Wunschgewindeart = Console.ReadLine();
             test1.Wunschgewindeart = test1.Wunschgewindeart.ToUpper();
 
@@ -27,9 +27,13 @@ namespace Schrauben
             Console.WriteLine("Aus welchem Material soll die Schraube sein?");
             test1.Wunschmaterial = Console.ReadLine();
 
+            Console.WriteLine("Wie viele Schrauben möchten Sie kaufen?");
+            test1.Wunschanzahl = double.Parse(Console.ReadLine());
+
             test1.Rundung();
             test1.Volumen();
             test1.Gewicht();
+            test1.Preis();
             Console.ReadKey();
 
         }
@@ -152,6 +156,7 @@ namespace Schrauben
         public double Wunschgewindelaenge { get; set; }
         public double Wunschschaftlaenge { get; set; }
         public string Wunschmaterial { get; set; }
+        public double Wunschanzahl { get; set; }
 
         public void Rundung() //Unterprogramm Rundungsberechnung
         {
@@ -171,7 +176,7 @@ namespace Schrauben
                 }
             }
             //Ausgabe des Rundungswertes
-            Console.WriteLine(rundung);
+            Console.WriteLine(rundung + " in mm");
         }
         public void Volumen() //Unterprogramm Volumenberechnung
         {
@@ -200,7 +205,7 @@ namespace Schrauben
                 }
             }
             //Ausgabe Volumen
-            Console.WriteLine(volumen);
+            Console.WriteLine(volumen + " in mm³");
         }
 
         public void Gewicht() //Unterprogramm Gewichtsberechnung
@@ -240,7 +245,50 @@ namespace Schrauben
                 }
 
             }
-            Console.WriteLine(gewicht);
+            Console.WriteLine(gewicht + " in g");
+        }
+        public void Preis()
+        {
+            //neue Tabelle wird deklariert
+            Tabelle tab = new Tabelle();
+            //lokale Variablen werden deklariert
+            double gesamtlaenge = 0;
+            double schaftvolumen = 0;
+            double kopfvolumen = 0;
+            double volumen = 0;
+            double gewicht = 0;
+            double preis = 0;
+
+            //Array wird zeilenweise durchgegangen
+            foreach (Schraubenarray m in tab.getAll())
+            {
+                //in Zeilen werden die Gewindebezeichnungen auf gleichheit mit dem Wunschgewinde geprüft
+                if (Wunschgewindeart == m.Gewindebezeichnung)
+                {
+                    //die Gesamtlänge wird ausgerechnet
+                    gesamtlaenge = Wunschgewindelaenge + Wunschschaftlaenge;
+                    //das Volumen des Schaftes wird berechnet
+                    schaftvolumen = Math.PI * Math.Pow((m.Nenndurchmesser / 2), 2) * gesamtlaenge;
+                    //das Volumen des Schraubenkopfes wird ausgerechnet
+                    kopfvolumen = Math.PI * Math.Pow((m.Schraubenkopfbreite / 2), 2) * m.Schraubenkopfhoehe;
+                    //das Gesamtvolumen:
+                    volumen = schaftvolumen + kopfvolumen;
+                }
+            }
+            Materialtabelle tab2 = new Materialtabelle();
+            foreach (Materialarray n in tab2.getAll())
+            {
+                //in Zeilen werden die Gewindebezeichnungen auf Gleichheit mit dem Wunschgewinde geprüft
+                if (Wunschmaterial == n.Materialbezeichnung)
+                {
+                    gewicht = volumen * (n.Materialdichte / 1000);
+                    preis = (gewicht / 1000) * n.Materialpreis * Wunschanzahl;
+                }
+
+            }
+            Console.WriteLine(preis + " in Euro pro Stück");
+
+
         }
 
     }
