@@ -137,7 +137,7 @@ namespace Schrauben
         public double Wunschschaftlaenge { get; set; }
         public string Wunschmaterial { get; set; }
 
-        public void Rundung()
+        public void Rundung() //Unterprogramm Rundung
         {
             //Rundung soll berechnet werden; immer mit static void Main. Die Rundungsberechnung ist nur ein Beispiel für euch wie mit dem Array gearbeitet werden muss
             //neue Tabelle wird deklariert
@@ -156,11 +156,12 @@ namespace Schrauben
             }
             //Ausgabe des Rundungswertes
             Console.WriteLine(rundung);
-        } //Unterprogramm Rundung Eingabe/Ausgabe
-        public void Volumen()
+        }  
+        public void Volumen() //Unterprogramm Volumen
         {
             //neue Tabelle wird deklariert
             Tabelle tab = new Tabelle();
+            //lokale Variablen werden deklariert
             double gesamtlaenge = 0;
             double schaftvolumen = 0;
             double kopfvolumen = 0;
@@ -184,10 +185,39 @@ namespace Schrauben
             }
             //Ausgabe Volumen
             Console.WriteLine(volumen);
-        }
+        } 
 
         public void Gewicht()
         {
+            //neue Tabelle wird deklariert
+            Tabelle tab = new Tabelle();
+            //lokale Variablen werden deklariert
+            double gesamtlaenge = 0;
+            double schaftvolumen = 0;
+            double kopfvolumen = 0;
+            double volumen = 0;
+            double gewicht = 0;
+
+            //Array wird zeilenweise durchgegangen
+            foreach (Schraubenarray m in tab.getAll())
+            {
+                //in Zeilen werden die Gewindebezeichnungen auf gleichheit mit dem Wunschgewinde geprüft
+                if (Wunschgewindeart == m.Gewindebezeichnung)
+                {
+                    //die Gesamtlänge wird ausgerechnet
+                    gesamtlaenge = Wunschgewindelaenge + Wunschschaftlaenge;
+                    //das Volumen des Schaftes wird berechnet
+                    schaftvolumen = Math.PI * Math.Pow((m.Nenndurchmesser / 2), 2) * gesamtlaenge;
+                    //das Volumen des Schraubenkopfes wird ausgerechnet
+                    kopfvolumen = Math.PI * Math.Pow((m.Schraubenkopfbreite / 2), 2) * m.Schraubenkopfhoehe;
+                    //das Gesamtvolumen:
+                    volumen = schaftvolumen + kopfvolumen;
+                }
+            }
+            foreach ( Materialtabellen n in tab.getAll())
+            {
+
+            }
 
         }
 
