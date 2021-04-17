@@ -27,6 +27,7 @@ namespace Schrauben
             test1.Wunschmaterial = Console.ReadLine();
             
             test1.Rundung();
+            test1.Volumen();
             Console.ReadKey();
             
         }
@@ -155,10 +156,40 @@ namespace Schrauben
             }
             //Ausgabe des Rundungswertes
             Console.WriteLine(rundung);
-            Console.ReadKey();
-
         } //Unterprogramm Rundung Eingabe/Ausgabe
+        public void Volumen()
+        {
+            //neue Tabelle wird deklariert
+            Tabelle tab = new Tabelle();
+            double gesamtlaenge = 0;
+            double schaftvolumen = 0;
+            double kopfvolumen = 0;
+            double volumen = 0;
 
+            //Array wird zeilenweise durchgegangen
+            foreach (Schraubenarray m in tab.getAll())
+            {
+                //in Zeilen werden die Gewindebezeichnungen auf gleichheit mit dem Wunschgewinde geprüft
+                if ( Wunschgewindeart == m.Gewindebezeichnung)
+                {
+                    //die Gesamtlänge wird ausgerechnet
+                    gesamtlaenge = Wunschgewindelaenge + Wunschschaftlaenge;
+                    //das Volumen des Schaftes wird berechnet
+                    schaftvolumen = Math.PI * Math.Pow((m.Nenndurchmesser / 2), 2) * gesamtlaenge;
+                    //das Volumen des Schraubenkopfes wird ausgerechnet
+                    kopfvolumen = Math.PI * Math.Pow((m.Schraubenkopfbreite / 2), 2) * m.Schraubenkopfhoehe;
+                    //das Gesamtvolumen:
+                    volumen = schaftvolumen + kopfvolumen;
+                }
+            }
+            //Ausgabe Volumen
+            Console.WriteLine(volumen);
+        }
+
+        public void Gewicht()
+        {
+
+        }
 
         public Schraube()
         {
