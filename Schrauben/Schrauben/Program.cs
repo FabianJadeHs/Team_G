@@ -155,6 +155,12 @@ namespace Schrauben
         public string Wunschmaterial { get; set; }
         public double Wunschanzahl { get; set; }
 
+        //globale Variablen innerhalb der class werden definiert damit Unterprogramme kürzer sind
+        double volumen = 0;
+        double gewicht = 0;
+        double preis = 0;
+        double spannungsquerschnitt = 0;
+
         public void Rundung() //Unterprogramm Rundungsberechnung
         {
             //Rundung soll berechnet werden; immer mit static void Main. Die Rundungsberechnung ist nur ein Beispiel für euch wie mit dem Array gearbeitet werden muss
@@ -175,17 +181,18 @@ namespace Schrauben
             //Ausgabe des Rundungswertes
             Console.WriteLine("Die Rundung beträgt " + rundung + " mm");
         }
+        
         public void Volumen() //Unterprogramm Volumenberechnung
         {
             //neue Tabelle wird deklariert
             Tabelle tab = new Tabelle();
+
             //lokale Variablen werden deklariert
             double gesamtlaenge = 0;
             double schaftvolumen = 0;
             double kopfvolumen = 0;
-            double volumen = 0;
-
-            //Array wird zeilenweise durchgegangen
+            
+            //Schraubenarray wird zeilenweise durchgegangen
             foreach (Schraubenarray m in tab.getAll())
             {
                 //in Zeilen werden die Gewindebezeichnungen auf gleichheit mit dem Wunschgewinde geprüft
@@ -202,96 +209,55 @@ namespace Schrauben
                 }
             }
             //Ausgabe Volumen
-            Console.WriteLine("Das Volumen beträgt " + volumen + " mm³");
+            Console.WriteLine("Das Volumen einer Schraube beträgt " + volumen + " mm³");
         }
 
         public void Gewicht() //Unterprogramm Gewichtsberechnung
         {
-            //neue Tabelle wird deklariert
-            Tabelle tab = new Tabelle();
-            //lokale Variablen werden deklariert
-            double gesamtlaenge = 0;
-            double schaftvolumen = 0;
-            double kopfvolumen = 0;
-            double volumen = 0;
-            double gewicht = 0;
-
-            //Array wird zeilenweise durchgegangen
-            foreach (Schraubenarray m in tab.getAll())
-            {
-                //in Zeilen werden die Gewindebezeichnungen auf gleichheit mit dem Wunschgewinde geprüft
-                if (Wunschgewindeart == m.Gewindebezeichnung)
-                {
-                    //die Gesamtlänge wird ausgerechnet
-                    gesamtlaenge = Wunschgewindelaenge + Wunschschaftlaenge;
-                    //das Volumen des Schaftes wird berechnet
-                    schaftvolumen = Math.PI * Math.Pow((m.Nenndurchmesser / 2), 2) * gesamtlaenge;
-                    //das Volumen des Schraubenkopfes wird ausgerechnet
-                    kopfvolumen = Math.PI * Math.Pow((m.Schraubenkopfbreite / 2), 2) * m.Schraubenkopfhoehe;
-                    //das Gesamtvolumen:
-                    volumen = schaftvolumen + kopfvolumen;
-                }
-            }
+            // neue Materialtabelle wird erzeugt
             Materialtabelle tab2 = new Materialtabelle();
+
+            //Materialarray wird zeilenweise durchgegangen bis Eingabewert gefunden ist
             foreach (Materialarray n in tab2.getAll())
             {
                 //in Zeilen werden die Gewindebezeichnungen auf Gleichheit mit dem Wunschgewinde geprüft
                 if (Wunschmaterial == n.Materialbezeichnung)
                 {
+                    //Gewicht wird berechnet
                     gewicht = volumen * (n.Materialdichte/1000) ;
                 }
 
             }
-            Console.WriteLine("Das Gewicht beträgt " + gewicht + " in g");
+            //Ausgabe Gewicht
+            Console.WriteLine("Das Gewicht einer Schraube beträgt " + gewicht + " in g");
         }
         public void Preis()
         {
-            //neue Tabelle wird deklariert
-            Tabelle tab = new Tabelle();
-            //lokale Variablen werden deklariert
-            double gesamtlaenge = 0;
-            double schaftvolumen = 0;
-            double kopfvolumen = 0;
-            double volumen = 0;
-            double gewicht = 0;
-            double preis = 0;
-
-            //Array wird zeilenweise durchgegangen
-            foreach (Schraubenarray m in tab.getAll())
-            {
-                //in Zeilen werden die Gewindebezeichnungen auf gleichheit mit dem Wunschgewinde geprüft
-                if (Wunschgewindeart == m.Gewindebezeichnung)
-                {
-                    //die Gesamtlänge wird ausgerechnet
-                    gesamtlaenge = Wunschgewindelaenge + Wunschschaftlaenge;
-                    //das Volumen des Schaftes wird berechnet
-                    schaftvolumen = Math.PI * Math.Pow((m.Nenndurchmesser / 2), 2) * gesamtlaenge;
-                    //das Volumen des Schraubenkopfes wird ausgerechnet
-                    kopfvolumen = Math.PI * Math.Pow((m.Schraubenkopfbreite / 2), 2) * m.Schraubenkopfhoehe;
-                    //das Gesamtvolumen:
-                    volumen = schaftvolumen + kopfvolumen;
-                }
-            }
+            //Neue Materialtabelle wird erzeugt
             Materialtabelle tab2 = new Materialtabelle();
+
+            //Materialarray wird zeilenweise durchgegangen
             foreach (Materialarray n in tab2.getAll())
             {
                 //in Zeilen werden die Gewindebezeichnungen auf Gleichheit mit dem Wunschgewinde geprüft
                 if (Wunschmaterial == n.Materialbezeichnung)
                 {
-                    gewicht = volumen * (n.Materialdichte / 1000);
+                    //Preis wird berechnet
                     preis = (gewicht / 1000) * n.Materialpreis * Wunschanzahl;
                 }
 
             }
-            Console.WriteLine("Der Preis beziffert sich auf " + preis + " Euro pro Stück");
+            //Ausgabe Preis
+            Console.WriteLine("Der Preis aller Schrauben beziffert sich auf " + preis + " Euro pro Stück");
         }
         public void Spannungsquerschnitt()
         {
+            //neue Tabelle wird erzeugt
             Tabelle tab = new Tabelle();
 
+            // lokale Variablen werden definiert
             double d2 = 0;
             double d3 = 0;
-            double spannungsquerschnitt = 0;
 
             //Array wird zeilenweise durchgegangen
             foreach (Schraubenarray m in tab.getAll())
@@ -299,12 +265,16 @@ namespace Schrauben
                 //in Zeilen werden die Gewindebezeichnungen auf gleichheit mit dem Wunschgewinde geprüft
                 if (Wunschgewindeart == m.Gewindebezeichnung)
                 {
+                    //mittlerer Durchmesser wird berechnet, siehe Tabellenbuch S.214
                     d2 = m.Nenndurchmesser - 0.6495 * m.Steigung;
+                    //Kerndurchmesser wird berechnet, siehe auch Tabellenbuch
                     d3 = m.Nenndurchmesser - 1.2269 * m.Steigung;
+                    //Spannungsquerschnitt wird berechnet
                     spannungsquerschnitt = (Math.PI / 4) * Math.Pow(((d2 + d3) / 2), 2);
                 }
             }
-            Console.WriteLine("Der Spannungsquerschnitt beträgt " + spannungsquerschnitt + " mm²");
+            //Spannungsquerschnitt wird ausgegeben
+            Console.WriteLine("Der Spannungsquerschnitt einer Schraube beträgt " + spannungsquerschnitt + " mm²");
         }
 
     }
