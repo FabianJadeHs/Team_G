@@ -31,11 +31,13 @@ namespace Schrauben
             Console.WriteLine("Wie viele Schrauben möchten Sie kaufen?");
             test1.Wunschanzahl = double.Parse(Console.ReadLine());
 
+            //Unterprogramme werden abgerufen und geben Werte aus
             test1.Rundung();
             test1.Volumen();
             test1.Gewicht();
             test1.Preis();
             test1.Spannungsquerschnitt();
+            test1.Standardausgaben();
             Console.ReadKey();
 
         }
@@ -141,7 +143,6 @@ namespace Schrauben
         }
     }
 
-
     class Schraube
     {
         //Eigenschaften der Schraube
@@ -156,6 +157,7 @@ namespace Schrauben
         public double Wunschanzahl { get; set; }
 
         //globale Variablen innerhalb der class werden definiert damit Unterprogramme kürzer sind
+        double rundung = 0;
         double volumen = 0;
         double gewicht = 0;
         double preis = 0;
@@ -163,10 +165,8 @@ namespace Schrauben
 
         public void Rundung() //Unterprogramm Rundungsberechnung
         {
-            //Rundung soll berechnet werden; immer mit static void Main. Die Rundungsberechnung ist nur ein Beispiel für euch wie mit dem Array gearbeitet werden muss
             //neue Tabelle wird deklariert
             Tabelle tab = new Tabelle();
-            double rundung = 0;
 
             //Array wird zeilenweise durchgegangen
             foreach (Schraubenarray m in tab.getAll())
@@ -179,7 +179,7 @@ namespace Schrauben
                 }
             }
             //Ausgabe des Rundungswertes
-            Console.WriteLine("Die Rundung beträgt " + rundung + " mm");
+            Console.WriteLine("Die Rundung beträgt " + rundung + " mm.");
         }
         
         public void Volumen() //Unterprogramm Volumenberechnung
@@ -209,7 +209,7 @@ namespace Schrauben
                 }
             }
             //Ausgabe Volumen
-            Console.WriteLine("Das Volumen einer Schraube beträgt " + volumen + " mm³");
+            Console.WriteLine("Das Volumen einer Schraube beträgt " + volumen + " mm³.");
         }
 
         public void Gewicht() //Unterprogramm Gewichtsberechnung
@@ -229,9 +229,9 @@ namespace Schrauben
 
             }
             //Ausgabe Gewicht
-            Console.WriteLine("Das Gewicht einer Schraube beträgt " + gewicht + " in g");
+            Console.WriteLine("Das Gewicht einer Schraube beträgt " + gewicht + " in g.");
         }
-        public void Preis()
+        public void Preis() //Unterprogramm Preisberechnung
         {
             //Neue Materialtabelle wird erzeugt
             Materialtabelle tab2 = new Materialtabelle();
@@ -248,9 +248,9 @@ namespace Schrauben
 
             }
             //Ausgabe Preis
-            Console.WriteLine("Der Preis aller Schrauben beziffert sich auf " + preis + " Euro pro Stück");
+            Console.WriteLine("Der Preis aller Schrauben beziffert sich auf " + preis + " Euro pro Stück.");
         }
-        public void Spannungsquerschnitt()
+        public void Spannungsquerschnitt() //Unterprogramm Spannungsquerschnittsberechnung
         {
             //neue Tabelle wird erzeugt
             Tabelle tab = new Tabelle();
@@ -274,7 +274,27 @@ namespace Schrauben
                 }
             }
             //Spannungsquerschnitt wird ausgegeben
-            Console.WriteLine("Der Spannungsquerschnitt einer Schraube beträgt " + spannungsquerschnitt + " mm²");
+            Console.WriteLine("Der Spannungsquerschnitt einer Schraube beträgt " + spannungsquerschnitt + " mm².");
+        }
+        public void Standardausgaben()
+        {
+            //neue Tabelle wird deklariert
+            Tabelle tab = new Tabelle();
+
+            //Schraubenarray wird zeilenweise durchgegangen
+            foreach (Schraubenarray m in tab.getAll())
+            {
+                //in Zeilen werden die Gewindebezeichnungen auf gleichheit mit dem Wunschgewinde geprüft
+                if (Wunschgewindeart == m.Gewindebezeichnung)
+                {
+                    //Ausgabe Gewindesteigung
+                    Console.WriteLine("Die Gewindesteigung der Schraube beträgt " + m.Steigung + " mm.");
+                    //Ausgabe Schraubenkopfbreite
+                    Console.WriteLine("Die Schraubenkopfbreite beträgt " + m.Schraubenkopfbreite + " mm.");
+                    //Ausgabe Schluesselweite
+                    Console.WriteLine("Die Schlüsselweite ist " + m.Schluesselweite);
+                }
+            }
         }
 
     }
