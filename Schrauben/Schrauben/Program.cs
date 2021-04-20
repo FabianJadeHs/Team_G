@@ -27,7 +27,7 @@ namespace Schrauben
             Console.WriteLine("Wie lang soll der Schaft sein?");
             test1.Wunschschaftlaenge = double.Parse(Console.ReadLine());
 
-            Console.WriteLine("Aus welchem Material soll die Schraube sein? (Baustahl/V4A/Messing/Aluminium/Kupfer");
+            Console.WriteLine("Aus welchem Material soll die Schraube sein? (Baustahl/V4A/Messing/Aluminium/Kupfer)");
             test1.Wunschmaterial = Console.ReadLine();
 
             Console.WriteLine("Wie viele Schrauben möchten Sie kaufen?");
