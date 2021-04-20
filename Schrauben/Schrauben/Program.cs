@@ -9,14 +9,16 @@ namespace Schrauben
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Schraube test1 = new Schraube();
 
             //Kundeneingaben wie er die Schraube haben möchte
-            Console.WriteLine("Welches Gewinde ist gewünsch?(also M8 etc.)");
+            Console.WriteLine("Welches Gewinde ist gewünscht?(also M8 etc.)");
             test1.Wunschgewindeart = Console.ReadLine();
+            //Groß und Kleinschreibung sind durch den Befehl egal
             test1.Wunschgewindeart = test1.Wunschgewindeart.ToUpper();
+            //Leerzeichen ergeben keine Fehler
             test1.Wunschgewindeart = test1.Wunschgewindeart.Replace(" ", String.Empty);
 
             Console.WriteLine("Wie lang soll das Gewinde sein?");
@@ -25,7 +27,7 @@ namespace Schrauben
             Console.WriteLine("Wie lang soll der Schaft sein?");
             test1.Wunschschaftlaenge = double.Parse(Console.ReadLine());
 
-            Console.WriteLine("Aus welchem Material soll die Schraube sein?");
+            Console.WriteLine("Aus welchem Material soll die Schraube sein? (Baustahl/V4A/Messing/Aluminium/Kupfer");
             test1.Wunschmaterial = Console.ReadLine();
 
             Console.WriteLine("Wie viele Schrauben möchten Sie kaufen?");
@@ -200,7 +202,7 @@ namespace Schrauben
                 {
                     //die Gesamtlänge wird ausgerechnet
                     gesamtlaenge = Wunschgewindelaenge + Wunschschaftlaenge;
-                    //das Volumen des Schaftes wird berechnet
+                    //das Volumen des Schaftes wird berechnet (Gewindelänge + Schaftlänge)
                     schaftvolumen = Math.PI * Math.Pow((m.Nenndurchmesser / 2), 2) * gesamtlaenge;
                     //das Volumen des Schraubenkopfes wird ausgerechnet
                     kopfvolumen = Math.PI * Math.Pow((m.Schraubenkopfbreite / 2), 2) * m.Schraubenkopfhoehe;
@@ -248,7 +250,7 @@ namespace Schrauben
 
             }
             //Ausgabe Preis
-            Console.WriteLine("Der Preis aller Schrauben beziffert sich auf " + preis + " Euro pro Stück.");
+            Console.WriteLine("Der Preis aller Schrauben beziffert sich auf " + preis + " Euro insgesamt.");
         }
         public void Spannungsquerschnitt() //Unterprogramm Spannungsquerschnittsberechnung
         {
