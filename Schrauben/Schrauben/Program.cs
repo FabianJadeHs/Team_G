@@ -205,7 +205,7 @@ namespace Schrauben
                     //das Volumen des Schaftes wird berechnet (Gewindelänge + Schaftlänge)
                     schaftvolumen = Math.PI * Math.Pow((m.Nenndurchmesser / 2), 2) * gesamtlaenge;
                     //das Volumen des Schraubenkopfes wird ausgerechnet
-                    kopfvolumen = Math.PI * Math.Pow((m.Schraubenkopfbreite / 2), 2) * m.Schraubenkopfhoehe;
+                    kopfvolumen = 2.598 * Math.Pow((m.Schraubenkopfbreite / 2), 2) * m.Schraubenkopfhoehe;
                     //das Gesamtvolumen:
                     volumen = schaftvolumen + kopfvolumen;
                 }
