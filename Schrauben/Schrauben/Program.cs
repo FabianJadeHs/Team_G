@@ -81,7 +81,7 @@ namespace Schrauben
             {
                 string[] daten = zeile.Split(';');
                 string Gewindebezeichnung = daten[0];
-                double Steigung = double.Parse(daten[1]);
+                double Steigung = Convert.ToDouble(daten[1]);
                 double Schluesselweite = double.Parse(daten[2]);
                 double Nenndurchmesser = double.Parse(daten[3]);
                 double Schraubenkopfhoehe = double.Parse(daten[4]);
