@@ -6,7 +6,11 @@
              xmlns:local="clr-namespace:Schrauben"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <Grid x:Name="Startfenster" Background="#FFC8FFFC">
+        <Label Content="Schraubenhause" HorizontalAlignment="Left" Height="99" Margin="10,10,0,0" VerticalAlignment="Top" Width="315" FontSize="36"/>
+        <Label Content="Bei uns können Sie sich Schrauben konfigurieren!" HorizontalAlignment="Left" Height="68" Margin="10,109,0,0" VerticalAlignment="Top" Width="395" FontSize="16"/>
+        <Button x:Name="Schließen" Content="Schließen" Margin="0,0,90,34" Click="Schließen_Click" FontSize="14" HorizontalAlignment="Right" Width="217" Height="58" VerticalAlignment="Bottom"/>
+        <Button x:Name="Konfigurieren" Content="Konfigurieren" HorizontalAlignment="Left" Margin="90,0,0,34" Width="217" Height="58" VerticalAlignment="Bottom" FontSize="14"/>
+
     </Grid>
 </UserControl>
