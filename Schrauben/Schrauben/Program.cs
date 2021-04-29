@@ -131,8 +131,8 @@ namespace Schrauben
             {
                 string[] daten = zeile.Split(';');
                 string Materialbezeichnung = daten[0];
-                double Materialpreis = double.Parse(daten[1]);
-                double Materialdichte = double.Parse(daten[2]);
+                double Materialpreis = double.Parse(daten[1], CultureInfo.GetCultureInfo("de-DE").NumberFormat);
+                double Materialdichte = double.Parse(daten[2], CultureInfo.GetCultureInfo("de-DE").NumberFormat);
 
                 //Liste wird ein Material angefügt
                 liste.Add(new Materialarray { Materialbezeichnung = Materialbezeichnung, Materialpreis = Materialpreis, Materialdichte = Materialdichte });
