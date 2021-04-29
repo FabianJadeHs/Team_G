@@ -7,10 +7,12 @@ namespace Schrauben
 {
     class Program
     {
-        static void Main()
+           static void Main()
         {
+            new GUI_control();
             Schraube test1 = new Schraube();
 
+            
             //Kundeneingaben wie er die Schraube haben möchte
             Console.WriteLine("Welches Gewinde ist gewünscht?(also M8 etc.)");
             test1.Wunschgewindeart = Console.ReadLine();
@@ -40,6 +42,11 @@ namespace Schrauben
             test1.Standardausgaben();
             Console.ReadKey();
 
+
         }
+    }
+    class GUI_control
+    {
+        GUI_control();
     }
 }
