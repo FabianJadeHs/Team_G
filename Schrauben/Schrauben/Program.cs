@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Globalization;
 
 namespace Schrauben
 {
@@ -81,11 +82,11 @@ namespace Schrauben
             {
                 string[] daten = zeile.Split(';');
                 string Gewindebezeichnung = daten[0];
-                double Steigung = double.Parse(daten[1]);
-                double Schluesselweite = double.Parse(daten[2]);
-                double Nenndurchmesser = double.Parse(daten[3]);
-                double Schraubenkopfhoehe = double.Parse(daten[4]);
-                double Schraubenkopfbreite = double.Parse(daten[5]);
+                double Steigung = double.Parse(daten[1], CultureInfo.GetCultureInfo("de-DE").NumberFormat);
+                double Schluesselweite = double.Parse(daten[2], CultureInfo.GetCultureInfo("de-DE").NumberFormat);
+                double Nenndurchmesser = double.Parse(daten[3], CultureInfo.GetCultureInfo("de-DE").NumberFormat);
+                double Schraubenkopfhoehe = double.Parse(daten[4], CultureInfo.GetCultureInfo("de-DE").NumberFormat);
+                double Schraubenkopfbreite = double.Parse(daten[5], CultureInfo.GetCultureInfo("de-DE").NumberFormat);
 
                 //liste wird einer Schraube angefügt
                 liste.Add(new Schraubenarray { Gewindebezeichnung = Gewindebezeichnung, Steigung = Steigung, Schluesselweite = Schluesselweite, Nenndurchmesser = Nenndurchmesser, Schraubenkopfhoehe = Schraubenkopfhoehe, Schraubenkopfbreite = Schraubenkopfbreite });
