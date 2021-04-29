@@ -50,6 +50,7 @@
     <Compile Include="GUI.xaml.cs">
       <DependentUpon>GUI.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI_control.cs" />
     <Compile Include="Materialarray.cs" />
     <Compile Include="Materialtabelle.cs" />
     <Compile Include="Program.cs" />
