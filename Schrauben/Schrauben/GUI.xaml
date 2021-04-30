@@ -7,10 +7,25 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid x:Name="Startfenster" Background="#FFD8FBFF">
-        <Label x:Name="lbl_Logo" Content="Schraubenhausen" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="76" Width="384" FontSize="36" RenderTransformOrigin="0.717,0.053"/>
-        <Label x:Name="lbl_Begruessung" Content="Bei uns können Sie Ihre Schrauben konfigurieren!" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Height="45" Width="558" FontSize="20"/>
-        <Button x:Name="btn_Konfigurieren" Content="Konfigurieren" HorizontalAlignment="Left" Margin="75,354,0,0" VerticalAlignment="Top" Width="150" Height="50" Click="btn_Konfigurieren_Click" FontSize="16"/>
-        <Button x:Name="btn_Schliessen" Content="Schließen" Margin="0,354,75,0" VerticalAlignment="Top" Height="50" FontSize="16" HorizontalAlignment="Right" Width="150" Click="btn_Schliessen_Click"/>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="129*"/>
+            <ColumnDefinition Width="41*"/>
+
+        </Grid.ColumnDefinitions>
+
+
+        <Label x:Name="lbl_Logo" Content="Schraubenhausen" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="76" Width="384" FontSize="36" RenderTransformOrigin="0.717,0.053" Grid.ColumnSpan="2"/>
+        <Label x:Name="lbl_Begruessung" Content="Bei uns können Sie Ihre Schrauben konfigurieren!" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Height="45" Width="558" FontSize="20" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <Button x:Name="btn_Konfigurieren" Content="Konfigurieren" HorizontalAlignment="Left" Margin="75,54,0,0" VerticalAlignment="Top" Width="150" Height="50" Click="btn_Konfigurieren_Click" FontSize="16" Grid.ColumnSpan="2" Grid.Row="2"/>
+        <Button x:Name="btn_Schliessen" Content="Schließen" Margin="-111,54,81,0" VerticalAlignment="Top" Height="50" FontSize="16" HorizontalAlignment="Right" Width="150" Click="btn_Schliessen_Click" Grid.Row="2"/>
 
     </Grid>
 </UserControl>
