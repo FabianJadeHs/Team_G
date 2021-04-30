@@ -25,11 +25,7 @@ namespace Schrauben
             InitializeComponent();
         }
 
-        private void btn_Konfigurieren_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+       
         private void btn_Schliessen_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
