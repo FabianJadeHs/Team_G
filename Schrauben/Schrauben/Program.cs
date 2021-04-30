@@ -5,10 +5,14 @@ using System.Threading.Tasks;
 
 namespace Schrauben
 {
+
     class Program
     {
+        [STAThread]
         static void Main()
         {
+            new GUI_control();
+            
             Schraube test1 = new Schraube();
 
             //Kundeneingaben wie er die Schraube haben möchte
