@@ -30,5 +30,10 @@ namespace Schrauben
         {
             Application.Current.Shutdown();
         }
+
+        private void btn_Konfigurieren_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
