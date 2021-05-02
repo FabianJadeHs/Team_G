@@ -18,8 +18,8 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="267*"/>
-            <ColumnDefinition Width="323*"/>
+            <ColumnDefinition Width="176*"/>
+            <ColumnDefinition Width="119*"/>
             <ColumnDefinition Width="100"/>
 
         </Grid.ColumnDefinitions>
@@ -28,6 +28,15 @@
         <Label x:Name="lbl_Begruessung" Grid.ColumnSpan="2" Content="Bei uns können Sie Ihre Schrauben konfigurieren!" Grid.Row="1" Grid.Column="1" FontSize="24" HorizontalContentAlignment="Center" Margin="0,0,0.4,264.6" Grid.RowSpan="2"/>
         <Button x:Name="btn_Konfigurieren" Content="Konfigurieren" Grid.Row="3" Grid.Column="3" Click="btn_Konfigurieren_Click" Margin="0.6,0.4,0.4,0"/>
         <Button x:Name="btn_Schliessen" Content="Schließen" Click="btn_Schliessen_Click" Grid.Row="3" Margin="0,0.4,0,0"/>
-
+        <StackPanel x:Name="stkpn_Fragen" Grid.Row="2" Grid.Column="1">
+            <Label x:Name="lbl_Frage1">Welches Gewinde ist gewünscht?</Label>
+            <Label x:Name="lbl_Frage2">Wie lang soll das Gewinde sein?</Label>
+            <Label x:Name="lbl_Frage3">Wie lang soll der Schaft sein?</Label>
+            <Label x:Name="lbl_Frage4">Welches Material soll die Schraube haben?</Label>
+            <Label x:Name="lbl_Frage5">Wie viele Schrauben möchten Sie kaufen?</Label>
+        </StackPanel>
+        <StackPanel x:Name="stkpn_Eingaben" Grid.Row="2" Grid.Column="2">
+            <ComboBox x:Name="cbx_Antwort1"></ComboBox>
+        </StackPanel>
     </Grid>
 </UserControl>
