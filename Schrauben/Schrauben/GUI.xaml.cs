@@ -46,18 +46,11 @@ namespace Schrauben
             lbl_Frage1.Visibility = Visibility.Visible;
             cbx_Antwort1.Visibility = Visibility.Visible;
         }
-         
-        
+          
+
         private void cbx_Antwort1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Tabelle tab = new Tabelle();
-            foreach (Schraubenarray m in tab.getAll())
-            {
-                cbx_Antwort1.Items.Add(Guiversuch.Gewindebezeichnung);
-            }
-            
+            cbx_Antwort1.Items.Add(Guiversuch.Gewindebezeichnung);
         }
-
-        
     }
 }
