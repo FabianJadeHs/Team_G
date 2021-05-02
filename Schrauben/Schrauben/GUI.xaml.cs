@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using System.Collections;
 
 namespace Schrauben
 {
@@ -21,6 +22,7 @@ namespace Schrauben
     /// </summary>
     public partial class GUI : UserControl
     {
+        Schraube Guiversuch = new Schraube();
         public GUI()
         {
             InitializeComponent();
@@ -44,6 +46,18 @@ namespace Schrauben
             lbl_Frage1.Visibility = Visibility.Visible;
             cbx_Antwort1.Visibility = Visibility.Visible;
         }
+         
+        
+        private void cbx_Antwort1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Tabelle tab = new Tabelle();
+            foreach (Schraubenarray m in tab.getAll())
+            {
+                cbx_Antwort1.Items.Add(Guiversuch.Gewindebezeichnung);
+            }
+            
+        }
 
+        
     }
 }
