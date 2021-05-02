@@ -23,8 +23,13 @@ namespace Schrauben
         public GUI()
         {
             InitializeComponent();
+            lbl_Frage1.Visibility = Visibility.Hidden;
+            lbl_Frage2.Visibility = Visibility.Hidden;
+            lbl_Frage3.Visibility = Visibility.Hidden;
+            lbl_Frage4.Visibility = Visibility.Hidden;
+            lbl_Frage5.Visibility = Visibility.Hidden;
         }
-
+        
        
         private void btn_Schliessen_Click(object sender, RoutedEventArgs e)
         {
@@ -34,6 +39,7 @@ namespace Schrauben
         private void btn_Konfigurieren_Click(object sender, RoutedEventArgs e)
         {
             lbl_Begruessung.Content = "";
+            lbl_Frage1.Visibility = Visibility.Visible;
         }
     }
 }
