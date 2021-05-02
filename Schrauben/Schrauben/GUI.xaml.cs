@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace Schrauben
 {
@@ -28,6 +29,7 @@ namespace Schrauben
             lbl_Frage3.Visibility = Visibility.Hidden;
             lbl_Frage4.Visibility = Visibility.Hidden;
             lbl_Frage5.Visibility = Visibility.Hidden;
+            cbx_Antwort1.Visibility = Visibility.Hidden;
         }
         
        
@@ -40,6 +42,8 @@ namespace Schrauben
         {
             lbl_Begruessung.Content = "";
             lbl_Frage1.Visibility = Visibility.Visible;
+            cbx_Antwort1.Visibility = Visibility.Visible;
         }
+
     }
 }
