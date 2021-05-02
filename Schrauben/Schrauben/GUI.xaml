@@ -36,7 +36,11 @@
             <Label x:Name="lbl_Frage5">Wie viele Schrauben möchten Sie kaufen?</Label>
         </StackPanel>
         <StackPanel x:Name="stkpn_Eingaben" Grid.Row="2" Grid.Column="2">
-            <ComboBox x:Name="cbx_Antwort1"></ComboBox>
+            <ComboBox x:Name="cbx_Antwort1">
+                <StackPanel>
+                    
+                </StackPanel>
+            </ComboBox>
         </StackPanel>
     </Grid>
 </UserControl>
