@@ -33,7 +33,7 @@ namespace Schrauben
 
         private void btn_Konfigurieren_Click(object sender, RoutedEventArgs e)
         {
-
+            Startfenster.RowDefinitions.Clear();
         }
     }
 }
