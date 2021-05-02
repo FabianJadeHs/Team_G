@@ -6,9 +6,9 @@
              xmlns:local="clr-namespace:Schrauben"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid x:Name="Startfenster" Background="#FFD8FBFF">
+    <Grid x:Name="Startfenster" Background="#FFD8FBFF" Margin="0,0,10,9.6">
         <Grid.RowDefinitions>
-            <RowDefinition Height="93*"/>
+            <RowDefinition Height="100"/>
             <RowDefinition Height="308*"/>
             <RowDefinition Height="50"/>
 
@@ -21,9 +21,9 @@
 
         </Grid.ColumnDefinitions>
 
-        <Label x:Name="lbl_Logo" Content="Schraubenhausen"  Grid.ColumnSpan="2"/>
-        <Label x:Name="lbl_Begruessung" Content="Bei uns können Sie Ihre Schrauben konfigurieren!" HorizontalAlignment="Left" Margin="10,10.2,0,0" VerticalAlignment="Top" Height="45" Width="558" FontSize="20" Grid.Row="1" Grid.Column="1"/>
-        <Button x:Name="btn_Konfigurieren" Content="Konfigurieren" Grid.Row="2" Grid.Column="2"/>
+        <Label x:Name="lbl_Logo" Grid.Row="0" Grid.Column="1" FontSize="48" HorizontalContentAlignment="Center">Schraubenhausen</Label>
+        <Label x:Name="lbl_Begruessung" Content="Bei uns können Sie Ihre Schrauben konfigurieren!" Grid.Row="1" Grid.Column="1" FontSize="24" HorizontalContentAlignment="Center"/>
+        <Button x:Name="btn_Konfigurieren" Content="Konfigurieren" Grid.Row="2" Grid.Column="2" Click="btn_Konfigurieren_Click"/>
         <Button x:Name="btn_Schliessen" Content="Schließen" Click="btn_Schliessen_Click" Grid.Row="2"/>
 
     </Grid>
