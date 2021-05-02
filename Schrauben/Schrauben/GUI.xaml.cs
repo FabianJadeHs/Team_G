@@ -44,6 +44,6 @@ namespace Schrauben
             lbl_Frage1.Visibility = Visibility.Visible;
             cbx_Antwort1.Visibility = Visibility.Visible;
         }
-        
+
     }
 }
