@@ -39,9 +39,10 @@
         </StackPanel>
         <StackPanel x:Name="stkpn_Eingaben" Grid.Row="2" Grid.Column="2">
             <ComboBox x:Name="cbx_Antwort1" SelectionChanged="cbx_Antwort1_SelectionChanged">
-                <Button x:Name="btb_cbx1_Standardgewinde" FontSize="22" Content="Standardgewinde"/>
-                <Button x:Name="btn_cbx1_Feingewinde" FontSize="22" Content="Feingewinde"/>
-                <Button x:Name="btn_cbx1_Trapezgewinde" FontSize="22" Content="Trapezgewinde"/>
+                <ComboBoxItem>Standardgewinde</ComboBoxItem>
+                <ComboBoxItem>Feingewinde</ComboBoxItem>
+                <ComboBoxItem>Trapezgewinde</ComboBoxItem>
+                
             </ComboBox>
         </StackPanel>
     </Grid>
