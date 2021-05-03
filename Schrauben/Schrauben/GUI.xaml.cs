@@ -33,6 +33,7 @@ namespace Schrauben
             lbl_Frage4.Visibility = Visibility.Hidden;
             lbl_Frage5.Visibility = Visibility.Hidden;
             cbx_Antwort0.Visibility = Visibility.Hidden;
+            cbx_Antwort1.Visibility = Visibility.Hidden;
 
             
         }
