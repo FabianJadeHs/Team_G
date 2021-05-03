@@ -30,15 +30,15 @@
         <Button x:Name="btn_Konfigurieren" Content="Konfigurieren" Grid.Row="3" Grid.Column="3" Click="btn_Konfigurieren_Click" Margin="0.6,0.4,0.4,0"/>
         <Button x:Name="btn_Schliessen" Content="Schließen" Click="btn_Schliessen_Click" Grid.Row="3" Margin="0,0.4,0,0"/>
         <StackPanel x:Name="stkpn_Fragen" Grid.Row="2" Grid.Column="1">
-            <Label x:Name="lbl_Frage1" Content="Welches Gewinde ist gewünscht?"/>
-            <Label x:Name="lbl_Frage6" Content="Welche Gewindegröße ist gewünscht?"/>
+            <Label x:Name="lbl_Frage0" Content="Welches Gewinde ist gewünscht?"/>
+            <Label x:Name="lbl_Frage1" Content="Welche Gewindegröße ist gewünscht?"/>
             <Label x:Name="lbl_Frage2" Content="Wie lang soll das Gewinde sein?"/>
             <Label x:Name="lbl_Frage3" Content="Wie lang soll der Schaft sein?"/>
             <Label x:Name="lbl_Frage4" Content="Welches Material soll die Schraube haben?"/>
             <Label x:Name="lbl_Frage5" Content="Wie viele Schrauben möchten Sie kaufen?"/>
         </StackPanel>
         <StackPanel x:Name="stkpn_Eingaben" Grid.Row="2" Grid.Column="2">
-            <ComboBox x:Name="cbx_Antwort1" SelectionChanged="cbx_Antwort1_SelectionChanged">
+            <ComboBox x:Name="cbx_Antwort0" SelectionChanged="cbx_Antwort0_SelectionChanged">
                 <ComboBoxItem>Standardgewinde</ComboBoxItem>
                 <ComboBoxItem>Feingewinde</ComboBoxItem>
                 <ComboBoxItem>Trapezgewinde</ComboBoxItem>
