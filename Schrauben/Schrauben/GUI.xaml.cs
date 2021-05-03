@@ -26,13 +26,13 @@ namespace Schrauben
         public GUI()
         {
             InitializeComponent();
+            lbl_Frage0.Visibility = Visibility.Hidden;
             lbl_Frage1.Visibility = Visibility.Hidden;
             lbl_Frage2.Visibility = Visibility.Hidden;
             lbl_Frage3.Visibility = Visibility.Hidden;
             lbl_Frage4.Visibility = Visibility.Hidden;
             lbl_Frage5.Visibility = Visibility.Hidden;
-            lbl_Frage6.Visibility = Visibility.Hidden;
-            cbx_Antwort1.Visibility = Visibility.Hidden;
+            cbx_Antwort0.Visibility = Visibility.Hidden;
 
             
         }
@@ -46,16 +46,13 @@ namespace Schrauben
         private void btn_Konfigurieren_Click(object sender, RoutedEventArgs e)
         {
             lbl_Begruessung.Content = "";
-            lbl_Frage1.Visibility = Visibility.Visible;
-            cbx_Antwort1.Visibility = Visibility.Visible;
+            lbl_Frage0.Visibility = Visibility.Visible;
+            cbx_Antwort0.Visibility = Visibility.Visible;
         }
           
 
-        private void cbx_Antwort1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void cbx_Antwort0_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            cbx_Antwort1.Items.Add("Standardgewinde");
-            cbx_Antwort1.Items.Add("Feingewinde");
-            cbx_Antwort1.Items.Add("Trapezgewinde");
         }
     }
 }
