@@ -44,6 +44,9 @@
                 <ComboBoxItem>Trapezgewinde</ComboBoxItem>
                 
             </ComboBox>
+            <ComboBox x:Name="cbx_Antwort1">
+                
+            </ComboBox>
         </StackPanel>
     </Grid>
 </UserControl>
