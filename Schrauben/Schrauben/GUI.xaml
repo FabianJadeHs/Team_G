@@ -1,9 +1,10 @@
-﻿<UserControl x:Class="Schrauben.GUI"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Schrauben"
+             xmlns:Emit="clr-namespace:System.Reflection.Emit;assembly=mscorlib" x:Class="Schrauben.GUI"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid x:Name="Startfenster" Background="#FFD8FBFF" Margin="0,0,10,9.6">
@@ -24,19 +25,24 @@
 
         </Grid.ColumnDefinitions>
 
-        <Label x:Name="lbl_Logo" Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="1" FontSize="48" HorizontalContentAlignment="Center" Margin="0,0,0.4,0">Schraubenhausen</Label>
+        <Label x:Name="lbl_Logo" Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="1" FontSize="48" HorizontalContentAlignment="Center" Margin="0,0,0.4,0" Content="Schraubenhausen"/>
         <Label x:Name="lbl_Begruessung" Grid.ColumnSpan="2" Content="Bei uns können Sie Ihre Schrauben konfigurieren!" Grid.Row="1" Grid.Column="1" FontSize="24" HorizontalContentAlignment="Center" Margin="0,0,0.4,264.6" Grid.RowSpan="2"/>
         <Button x:Name="btn_Konfigurieren" Content="Konfigurieren" Grid.Row="3" Grid.Column="3" Click="btn_Konfigurieren_Click" Margin="0.6,0.4,0.4,0"/>
         <Button x:Name="btn_Schliessen" Content="Schließen" Click="btn_Schliessen_Click" Grid.Row="3" Margin="0,0.4,0,0"/>
         <StackPanel x:Name="stkpn_Fragen" Grid.Row="2" Grid.Column="1">
-            <Label x:Name="lbl_Frage1">Welches Gewinde ist gewünscht?</Label>
-            <Label x:Name="lbl_Frage2">Wie lang soll das Gewinde sein?</Label>
-            <Label x:Name="lbl_Frage3">Wie lang soll der Schaft sein?</Label>
-            <Label x:Name="lbl_Frage4">Welches Material soll die Schraube haben?</Label>
-            <Label x:Name="lbl_Frage5">Wie viele Schrauben möchten Sie kaufen?</Label>
+            <Label x:Name="lbl_Frage1" Content="Welches Gewinde ist gewünscht?"/>
+            <Label x:Name="lbl_Frage6" Content="Welche Gewindegröße ist gewünscht?"/>
+            <Label x:Name="lbl_Frage2" Content="Wie lang soll das Gewinde sein?"/>
+            <Label x:Name="lbl_Frage3" Content="Wie lang soll der Schaft sein?"/>
+            <Label x:Name="lbl_Frage4" Content="Welches Material soll die Schraube haben?"/>
+            <Label x:Name="lbl_Frage5" Content="Wie viele Schrauben möchten Sie kaufen?"/>
         </StackPanel>
         <StackPanel x:Name="stkpn_Eingaben" Grid.Row="2" Grid.Column="2">
-            <ComboBox x:Name="cbx_Antwort1" SelectionChanged="cbx_Antwort1_SelectionChanged"/>
+            <ComboBox x:Name="cbx_Antwort1" SelectionChanged="cbx_Antwort1_SelectionChanged">
+                <Button x:Name="btb_cbx1_Standardgewinde" FontSize="22" Content="Standardgewinde"/>
+                <Button x:Name="btn_cbx1_Feingewinde" FontSize="22" Content="Feingewinde"/>
+                <Button x:Name="btn_cbx1_Trapetzgewinde" FontSize="22" Content="Trapetzgewinde"/>
+            </ComboBox>
         </StackPanel>
     </Grid>
 </UserControl>
