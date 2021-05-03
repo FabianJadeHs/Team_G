@@ -31,7 +31,10 @@ namespace Schrauben
             lbl_Frage3.Visibility = Visibility.Hidden;
             lbl_Frage4.Visibility = Visibility.Hidden;
             lbl_Frage5.Visibility = Visibility.Hidden;
+            lbl_Frage6.Visibility = Visibility.Hidden;
             cbx_Antwort1.Visibility = Visibility.Hidden;
+
+            
         }
         
        
@@ -50,7 +53,9 @@ namespace Schrauben
 
         private void cbx_Antwort1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            cbx_Antwort1.Items.Add(Guiversuch.Gewindebezeichnung);
+            cbx_Antwort1.Items.Add("Standardgewinde");
+            cbx_Antwort1.Items.Add("Feingewinde");
+            cbx_Antwort1.Items.Add("Trapezgewinde");
         }
     }
 }
