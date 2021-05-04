@@ -54,7 +54,8 @@ namespace Schrauben
 
         private void cbx_Antwort0_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            lbl_Frage1.Visibility = Visibility.Visible;
+            cbx_Antwort1.Visibility = Visibility.Visible;
         }
     }
 }
