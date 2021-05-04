@@ -23,7 +23,7 @@ namespace Schrauben
     public partial class GUI : UserControl
     {
         public string[] Arten { get; set; }
-        public double Gewindebezeichnung { get; set; }
+        public string[] Regelgewinde { get; set; }
         
 
         //neues Objekt einer Klasse wird initialisiert
@@ -42,7 +42,8 @@ namespace Schrauben
             cbx_Antwort1.Visibility = Visibility.Hidden;
 
             Arten = new string[] { "Regelgewinde", "Feingewinde", "Trapezgewinde" };
-            Gewindebezeichnung = Guiversuch.Gewindebezeichnung;
+            Regelgewinde = new string[] {} 
+
             DataContext = this;
             DataContext = this;
             
@@ -68,25 +69,12 @@ namespace Schrauben
             lbl_Frage1.Visibility = Visibility.Visible;
             cbx_Antwort1.Visibility = Visibility.Visible;
 
-            Tabelle tab = new Tabelle();
-            foreach (Schraubenarray m in tab.getAll())
-            {
-                if (cbx_Antwort0.Text == "Regelgewinde")
-                {
-                    for (int i = 0; i <= 33; i++)
-                    {
-                        cbx_Antwort1.Items.Add(m.Gewindebezeichnung[i]);
-                    }
-                }
 
-                if (cbx_Antwort0.Text == "Trapezgewinde")
-                {
-                    for (int i = 0; i <= 33; i++)
-                    {
-                        cbx_Antwort1.Items.Add(m.Gewindebezeichnung[i]);
-                    }
-                }
+            if (cbx_Antwort0.Text == "Regelgewinde")
+            {
+                
             }
+           
             if (cbx_Antwort0.Text == "Feingewinde")
             {
                 //Alles wird geschlossen
