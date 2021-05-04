@@ -52,24 +52,3 @@ namespace Schrauben
     }
 }
 
-
-
-Tabelle tab = new Tabelle();
-foreach (Schraubenarray m in tab.getAll())
-{
-    if (cbx_Antwort0.Text == "Regelgewinde")
-    {
-        for (int i = 0; i <= 33; i++)
-        {
-            cbx_Antwort1.Items.Add(m.Gewindebezeichnung[i]);
-        }
-    }
-
-    if (cbx_Antwort0.Text == "Trapezgewinde")
-    {
-        for (int i = 0; i <= 33; i++)
-        {
-            cbx_Antwort1.Items.Add(m.Gewindebezeichnung[i]);
-        }
-    }
-}
