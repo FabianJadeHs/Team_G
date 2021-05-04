@@ -23,6 +23,7 @@ namespace Schrauben
     public partial class GUI : UserControl
     {
         public string[] Arten { get; set; }
+
         //neues Objekt einer Klasse wird initialisiert
         Schraube Guiversuch = new Schraube();
         public GUI()
