@@ -41,7 +41,7 @@ namespace Schrauben
         //Wenn Button geklickt wird, wird App geschlossen
         private void btn_Schliessen_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            
         }
         //Wenn Button geklickt wird
         private void btn_Konfigurieren_Click(object sender, RoutedEventArgs e)
@@ -75,7 +75,7 @@ namespace Schrauben
 
                 if (cbx_Antwort0.Text == "Feingewinde")
                 {
-
+                    Environment.Exit(0);
                 }
                 if (cbx_Antwort0.Text == "Trapezgewinde")
                 {
