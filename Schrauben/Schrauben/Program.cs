@@ -12,7 +12,8 @@ namespace Schrauben
         [STAThread]
         static void Main()
         {
-                        
+            new GUI_control();
+
             Schraube test1 = new Schraube();
 
             //Kundeneingaben wie er die Schraube haben möchte
@@ -44,7 +45,7 @@ namespace Schrauben
             test1.Standardausgaben();
             Console.ReadKey();
 
-            new GUI_control();
+            
             
         }
         
