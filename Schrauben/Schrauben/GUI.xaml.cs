@@ -62,18 +62,36 @@ namespace Schrauben
             lbl_Frage0.Visibility = Visibility.Visible;
             cbx_Antwort0.Visibility = Visibility.Visible;
         }
+        public void einlesen()
+        {
+            
+        }
         //Wenn Combobox0 geschlossen wird
         private void cbx_Antwort0_DropDownClosed(object sender, EventArgs e)
         {
+
+            Tabelle tab = new Tabelle();
+
+            foreach (Schraubenarray m in tab.getAll())
+            {
+                if (cbx_Antwort0.Text == "Regelgewinde")
+                {
+                    for( int i = 0; i<1; i++)
+                    {
+                        cbx_Antwort1.Items.Add(m.Gewindebezeichnung);
+                    }
+                    
+                }
+            }
             //Objekte werden sichtbar gemacht
             lbl_Frage1.Visibility = Visibility.Visible;
             cbx_Antwort1.Visibility = Visibility.Visible;
+            
 
-
-            if (cbx_Antwort0.Text == "Regelgewinde")
+            /*if (cbx_Antwort0.Text == "Regelgewinde")
             {
                 //cbx_Antwort1.Items.Add(Guiversuch.Gewindebezeichnung)
-            }
+            }*/
            
             if (cbx_Antwort0.Text == "Feingewinde")
             {
