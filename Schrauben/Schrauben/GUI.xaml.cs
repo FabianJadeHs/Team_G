@@ -76,9 +76,11 @@ namespace Schrauben
             {
                 if (cbx_Antwort0.Text == "Regelgewinde")
                 {
-                    for( int i = 0; i<1; i++)
+                    cbx_Antwort1.Items.Add(m.Gewindebezeichnung);
+                    
+                    for (int i = 0; i<=33; i++)
                     {
-                        cbx_Antwort1.Items.Add(m.Gewindebezeichnung);
+
                     }
                     
                 }
@@ -101,11 +103,17 @@ namespace Schrauben
 
 
         }
+        private void cbx_Antwort0_DropDownOpened(object sender, EventArgs e)
+        {
+            cbx_Antwort1.Items.Clear();
+        }
         //Wenn Combobox1 geschlossen wird
         private void cbx_Antwort1_DropDownClosed(object sender, EventArgs e)
         {
 
             
         }
+
+
     }
 }
