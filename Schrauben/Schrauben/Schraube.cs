@@ -74,7 +74,6 @@ namespace Schrauben
                     kopfvolumen = - 2.598 * Math.Pow((m.Schraubenkopfbreite / 2), 2) * m.Sechskanttiefe;
                 }
             }
-
         }
         */
 
