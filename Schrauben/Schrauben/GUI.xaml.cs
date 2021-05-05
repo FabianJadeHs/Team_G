@@ -42,7 +42,7 @@ namespace Schrauben
             cbx_Antwort1.Visibility = Visibility.Hidden;
 
             Arten = new string[] { "Regelgewinde", "Feingewinde", "Trapezgewinde" };
-            Regelgewinde = new string[] {} 
+            //Regelgewinde = new string[] {} 
 
             DataContext = this;
             DataContext = this;
@@ -72,7 +72,7 @@ namespace Schrauben
 
             if (cbx_Antwort0.Text == "Regelgewinde")
             {
-                
+                //cbx_Antwort1.Items.Add(Guiversuch.Gewindebezeichnung)
             }
            
             if (cbx_Antwort0.Text == "Feingewinde")
