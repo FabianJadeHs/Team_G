@@ -76,7 +76,23 @@ namespace Schrauben
             {
                 if (cbx_Antwort0.Text == "Regelgewinde")
                 {
-                    cbx_Antwort1.Items.Add(m.Gewindebezeichnung);
+                    
+                    if (m.Gewindebezeichnung == "0")
+                    {
+                        cbx_Antwort1.EndInit();
+                    }
+                    /*
+                    int j = 0;
+                    while(m.Gewindebezeichnung != "0")
+                    {
+                        cbx_Antwort1.Items.Add(m.Gewindebezeichnung{j};);
+                        j++;
+                    }
+                    */
+                    else if (m.Gewindebezeichnung != "0")
+                    {
+                        cbx_Antwort1.Items.Add(m.Gewindebezeichnung);
+                    }                 
                     
                     for (int i = 0; i<=33; i++)
                     {
