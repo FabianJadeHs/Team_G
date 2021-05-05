@@ -38,8 +38,7 @@
             <Label x:Name="lbl_Frage5" Content="Wie viele Schrauben möchten Sie kaufen?"/>
         </StackPanel>
         <StackPanel x:Name="stkpn_Eingaben" Grid.Row="2" Grid.Column="2">
-            <ComboBox x:Name="cbx_Antwort0" ItemsSource="{Binding Arten}" DropDownClosed="cbx_Antwort0_DropDownClosed">
-            </ComboBox>
+            <ComboBox x:Name="cbx_Antwort0" ItemsSource="{Binding Arten}" DropDownClosed="cbx_Antwort0_DropDownClosed" DropDownOpened="cbx_Antwort0_DropDownOpened"/>
             <ComboBox x:Name="cbx_Antwort1" ItemsSource="{Binding Gewindearten}" DropDownClosed="cbx_Antwort1_DropDownClosed">
                 
             </ComboBox>
