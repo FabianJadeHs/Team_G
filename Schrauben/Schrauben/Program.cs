@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace Schrauben
 {
@@ -54,7 +55,7 @@ namespace Schrauben
         }
         
     }
-
+   
     class Festigkeitsarray
     {
         //Eigenschaften des Arrays werden definiert
@@ -70,7 +71,7 @@ namespace Schrauben
             return Festigkeitsklassenbezeichnung + "|" + Zugfestigkeit + "|" + Streckgrenze + "|" + Bruchdehnung;
         }
     }
-
+    /*
     class Festigkeitstabelle
     {
         //Liste kann nicht direkt eingesehen oder geändert werden um Datenhoheit zu haben
@@ -104,5 +105,6 @@ namespace Schrauben
             return liste.ToArray();
         }
     }
+   */
 }
 
