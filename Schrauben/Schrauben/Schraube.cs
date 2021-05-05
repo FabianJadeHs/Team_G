@@ -14,10 +14,12 @@ namespace Schrauben
         public double Wunschschaftlaenge { get; set; }
         public string Wunschmaterial { get; set; }
         public double Wunschanzahl { get; set; }
+        public string Wunschschraubenkopf { get; set; }
 
         //globale Variablen innerhalb der class werden definiert damit Unterprogramme kürzer sind
         double rundung = 0;
         double volumen = 0;
+        double kopfvolumen = 0;
         double gewicht = 0;
         double preis = 0;
         double spannungsquerschnitt = 0;
@@ -40,6 +42,41 @@ namespace Schrauben
             //Ausgabe des Rundungswertes
             Console.WriteLine("Die Rundung beträgt " + rundung + " mm.");
         }
+        /*
+        public void Kopfvolumen()  // Unterprogramm Kopfvolumen, zum Abdecken verschiedener Kopfarten
+        {
+            //neue Tabelle wird deklariert
+            Tabelle tab = new Tabelle();
+
+
+            foreach (Schraubenarray m in tab.getAll())
+            {
+
+                if (Wunschschraubenkopf == "Sechskant")    // Volumenberechnung Sechskantkopf, wenn Auswahl in ComboBox entsprechend ist
+                {
+                    //das Volumen des Schraubenkopfes wird ausgerechnetM
+                    kopfvolumen = 2.598 * Math.Pow((m.Schraubenkopfbreite / 2), 2) * m.Schraubenkopfhoehe;  //Hier Fehler!!! Keine Ahnung was genau da nicht stimmt, ergibt kein Ergebnis.
+                }
+
+                else if (Wunschschraubenkopf == "Zylinderkopf")  // Volumenberechnung Zylinderkopf
+                {
+                    kopfvolumen = m.Schraubenkopfhoehe * Math.PI * Math.Pow((10 / 2), 2) - (2.598 * Math.Pow((m.Innensechskant / 2), 2) * m.Sechskanttiefe);  // 10 hier als Beispiel für d=10 bei M6, ebenso 3(t min), nur Beispiel!!!!!!   Fehlerbehaftet!!!
+
+                }
+
+                else if(Wunschschraubenkopf == "Senkkopf")   // Volumenberechnung Senkkopf
+                {
+                    kopfvolumen = ((Math.PI * m.Schraubenkopfhoehe)/12)*(Math.Pow((m.Kopfdurchmesser), 2) + Math.Pow((m.Nenndurchmesser), 2) + m.Kopfdurchmesser + m.Nenndurchmesser) - 2.598 * Math.Pow((m.Innensechskant / 2), 2) * m.Sechskanttiefe;
+                }
+
+                else if(Wunschschraubenkopf == "Gewindestift")  // Volumenberechnung "Kopf" des Gewindestiftes, Volumen wird negativ, da "Kopf" im Gewinde
+                {
+                    kopfvolumen = - 2.598 * Math.Pow((m.Schraubenkopfbreite / 2), 2) * m.Sechskanttiefe;
+                }
+            }
+
+        }
+        */
 
         public void Volumen() //Unterprogramm Volumenberechnung
         {
@@ -49,7 +86,6 @@ namespace Schrauben
             //lokale Variablen werden deklariert
             double gesamtlaenge = 0;
             double schaftvolumen = 0;
-            double kopfvolumen = 0;
 
             //Schraubenarray wird zeilenweise durchgegangen
             foreach (Schraubenarray m in tab.getAll())
@@ -61,8 +97,6 @@ namespace Schrauben
                     gesamtlaenge = Wunschgewindelaenge + Wunschschaftlaenge;
                     //das Volumen des Schaftes wird berechnet (Gewindelänge + Schaftlänge)
                     schaftvolumen = Math.PI * Math.Pow((m.Nenndurchmesser / 2), 2) * gesamtlaenge;
-                    //das Volumen des Schraubenkopfes wird ausgerechnet
-                    kopfvolumen = 2.598 * Math.Pow((m.Schraubenkopfbreite / 2), 2) * m.Schraubenkopfhoehe;
                     //das Gesamtvolumen:
                     volumen = schaftvolumen + kopfvolumen;
                 }
