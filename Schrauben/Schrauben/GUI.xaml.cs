@@ -22,9 +22,15 @@ namespace Schrauben
     /// </summary>
     public partial class GUI : UserControl
     {
+        public string[] Arten { get; set; }
+        public string[] Regelgewinde { get; set; }
+        
+
+        //neues Objekt einer Klasse wird initialisiert
         Schraube Guiversuch = new Schraube();
         public GUI()
         {
+            //Komponenten der GUI werden initialisiert
             InitializeComponent();
             lbl_Frage0.Visibility = Visibility.Hidden;
             lbl_Frage1.Visibility = Visibility.Hidden;
@@ -35,25 +41,71 @@ namespace Schrauben
             cbx_Antwort0.Visibility = Visibility.Hidden;
             cbx_Antwort1.Visibility = Visibility.Hidden;
 
+            Arten = new string[] { "Regelgewinde", "Feingewinde", "Trapezgewinde" };
+            //Regelgewinde = new string[] {} 
+
+            DataContext = this;
+            DataContext = this;
             
         }
         
-       
+        //Wenn Button geklickt wird, wird App geschlossen
         private void btn_Schliessen_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            
         }
-
+        //Wenn Button geklickt wird
         private void btn_Konfigurieren_Click(object sender, RoutedEventArgs e)
         {
+            //Objekte werden sichtbar gemacht
             lbl_Begruessung.Content = "";
             lbl_Frage0.Visibility = Visibility.Visible;
             cbx_Antwort0.Visibility = Visibility.Visible;
         }
-          
-
-        private void cbx_Antwort0_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public void einlesen()
         {
+            
+        }
+        //Wenn Combobox0 geschlossen wird
+        private void cbx_Antwort0_DropDownClosed(object sender, EventArgs e)
+        {
+
+            Tabelle tab = new Tabelle();
+
+            foreach (Schraubenarray m in tab.getAll())
+            {
+                if (cbx_Antwort0.Text == "Regelgewinde")
+                {
+                    for( int i = 0; i<1; i++)
+                    {
+                        cbx_Antwort1.Items.Add(m.Gewindebezeichnung);
+                    }
+                    
+                }
+            }
+            //Objekte werden sichtbar gemacht
+            lbl_Frage1.Visibility = Visibility.Visible;
+            cbx_Antwort1.Visibility = Visibility.Visible;
+            
+
+            /*if (cbx_Antwort0.Text == "Regelgewinde")
+            {
+                //cbx_Antwort1.Items.Add(Guiversuch.Gewindebezeichnung)
+            }*/
+           
+            if (cbx_Antwort0.Text == "Feingewinde")
+            {
+                //Alles wird geschlossen
+                Environment.Exit(0);
+            }
+
+
+        }
+        //Wenn Combobox1 geschlossen wird
+        private void cbx_Antwort1_DropDownClosed(object sender, EventArgs e)
+        {
+
+            
         }
     }
 }
