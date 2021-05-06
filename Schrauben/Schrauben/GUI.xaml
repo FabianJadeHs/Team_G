@@ -39,9 +39,10 @@
         </StackPanel>
         <StackPanel x:Name="stkpn_Eingaben" Grid.Row="2" Grid.Column="2">
             <ComboBox x:Name="cbx_Antwort0" ItemsSource="{Binding Arten}" DropDownClosed="cbx_Antwort0_DropDownClosed" DropDownOpened="cbx_Antwort0_DropDownOpened"/>
-            <ComboBox x:Name="cbx_Antwort1" ItemsSource="{Binding Gewindearten}" DropDownClosed="cbx_Antwort1_DropDownClosed">
-                
-            </ComboBox>
+            <ComboBox x:Name="cbx_Antwort1" ItemsSource="{Binding Gewindearten}" DropDownClosed="cbx_Antwort1_DropDownClosed"/>
+            <TextBox x:Name="txtb_Antwort2" TextChanged="txtb_Antwort2_TextChanged"/>
+            <TextBox x:Name="txtb_Anwort3" TextChanged="txtb_Anwort3_TextChanged"/>
+            <ComboBox x:Name="cbx_Antwort4"/>
         </StackPanel>
     </Grid>
 </UserControl>
