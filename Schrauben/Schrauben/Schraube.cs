@@ -26,6 +26,10 @@ namespace Schrauben
         double schwerpunkt = 0;
         double gesamtlaenge = 0;
         double schaftvolumen = 0;
+        double d2 = 0;    // Flankendurchmesser
+        double d3 = 0;    // Kerndurchmesser des Außengewindes
+        double ftm = 0;
+        double vorspannkraft = 0;
 
         public void Rundung() //Unterprogramm Rundungsberechnung
         {
@@ -147,20 +151,18 @@ namespace Schrauben
         {
             Tabelle tab = new Tabelle();
 
-            foreach (Schraubenarray m in tab.getAll())
+            foreach (Schraubenarray m in tab.getAll())  // ermöglicht Abfrage von Daten aus der csv-Datei
             {
-                schwerpunkt = (kopfvolumen * (m.Schraubenkopfhoehe / 2) + schaftvolumen * (gesamtlaenge / 2)) / (kopfvolumen + schaftvolumen);
+                schwerpunkt = (kopfvolumen * (- m.Schraubenkopfhoehe / 2) + schaftvolumen * (gesamtlaenge / 2)) / (kopfvolumen + schaftvolumen);   //Schraubenkopfvolumen wird negativ gewertet (Festlegung KS)
             }
+            Console.WriteLine("Der Schwerpunkt liegt" + schwerpunkt + "mm unterhalb des Schraubenkopfes");
         }
 
         public void Spannungsquerschnitt() //Unterprogramm Spannungsquerschnittsberechnung
         {
             //neue Tabelle wird erzeugt
             Tabelle tab = new Tabelle();
-
-            // lokale Variablen werden definiert
-            double d2 = 0;
-            double d3 = 0;
+            
 
             //Array wird zeilenweise durchgegangen
             foreach (Schraubenarray m in tab.getAll())
@@ -179,6 +181,31 @@ namespace Schrauben
             //Spannungsquerschnitt wird ausgegeben
             Console.WriteLine("Der Spannungsquerschnitt einer Schraube beträgt " + spannungsquerschnitt + " mm².");
         }
+
+        public void Flaechentraegheitsmoment()
+        {
+            // Berechnung des FTM über mit dem Spannungsquerschnitt
+            {
+                ftm = Math.Pow((spannungsquerschnitt / (4 / Math.PI)), 2) * (Math.PI / 32);
+            }
+
+            Console.WriteLine("Das Flächenträgheitsmoment beträgt" + ftm + "mm^4");
+        }
+
+        /*
+        public void Vorspannkraft()
+        {
+            //neue Tabelle wird deklariert
+            Festigkeitstabelle tab3 = new Festigkeitstabelle();
+
+            foreach (Festigkeitsarray o in tab3.getAll())
+            {
+                vorspannkraft = spannungsquerschnitt * 0.9 * o.streckgrenze;
+            }
+            Console.WriteLine("Vorspannkraft beträgt" + vorspannkraft * "N") 
+        }
+        */
+
         public void Standardausgaben()
         {
             //neue Tabelle wird deklariert
