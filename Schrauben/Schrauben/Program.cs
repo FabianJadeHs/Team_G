@@ -48,6 +48,8 @@ namespace Schrauben
             test1.Preis();
             test1.Spannungsquerschnitt();
             test1.Standardausgaben();
+            test1.Flaechentraegheitsmoment();
+            test1.Schwerpunkt();
             Console.ReadKey();
 
             
