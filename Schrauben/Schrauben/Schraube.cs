@@ -23,6 +23,9 @@ namespace Schrauben
         double gewicht = 0;
         double preis = 0;
         double spannungsquerschnitt = 0;
+        double schwerpunkt = 0;
+        double gesamtlaenge = 0;
+        double schaftvolumen = 0;
 
         public void Rundung() //Unterprogramm Rundungsberechnung
         {
@@ -81,10 +84,7 @@ namespace Schrauben
         {
             //neue Tabelle wird deklariert
             Tabelle tab = new Tabelle();
-
-            //lokale Variablen werden deklariert
-            double gesamtlaenge = 0;
-            double schaftvolumen = 0;
+            
 
             //Schraubenarray wird zeilenweise durchgegangen
             foreach (Schraubenarray m in tab.getAll())
@@ -142,6 +142,17 @@ namespace Schrauben
             //Ausgabe Preis
             Console.WriteLine("Der Preis aller Schrauben beziffert sich auf " + preis + " Euro insgesamt.");
         }
+
+        public void Schwerpunkt()  // Unterprogramm Schwerpunkt
+        {
+            Tabelle tab = new Tabelle();
+
+            foreach (Schraubenarray m in tab.getAll())
+            {
+                schwerpunkt = (kopfvolumen * (m.Schraubenkopfhoehe / 2) + schaftvolumen * (gesamtlaenge / 2)) / (kopfvolumen + schaftvolumen);
+            }
+        }
+
         public void Spannungsquerschnitt() //Unterprogramm Spannungsquerschnittsberechnung
         {
             //neue Tabelle wird erzeugt
