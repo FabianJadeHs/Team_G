@@ -40,6 +40,9 @@ namespace Schrauben
             lbl_Frage5.Visibility = Visibility.Hidden;
             cbx_Antwort0.Visibility = Visibility.Hidden;
             cbx_Antwort1.Visibility = Visibility.Hidden;
+            txtb_Antwort2.Visibility = Visibility.Hidden;
+            txtb_Anwort3.Visibility = Visibility.Hidden;
+            cbx_Antwort4.Visibility = Visibility.Hidden;
 
             Arten = new string[] { "Regelgewinde", "Feingewinde", "Trapezgewinde" };
             //Regelgewinde = new string[] {} 
@@ -69,18 +72,18 @@ namespace Schrauben
         //Wenn Combobox0 geschlossen wird
         private void cbx_Antwort0_DropDownClosed(object sender, EventArgs e)
         {
-
+            //neue Tabelle wird deklariert
             Tabelle tab = new Tabelle();
 
+            //Schraubenarray wird zeilenweise durchgegangen
             foreach (Schraubenarray m in tab.getAll())
             {
+                //wenn Regelgewinde ausgewähl, dann wird nur passendes angezeigt
+                //passt noch nicht, weil alles angezeigt wird
                 if (cbx_Antwort0.Text == "Regelgewinde")
                 {
-                    
-                    if (m.Gewindebezeichnung == "0")
-                    {
-                        cbx_Antwort1.EndInit();
-                    }
+                    cbx_Antwort1.Items.Add(m.Gewindebezeichnung);
+
                     /*
                     int j = 0;
                     while(m.Gewindebezeichnung != "0")
@@ -88,37 +91,25 @@ namespace Schrauben
                         cbx_Antwort1.Items.Add(m.Gewindebezeichnung{j};);
                         j++;
                     }
-                    */
-                    else if (m.Gewindebezeichnung != "0")
-                    {
-                        cbx_Antwort1.Items.Add(m.Gewindebezeichnung);
-                    }                 
-                    
-                    for (int i = 0; i<=33; i++)
-                    {
-
-                    }
-                    
+                    */                    
+                }
+                //Wenn Feingewinde ausgewählt
+                if (cbx_Antwort0.Text == "Feingewinde")
+                {
+                    //Alles wird geschlossen
+                    Environment.Exit(0);
+                }
+                //Wenn Trapezgewinde ausgewählt
+                if (cbx_Antwort0.Text == "Trapezgewinde")
+                {
+                    cbx_Antwort1.Items.Add(m.Gewindebezeichnung);
                 }
             }
             //Objekte werden sichtbar gemacht
             lbl_Frage1.Visibility = Visibility.Visible;
             cbx_Antwort1.Visibility = Visibility.Visible;
-            
-
-            /*if (cbx_Antwort0.Text == "Regelgewinde")
-            {
-                //cbx_Antwort1.Items.Add(Guiversuch.Gewindebezeichnung)
-            }*/
-           
-            if (cbx_Antwort0.Text == "Feingewinde")
-            {
-                //Alles wird geschlossen
-                Environment.Exit(0);
-            }
-
-
         }
+        //Wenn Combobox0 wieder geöffnet wird, wird gecleart
         private void cbx_Antwort0_DropDownOpened(object sender, EventArgs e)
         {
             cbx_Antwort1.Items.Clear();
@@ -126,10 +117,27 @@ namespace Schrauben
         //Wenn Combobox1 geschlossen wird
         private void cbx_Antwort1_DropDownClosed(object sender, EventArgs e)
         {
-
-            
+            cbx_Antwort1.SelectedItem = Guiversuch.Wunschgewindeart;
+            //cbx_Antwort1.SelectedItem = Visibility.Visible;
+            //nächste Frage und Antwortmöglichkeit werden sichbar gemacht
+            lbl_Frage2.Visibility = Visibility.Visible;
+            txtb_Antwort2.Visibility = Visibility.Visible;
         }
-
-
+        //Wenn Textbox (Antwort2) angeklickt wird 
+        private void txtb_Antwort2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Guiversuch.Wunschgewindelaenge = double.Parse(txtb_Antwort2.Text);
+            //nächste Frage und Antwortmöglichkeit werden sichbar gemacht
+            lbl_Frage3.Visibility = Visibility.Visible;
+            txtb_Anwort3.Visibility = Visibility.Visible;
+        }
+        //Wenn Textbox (Antwort3) angeklickt wird
+        private void txtb_Anwort3_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Guiversuch.Wunschschaftlaenge = double.Parse(txtb_Anwort3.Text);
+            //nächste Frage und Antwortmöglichkeit werden sichbar gemacht
+            lbl_Frage4.Visibility = Visibility.Visible;
+            cbx_Antwort4.Visibility = Visibility.Visible;
+        }
     }
 }
