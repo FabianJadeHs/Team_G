@@ -38,12 +38,18 @@ namespace Schrauben
             lbl_Frage3.Visibility = Visibility.Hidden;
             lbl_Frage4.Visibility = Visibility.Hidden;
             lbl_Frage5.Visibility = Visibility.Hidden;
+            lbl_Frage6.Visibility = Visibility.Hidden;
+            lbl_Frage7.Visibility = Visibility.Hidden;
+            lbl_Frage8.Visibility = Visibility.Hidden;
             cbx_Antwort0.Visibility = Visibility.Hidden;
             cbx_Antwort1.Visibility = Visibility.Hidden;
             cbx_Antwort2.Visibility = Visibility.Hidden;
             cbx_Antwort3.Visibility = Visibility.Hidden;
             cbx_Antwort4.Visibility = Visibility.Hidden;
             cbx_Anwort5.Visibility = Visibility.Hidden;
+            cbx_Antwort6.Visibility = Visibility.Hidden;
+            cbx_Antwort7.Visibility = Visibility.Hidden;
+            cbx_Antwort8.Visibility = Visibility.Hidden;
 
             Arten = new string[] { "Regelgewinde", "Feingewinde", "Trapezgewinde" };
             //Regelgewinde = new string[] {} 
@@ -171,6 +177,27 @@ namespace Schrauben
             {
                 cbx_Anwort5.Items.Add(i);
             }
+        }
+
+        private void cbx_Anwort5_DropDownClosed(object sender, EventArgs e)
+        {
+            lbl_Frage6.Visibility = Visibility.Visible;
+            cbx_Antwort6.Visibility = Visibility.Visible;
+            cbx_Antwort6.Items.Add(1);
+        }
+
+        private void cbx_Antwort6_DropDownClosed(object sender, EventArgs e)
+        {
+            lbl_Frage7.Visibility = Visibility.Visible;
+            cbx_Antwort7.Visibility = Visibility.Visible;
+            cbx_Antwort7.Items.Add(2);
+        }
+
+        private void cbx_Antwort7_DropDownClosed(object sender, EventArgs e)
+        {
+            lbl_Frage8.Visibility = Visibility.Visible;
+            cbx_Antwort8.Visibility = Visibility.Visible;
+
         }
     }
 }
