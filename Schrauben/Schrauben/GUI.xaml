@@ -36,13 +36,20 @@
             <Label x:Name="lbl_Frage3" Content="Wie lang soll der Schaft sein?"/>
             <Label x:Name="lbl_Frage4" Content="Welches Material soll die Schraube haben?"/>
             <Label x:Name="lbl_Frage5" Content="Wie viele Schrauben möchten Sie kaufen?"/>
+            <Label x:Name="lbl_Frage6" Content="Welcher Schraubenkopftyp ist gewünscht?"/>
+            <Label x:Name="lbl_Frage7" Content="Rechts- oder Linksgewinde?"/>
+            <Label x:Name="lbl_Frage8" Content="Welche Festigkeitsklasse sollen die Schrauben haben?"/>
         </StackPanel>
         <StackPanel x:Name="stkpn_Eingaben" Grid.Row="2" Grid.Column="2">
             <ComboBox x:Name="cbx_Antwort0" ItemsSource="{Binding Arten}" DropDownClosed="cbx_Antwort0_DropDownClosed" DropDownOpened="cbx_Antwort0_DropDownOpened"/>
             <ComboBox x:Name="cbx_Antwort1" ItemsSource="{Binding Gewindearten}" DropDownClosed="cbx_Antwort1_DropDownClosed"/>
-            <TextBox x:Name="txtb_Antwort2" TextChanged="txtb_Antwort2_TextChanged"/>
-            <TextBox x:Name="txtb_Anwort3" TextChanged="txtb_Anwort3_TextChanged"/>
-            <ComboBox x:Name="cbx_Antwort4"/>
+            <ComboBox x:Name="cbx_Antwort2" DropDownClosed="cbx_Antwort2_DropDownClosed"/>
+            <ComboBox x:Name="cbx_Antwort3" DropDownClosed="cbx_Antwort3_DropDownClosed"/>
+            <ComboBox x:Name="cbx_Antwort4" DropDownClosed="cbx_Antwort4_DropDownClosed"/>
+            <ComboBox x:Name="cbx_Anwort5" DropDownClosed="cbx_Anwort5_DropDownClosed"/>
+            <ComboBox x:Name="cbx_Antwort6" DropDownClosed="cbx_Antwort6_DropDownClosed"/>
+            <ComboBox x:Name="cbx_Antwort7" DropDownClosed="cbx_Antwort7_DropDownClosed"/>
+            <ComboBox x:Name="cbx_Antwort8"/>
         </StackPanel>
     </Grid>
 </UserControl>
