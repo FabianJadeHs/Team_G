@@ -21,7 +21,7 @@ namespace Schrauben
             foreach (string zeile in zeilen)
             {
                 string[] daten = zeile.Split(';');
-                double Festigkeitsklassenbezeichnung = double.Parse(daten[0], CultureInfo.GetCultureInfo("de-DE").NumberFormat);
+                string Festigkeitsklassenbezeichnung = daten[0];
                 double Zugfestigkeit = double.Parse(daten[1], CultureInfo.GetCultureInfo("de-DE").NumberFormat);
                 double Streckgrenze = double.Parse(daten[2], CultureInfo.GetCultureInfo("de-DE").NumberFormat);
                 double Bruchdehnung = double.Parse(daten[3], CultureInfo.GetCultureInfo("de-DE").NumberFormat);
