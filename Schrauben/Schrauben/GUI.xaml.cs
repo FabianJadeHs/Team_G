@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using System.Collections;
+using System.Text.RegularExpressions;
 
 namespace Schrauben
 {
@@ -44,13 +45,14 @@ namespace Schrauben
             cbx_Antwort0.Visibility = Visibility.Hidden;
             cbx_Antwort1.Visibility = Visibility.Hidden;
             txtb_Antwort2.Visibility = Visibility.Hidden;
+            
             txtb_Antwort3.Visibility = Visibility.Hidden;
             cbx_Antwort4.Visibility = Visibility.Hidden;
             txtb_Antwort5.Visibility = Visibility.Hidden;
             cbx_Antwort6.Visibility = Visibility.Hidden;
             cbx_Antwort7.Visibility = Visibility.Hidden;
             cbx_Antwort8.Visibility = Visibility.Hidden;
-
+                  
             Arten = new string[] { "Regelgewinde", "Feingewinde", "Trapezgewinde" };
             //Regelgewinde = new string[] {} 
 
@@ -134,6 +136,7 @@ namespace Schrauben
             txtb_Antwort2.Visibility = Visibility.Visible;
         }
 
+        /*
         private void cbx_Antwort4_DropDownClosed(object sender, EventArgs e)
         {
             //Variablenzuweisung
@@ -161,6 +164,12 @@ namespace Schrauben
             lbl_Frage8.Visibility = Visibility.Visible;
             cbx_Antwort8.Visibility = Visibility.Visible;
 
+        }
+        */
+        private void NumbervalidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }
