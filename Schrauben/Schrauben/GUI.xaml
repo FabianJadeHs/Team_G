@@ -9,10 +9,10 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid x:Name="Startfenster" Background="#FFD8FBFF" Margin="0,0,10,9.6">
         <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="65"/>
             <RowDefinition Height="45" />
             <RowDefinition Height="350*"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="45"/>
 
 
         </Grid.RowDefinitions>
@@ -26,7 +26,7 @@
         </Grid.ColumnDefinitions>
 
         <Label x:Name="lbl_Logo" Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="1" FontSize="48" HorizontalContentAlignment="Center" Margin="0,0,0.4,0" Content="Schraubenhausen"/>
-        <Label x:Name="lbl_Begruessung" Grid.ColumnSpan="2" Content="Bei uns können Sie Ihre Schrauben konfigurieren!" Grid.Row="1" Grid.Column="1" FontSize="24" HorizontalContentAlignment="Center" Margin="0,0,0.4,264.6" Grid.RowSpan="2"/>
+        <Label x:Name="lbl_Begruessung" Grid.ColumnSpan="2" Content="Bei uns können Sie Ihre Schrauben konfigurieren!" Grid.Row="1" Grid.Column="1" FontSize="24" HorizontalContentAlignment="Center" Margin="0,0.4,0.4,0.4"/>
         <Button x:Name="btn_Konfigurieren" Content="Konfigurieren" Grid.Row="3" Grid.Column="3" Click="btn_Konfigurieren_Click" Margin="0.6,0.4,0.4,0"/>
         <Button x:Name="btn_Schliessen" Content="Schließen" Click="btn_Schliessen_Click" Grid.Row="3" Margin="0,0.4,0,0"/>
         <StackPanel x:Name="stkpn_Fragen" Grid.Row="2" Grid.Column="1">
@@ -42,13 +42,13 @@
         </StackPanel>
         <StackPanel x:Name="stkpn_Eingaben" Grid.Row="2" Grid.Column="2">
             <ComboBox x:Name="cbx_Antwort0" ItemsSource="{Binding Arten}" DropDownClosed="cbx_Antwort0_DropDownClosed" DropDownOpened="cbx_Antwort0_DropDownOpened" Margin="0,2,0,10"/>
-            <ComboBox x:Name="cbx_Antwort1" ItemsSource="{Binding Gewindearten}" DropDownClosed="cbx_Antwort1_DropDownClosed" Margin="0,0,0,10"/>
-            <TextBox x:Name="txtb_Antwort2"/>
-            <TextBox x:Name="txtb_Antwort3"/>
-            <ComboBox x:Name="cbx_Antwort4" DropDownClosed="cbx_Antwort4_DropDownClosed"/>
-            <TextBox x:Name="txtb_Antwort5"/>
-            <ComboBox x:Name="cbx_Antwort6" DropDownClosed="cbx_Antwort6_DropDownClosed"/>
-            <ComboBox x:Name="cbx_Antwort7" DropDownClosed="cbx_Antwort7_DropDownClosed"/>
+            <ComboBox x:Name="cbx_Antwort1" ItemsSource="{Binding Gewindearten}" DropDownClosed="cbx_Antwort1_DropDownClosed" Margin="0,0,0,12"/>
+            <TextBox x:Name="txtb_Antwort2" Margin="0,0,0,14"/>
+            <TextBox x:Name="txtb_Antwort3" Margin="0,0,0,12"/>
+            <ComboBox x:Name="cbx_Antwort4" DropDownClosed="cbx_Antwort4_DropDownClosed" Margin="0,0,0,11"/>
+            <TextBox x:Name="txtb_Antwort5" Margin="0,0,0,12"/>
+            <ComboBox x:Name="cbx_Antwort6" DropDownClosed="cbx_Antwort6_DropDownClosed" Margin="0,0,0,10"/>
+            <ComboBox x:Name="cbx_Antwort7" DropDownClosed="cbx_Antwort7_DropDownClosed" Margin="0,0,0,10"/>
             <ComboBox x:Name="cbx_Antwort8"/>
         </StackPanel>
     </Grid>
