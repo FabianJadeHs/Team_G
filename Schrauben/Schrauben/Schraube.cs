@@ -192,7 +192,7 @@ namespace Schrauben
             Console.WriteLine("Das Flächenträgheitsmoment beträgt" + ftm + "mm^4");
         }
 
-        /*
+        
         public void Vorspannkraft()
         {
             //neue Tabelle wird deklariert
@@ -200,11 +200,13 @@ namespace Schrauben
 
             foreach (Festigkeitsarray o in tab3.getAll())
             {
-                vorspannkraft = spannungsquerschnitt * 0.9 * o.streckgrenze;
+                //Berechnung der benötigten Vorspannkraft
+                vorspannkraft = spannungsquerschnitt * 0.9 * o.Streckgrenze;    
             }
-            Console.WriteLine("Vorspannkraft beträgt" + vorspannkraft * "N") 
+            // Ausgabe der Vorspannkraft
+            Console.WriteLine("Vorspannkraft beträgt" + vorspannkraft + "N"); 
         }
-        */
+     
 
         public void Standardausgaben()
         {
