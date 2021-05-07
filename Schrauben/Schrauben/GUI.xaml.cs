@@ -136,7 +136,7 @@ namespace Schrauben
             txtb_Antwort2.Visibility = Visibility.Visible;
         }
 
-        /*
+        
         private void cbx_Antwort4_DropDownClosed(object sender, EventArgs e)
         {
             //Variablenzuweisung
@@ -165,7 +165,7 @@ namespace Schrauben
             cbx_Antwort8.Visibility = Visibility.Visible;
 
         }
-        */
+        
         private void NumbervalidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
