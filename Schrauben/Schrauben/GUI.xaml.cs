@@ -43,10 +43,10 @@ namespace Schrauben
             lbl_Frage8.Visibility = Visibility.Hidden;
             cbx_Antwort0.Visibility = Visibility.Hidden;
             cbx_Antwort1.Visibility = Visibility.Hidden;
-            cbx_Antwort2.Visibility = Visibility.Hidden;
-            cbx_Antwort3.Visibility = Visibility.Hidden;
+            txtb_Antwort2.Visibility = Visibility.Hidden;
+            txtb_Antwort3.Visibility = Visibility.Hidden;
             cbx_Antwort4.Visibility = Visibility.Hidden;
-            cbx_Anwort5.Visibility = Visibility.Hidden;
+            txtb_Antwort5.Visibility = Visibility.Hidden;
             cbx_Antwort6.Visibility = Visibility.Hidden;
             cbx_Antwort7.Visibility = Visibility.Hidden;
             cbx_Antwort8.Visibility = Visibility.Hidden;
@@ -122,8 +122,6 @@ namespace Schrauben
         private void cbx_Antwort0_DropDownOpened(object sender, EventArgs e)
         {
             cbx_Antwort1.Items.Clear();
-            cbx_Antwort2.Items.Clear();
-            cbx_Antwort3.Items.Clear();
             cbx_Antwort4.Items.Clear();
         }
         //Wenn Combobox1 geschlossen wird
@@ -133,40 +131,7 @@ namespace Schrauben
             cbx_Antwort1.SelectedItem = Guiversuch.Wunschgewindeart;
             //nächste Frage und Antwortmöglichkeit werden sichbar gemacht
             lbl_Frage2.Visibility = Visibility.Visible;
-            cbx_Antwort2.Visibility = Visibility.Visible;
-            //Zählschleife für auswählbare Werte in cbx_Anwort2
-            for (int i = 0; i <= 150; i++)
-            {
-                cbx_Antwort2.Items.Add(i);
-            }
-        }
-        //Wenn Combobox2 angeklickt wird 
-        private void cbx_Antwort2_DropDownClosed(object sender, EventArgs e)
-        {
-            //Variablenzuweisung
-            cbx_Antwort2.SelectedItem = Guiversuch.Wunschgewindelaenge;
-            //nächste Frage und Antwortmöglichkeit werden sichbar gemacht
-            lbl_Frage3.Visibility = Visibility.Visible;
-            cbx_Antwort3.Visibility = Visibility.Visible;
-            //Zählschleife für auswählbare Werte in cbx_Antwort3
-            for (int i = 0; i <= 150; i++)
-            {
-                cbx_Antwort3.Items.Add(i);
-            }
-        }
-        private void cbx_Antwort3_DropDownClosed(object sender, EventArgs e)
-        {
-            //Variablenzuweisung
-            cbx_Antwort3.SelectedItem = Guiversuch.Wunschschaftlaenge;
-            //nächste Frage und Antwortmöglichkeit werden sichbar gemacht
-            lbl_Frage4.Visibility = Visibility.Visible;
-            cbx_Antwort4.Visibility = Visibility.Visible;
-            //Einlesen der auswählbaren Werte für cbx_Antwort4
-            Materialtabelle tab2 = new Materialtabelle();
-            foreach (Materialarray n in tab2.getAll())
-            {
-                cbx_Antwort4.Items.Add(n.Materialbezeichnung);
-            }
+            txtb_Antwort2.Visibility = Visibility.Visible;
         }
 
         private void cbx_Antwort4_DropDownClosed(object sender, EventArgs e)
@@ -175,23 +140,8 @@ namespace Schrauben
             cbx_Antwort4.SelectedItem = Guiversuch.Wunschmaterial;
             //nächste Frage und Antwortmöglichkeit werden sichtbar gemacht
             lbl_Frage5.Visibility = Visibility.Visible;
-            cbx_Anwort5.Visibility = Visibility.Visible;
-            //Zählschleife für auswählbare Werte in cbx_Antwort5
-            for (int i = 0; i <= 150; i++)
-            {
-                cbx_Anwort5.Items.Add(i);
-            }
-        }
+            txtb_Antwort5.Visibility = Visibility.Visible;
 
-        private void cbx_Anwort5_DropDownClosed(object sender, EventArgs e)
-        {
-            //Variablenzuweisung
-            cbx_Anwort5.SelectedItem = Guiversuch.Wunschanzahl;
-            //nächste Frage und Antwortmöglichkeit werden sichtbar gemacht
-            lbl_Frage6.Visibility = Visibility.Visible;
-            cbx_Antwort6.Visibility = Visibility.Visible;
-            //beispielsweise comboboxfüllung
-            cbx_Antwort6.Items.Add(1);
         }
 
         private void cbx_Antwort6_DropDownClosed(object sender, EventArgs e)
