@@ -43,7 +43,7 @@
         <StackPanel x:Name="stkpn_Eingaben" Grid.Row="2" Grid.Column="2">
             <ComboBox x:Name="cbx_Antwort0" ItemsSource="{Binding Arten}" DropDownClosed="cbx_Antwort0_DropDownClosed" DropDownOpened="cbx_Antwort0_DropDownOpened" Margin="0,2,0,10"/>
             <ComboBox x:Name="cbx_Antwort1" ItemsSource="{Binding Gewindearten}" DropDownClosed="cbx_Antwort1_DropDownClosed" Margin="0,0,0,10"/>
-            <TextBox x:Name="txtb_Antwort2" PreviewTextInput="NumbervalidationTextBox" TextChanged="txtb_Antwort2_TextChanged"/>
+            <TextBox x:Name="txtb_Antwort2" PreviewTextInput="NumbervalidationTextBox" />
             <TextBox x:Name="txtb_Antwort3"/>
             <ComboBox x:Name="cbx_Antwort4" DropDownClosed="cbx_Antwort4_DropDownClosed"/>
             <TextBox x:Name="txtb_Antwort5"/>
