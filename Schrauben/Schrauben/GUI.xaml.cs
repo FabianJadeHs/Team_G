@@ -26,8 +26,8 @@ namespace Schrauben
         public string[] Arten { get; set; }
         public string[] Regelgewinde { get; set; }
         public string[] Richtung { get; set; }
-        
 
+        #region Initialisierung
         //neues Objekt einer Klasse wird initialisiert
         Schraube Guiversuch = new Schraube();
         public GUI()
@@ -36,6 +36,8 @@ namespace Schrauben
             InitializeComponent();
             tctl_Fenster.Visibility = Visibility.Hidden;
             btn_Berechnen.Visibility = Visibility.Hidden;
+            img_Logo.Visibility = Visibility.Hidden;
+            img_Schraubenschema.Visibility = Visibility.Hidden;
                   
             Arten = new string[] { "Regelgewinde", "Feingewinde", "Trapezgewinde" };
             Richtung = new string[] { "Rechtsgewinde", "Linksgewinde" };
@@ -46,7 +48,8 @@ namespace Schrauben
 
             
         }
-        
+        #endregion
+
         //Wenn Button geklickt wird, wird App geschlossen
         private void btn_Schliessen_Click(object sender, RoutedEventArgs e)
         {
@@ -100,12 +103,6 @@ namespace Schrauben
                 }
                 
             }
-            //Variablenzuweisung
-            cbx_Antwort1.SelectedItem = Guiversuch.Wunschgewindeart;
-            //Variablenzuweisung
-            cbx_Antwort4.SelectedItem = Guiversuch.Wunschmaterial;
-            //Variablenzuweisung
-            cbx_Antwort6.SelectedItem = Guiversuch.Wunschschraubenkopf; ;
             //beispielsweise comboboxfüllung
             
             foreach (Materialarray n in tab2.getAll())
@@ -143,6 +140,17 @@ namespace Schrauben
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
-        
+        #region Variablenzuweisung
+        private void btn_Berechnen_Click(object sender, RoutedEventArgs e)
+        {
+            //Variablenzuweisung
+            cbx_Antwort1.SelectedItem = Guiversuch.Wunschgewindeart;
+            cbx_Antwort4.SelectedItem = Guiversuch.Wunschmaterial;
+            cbx_Antwort6.SelectedItem = Guiversuch.Wunschschraubenkopf;
+            Guiversuch.Wunschgewindelaenge = double.Parse(txtb_Antwort2.Text);
+            Guiversuch.Wunschschaftlaenge = double.Parse(txtb_Antwort3.Text);
+            Guiversuch.Wunschanzahl = double.Parse(txtb_Antwort5.Text);
+        }
+        #endregion
     }
 }
