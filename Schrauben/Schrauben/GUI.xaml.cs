@@ -25,6 +25,7 @@ namespace Schrauben
     {
         public string[] Arten { get; set; }
         public string[] Regelgewinde { get; set; }
+        public string[] Richtung { get; set; }
         
 
         //neues Objekt einer Klasse wird initialisiert
@@ -33,56 +34,39 @@ namespace Schrauben
         {
             //Komponenten der GUI werden initialisiert
             InitializeComponent();
-            lbl_Frage0.Visibility = Visibility.Hidden;
-            lbl_Frage1.Visibility = Visibility.Hidden;
-            lbl_Frage2.Visibility = Visibility.Hidden;
-            lbl_Frage3.Visibility = Visibility.Hidden;
-            lbl_Frage4.Visibility = Visibility.Hidden;
-            lbl_Frage5.Visibility = Visibility.Hidden;
-            lbl_Frage6.Visibility = Visibility.Hidden;
-            lbl_Frage7.Visibility = Visibility.Hidden;
-            lbl_Frage8.Visibility = Visibility.Hidden;
-            cbx_Antwort0.Visibility = Visibility.Hidden;
-            cbx_Antwort1.Visibility = Visibility.Hidden;
-            txtb_Antwort2.Visibility = Visibility.Hidden;
-            
-            txtb_Antwort3.Visibility = Visibility.Hidden;
-            cbx_Antwort4.Visibility = Visibility.Hidden;
-            txtb_Antwort5.Visibility = Visibility.Hidden;
-            cbx_Antwort6.Visibility = Visibility.Hidden;
-            cbx_Antwort7.Visibility = Visibility.Hidden;
-            cbx_Antwort8.Visibility = Visibility.Hidden;
+            tctl_Fenster.Visibility = Visibility.Hidden;
+            btn_Berechnen.Visibility = Visibility.Hidden;
                   
             Arten = new string[] { "Regelgewinde", "Feingewinde", "Trapezgewinde" };
+            Richtung = new string[] { "Rechtsgewinde", "Linksgewinde" };
             //Regelgewinde = new string[] {} 
 
             DataContext = this;
             DataContext = this;
+
             
         }
         
         //Wenn Button geklickt wird, wird App geschlossen
         private void btn_Schliessen_Click(object sender, RoutedEventArgs e)
         {
-            
+            //Alles wird geschlossen
+            Environment.Exit(0);
         }
         //Wenn Button geklickt wird
         private void btn_Konfigurieren_Click(object sender, RoutedEventArgs e)
         {
             //Objekte werden sichtbar gemacht
             lbl_Begruessung.Content = "";
-            lbl_Frage0.Visibility = Visibility.Visible;
-            cbx_Antwort0.Visibility = Visibility.Visible;
-        }
-        public void einlesen()
-        {
-            
+            tctl_Fenster.Visibility = Visibility.Visible;
+            btn_Berechnen.Visibility = Visibility.Visible;
         }
         //Wenn Combobox0 geschlossen wird
         private void cbx_Antwort0_DropDownClosed(object sender, EventArgs e)
         {
             //neue Tabelle wird deklariert
             Tabelle tab = new Tabelle();
+            Materialtabelle tab2 = new Materialtabelle();
 
             //Schraubenarray wird zeilenweise durchgegangen
             foreach (Schraubenarray m in tab.getAll())
@@ -116,9 +100,19 @@ namespace Schrauben
                 }
                 
             }
-            //Objekte werden sichtbar gemacht
-            lbl_Frage1.Visibility = Visibility.Visible;
-            cbx_Antwort1.Visibility = Visibility.Visible;
+            //Variablenzuweisung
+            cbx_Antwort1.SelectedItem = Guiversuch.Wunschgewindeart;
+            //Variablenzuweisung
+            cbx_Antwort4.SelectedItem = Guiversuch.Wunschmaterial;
+            //Variablenzuweisung
+            cbx_Antwort6.SelectedItem = Guiversuch.Wunschschraubenkopf; ;
+            //beispielsweise comboboxfüllung
+            
+            foreach (Materialarray n in tab2.getAll())
+            {
+                cbx_Antwort4.Items.Add(n.Materialbezeichnung);
+            }
+
         }
         //Wenn Combobox0 wieder geöffnet wird, wird gecleart
         private void cbx_Antwort0_DropDownOpened(object sender, EventArgs e)
@@ -129,47 +123,26 @@ namespace Schrauben
         //Wenn Combobox1 geschlossen wird
         private void cbx_Antwort1_DropDownClosed(object sender, EventArgs e)
         {
-            //Variablenzuweisung
-            cbx_Antwort1.SelectedItem = Guiversuch.Wunschgewindeart;
-            //nächste Frage und Antwortmöglichkeit werden sichbar gemacht
-            lbl_Frage2.Visibility = Visibility.Visible;
-            txtb_Antwort2.Visibility = Visibility.Visible;
-        }
 
-        
+        }
         private void cbx_Antwort4_DropDownClosed(object sender, EventArgs e)
         {
-            //Variablenzuweisung
-            cbx_Antwort4.SelectedItem = Guiversuch.Wunschmaterial;
-            //nächste Frage und Antwortmöglichkeit werden sichtbar gemacht
-            lbl_Frage5.Visibility = Visibility.Visible;
-            txtb_Antwort5.Visibility = Visibility.Visible;
+
 
         }
-
         private void cbx_Antwort6_DropDownClosed(object sender, EventArgs e)
         {
-            //Variablenzuweisung
-            cbx_Antwort6.SelectedItem = Guiversuch.Wunschschraubenkopf;
-            //nächste Frage und Antwortmöglichkeit werden sichtbar gemacht
-            lbl_Frage7.Visibility = Visibility.Visible;
-            cbx_Antwort7.Visibility = Visibility.Visible;
-            //beispielsweise comboboxfüllung
-            cbx_Antwort7.Items.Add(2);
-        }
 
+        }
         private void cbx_Antwort7_DropDownClosed(object sender, EventArgs e)
         {
-            //nächste Frage und Antwortmöglichkeit werden sichtbar gemacht
-            lbl_Frage8.Visibility = Visibility.Visible;
-            cbx_Antwort8.Visibility = Visibility.Visible;
 
         }
-        
         private void NumbervalidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
+        
     }
 }
