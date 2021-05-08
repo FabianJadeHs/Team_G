@@ -37,6 +37,9 @@ namespace Schrauben
             Console.WriteLine("Aus welchem Material soll die Schraube sein? (Baustahl/V4A/Messing/Aluminium/Kupfer)");
             test1.Wunschmaterial = Console.ReadLine();
 
+            Console.WriteLine("Welche Festigkeitsklasse ist gewünscht?");
+            test1.Wunschfestigkeit = Console.ReadLine();
+
             Console.WriteLine("Wie viele Schrauben möchten Sie kaufen?");
             test1.Wunschanzahl = double.Parse(Console.ReadLine());
 
@@ -50,6 +53,7 @@ namespace Schrauben
             test1.Standardausgaben();
             test1.Flaechentraegheitsmoment();
             test1.Schwerpunkt();
+            test1.Vorspannkraft();
             Console.ReadKey();
 
             
