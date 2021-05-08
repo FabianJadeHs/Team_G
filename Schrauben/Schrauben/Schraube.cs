@@ -66,18 +66,20 @@ namespace Schrauben
 
                 else if (Wunschgewindeart == m.Gewindebezeichnung && Wunschschraubenkopf == "Zylinderkopf")  // Volumenberechnung Zylinderkopf
                 {
-                    kopfvolumen = m.KopfhoeheZ * Math.PI * Math.Pow((m.KopfdurchmesserZ / 2), 2) - (2.598 * Math.Pow((m.InnensechskantZ / 2), 2) * m.SechskanttiefeZ);  // Fehlerbehaftet!!!
+                    kopfvolumen = m.KopfhoeheZ * Math.PI * Math.Pow((m.KopfdurchmesserZ / 2), 2) - (2.598 * Math.Pow((m.InnensechskantZ / 2), 2) * m.SechskanttiefeZ); 
                 }
 
                 else if(Wunschgewindeart == m.Gewindebezeichnung && Wunschschraubenkopf == "Senkkopf")   // Volumenberechnung Senkkopf
                 {
-                    kopfvolumen = ((Math.PI * m.KopfhoeheS)/12)*(Math.Pow((m.KopfdurchmesserS), 2) + Math.Pow((m.Nenndurchmesser), 2) + m.KopfdurchmesserS + m.Nenndurchmesser) - 2.598 * Math.Pow((m.InnensechskantS / 2), 2) * m.SechskanttiefeS;
+                    // - (2.598 * Math.Pow((m.InnensechskantS / 2), 2) * m.SechskanttiefeS)
+                    kopfvolumen = (((Math.PI * (m.KopfhoeheS)) / 12) * (Math.Pow((m.KopfdurchmesserS), 2) + Math.Pow((m.Nenndurchmesser), 2) + ((m.KopfdurchmesserS) * (m.Nenndurchmesser))));
                 }
 
                 else if(Wunschgewindeart == m.Gewindebezeichnung && Wunschschraubenkopf == "Gewindestift")  // Volumenberechnung "Kopf" des Gewindestiftes, Volumen wird negativ, da "Kopf" im Gewinde
                 {
                     kopfvolumen = - 2.598 * Math.Pow((m.InnensechkantGS / 2), 2) * m.SechskanttiefeGS;
                 }
+                                                
             }
         }
         
