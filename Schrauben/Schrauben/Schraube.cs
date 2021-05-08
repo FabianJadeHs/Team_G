@@ -50,12 +50,11 @@ namespace Schrauben
             //Ausgabe des Rundungswertes
             Console.WriteLine("Die Rundung beträgt " + rundung + " mm.");
         }
-        /*
+        
         public void Kopfvolumen()  // Unterprogramm Kopfvolumen, zum Abdecken verschiedener Kopfarten
         {
             //neue Tabelle wird deklariert
             Tabelle tab = new Tabelle();
-
 
             foreach (Schraubenarray m in tab.getAll())
             {
@@ -68,8 +67,7 @@ namespace Schrauben
 
                 else if (Wunschschraubenkopf == "Zylinderkopf")  // Volumenberechnung Zylinderkopf
                 {
-                    kopfvolumen = m.KopfhoeheZ * Math.PI * Math.Pow((m.KopfdurchmesserZ / 2), 2) - (2.598 * Math.Pow((m.InnensechskantZ / 2), 2) * m.SechskanttiefeZ);  // 10 hier als Beispiel für d=10 bei M6, ebenso 3(t min), nur Beispiel!!!!!!   Fehlerbehaftet!!!
-
+                    kopfvolumen = m.KopfhoeheZ * Math.PI * Math.Pow((m.KopfdurchmesserZ / 2), 2) - (2.598 * Math.Pow((m.InnensechskantZ / 2), 2) * m.SechskanttiefeZ);  // Fehlerbehaftet!!!
                 }
 
                 else if(Wunschschraubenkopf == "Senkkopf")   // Volumenberechnung Senkkopf
@@ -79,11 +77,11 @@ namespace Schrauben
 
                 else if(Wunschschraubenkopf == "Gewindestift")  // Volumenberechnung "Kopf" des Gewindestiftes, Volumen wird negativ, da "Kopf" im Gewinde
                 {
-                    kopfvolumen = - 2.598 * Math.Pow((m.Schraubenkopfbreite / 2), 2) * m.SechskanttiefeGS;
+                    kopfvolumen = - 2.598 * Math.Pow((m.InnensechkantGS / 2), 2) * m.SechskanttiefeGS;
                 }
             }
         }
-        */
+        
 
         public void Volumen() //Unterprogramm Volumenberechnung
         {
@@ -154,7 +152,30 @@ namespace Schrauben
 
             foreach (Schraubenarray m in tab.getAll())  // ermöglicht Abfrage von Daten aus der csv-Datei
             {
-                schwerpunkt = (kopfvolumen * (- m.Schraubenkopfhoehe / 2) + schaftvolumen * (gesamtlaenge / 2)) / (kopfvolumen + schaftvolumen);   //Schraubenkopfvolumen wird negativ gewertet (Festlegung KS)
+                // Schraubenkopfvolumen wird negativ gewertet (Festlegung des KS-Ursprungs am Übergang zwischen Gewinde und Kopf)
+                // Summe der Volumen * Abstand geteilt durch die Summe der Volumen
+                // Aufgrund unterschiedlicher Geometrien muss hier zwischen den unterschiedlichen Köpfen unterschieden werden
+
+                if (Wunschschraubenkopf == "Sechskant")    
+                {
+                    schwerpunkt = (kopfvolumen * (-m.Schraubenkopfhoehe / 2) + schaftvolumen * (gesamtlaenge / 2)) / (kopfvolumen + schaftvolumen);
+                }
+
+                else if (Wunschschraubenkopf == "Zylinderkopf")  
+                {
+                    schwerpunkt = (kopfvolumen * (-m.KopfhoeheZ / 2) + schaftvolumen * (gesamtlaenge / 2)) / (kopfvolumen + schaftvolumen);
+                }
+
+                else if (Wunschschraubenkopf == "Senkkopf") 
+                {
+                    schwerpunkt = (kopfvolumen * (-m.KopfhoeheS / 2) + schaftvolumen * (gesamtlaenge / 2)) / (kopfvolumen + schaftvolumen);
+                }
+
+                else if (Wunschschraubenkopf == "Gewindestift")  
+                {
+                    schwerpunkt = (kopfvolumen * (-m.SechskanttiefeGS / 2) + schaftvolumen * (gesamtlaenge / 2)) / (kopfvolumen + schaftvolumen);
+                }
+                  
             }
             Console.WriteLine("Der Schwerpunkt liegt" + schwerpunkt + "mm unterhalb des Schraubenkopfes");
         }
