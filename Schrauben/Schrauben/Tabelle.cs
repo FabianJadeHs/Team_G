@@ -39,7 +39,7 @@ namespace Schrauben
                 double SechskanttiefeGS = double.Parse(daten[15], CultureInfo.GetCultureInfo("de-DE").NumberFormat);
 
                 //liste wird einer Schraube angefügt
-                liste.Add(new Schraubenarray { Gewindebezeichnung = Gewindebezeichnung, Steigung = Steigung, Schluesselweite = Schluesselweite, Nenndurchmesser = Nenndurchmesser, Schraubenkopfhoehe = Schraubenkopfhoehe, Schraubenkopfbreite = Schraubenkopfbreite });
+                liste.Add(new Schraubenarray { Gewindebezeichnung = Gewindebezeichnung, Steigung = Steigung, Schluesselweite = Schluesselweite, Nenndurchmesser = Nenndurchmesser, Schraubenkopfhoehe = Schraubenkopfhoehe, Schraubenkopfbreite = Schraubenkopfbreite, InnensechskantZ = InnensechskantZ, SechskanttiefeZ = SechskanttiefeZ, KopfhoeheZ = KopfhoeheZ, KopfdurchmesserZ = KopfdurchmesserZ, InnensechskantS = InnensechskantS, SechskanttiefeS = SechskanttiefeS, KopfhoeheS = KopfhoeheS, KopfdurchmesserS = KopfdurchmesserS, InnensechkantGS = InnensechskantGS, SechskanttiefeGS = SechskanttiefeGS });
             }
         }
         //Ausgabe der Daten als Array weil Array kann nicht verändert werden
