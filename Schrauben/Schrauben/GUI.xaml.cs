@@ -30,6 +30,7 @@ namespace Schrauben
         #region Initialisierung
         //neues Objekt einer Klasse wird initialisiert
         Schraube Guiversuch = new Schraube();
+        
         public GUI()
         {
             //Komponenten der GUI werden initialisiert
@@ -45,7 +46,6 @@ namespace Schrauben
 
             DataContext = this;
             DataContext = this;
-
             
         }
         #endregion
@@ -63,6 +63,8 @@ namespace Schrauben
             lbl_Begruessung.Content = "";
             tctl_Fenster.Visibility = Visibility.Visible;
             btn_Berechnen.Visibility = Visibility.Visible;
+            img_Logo.Visibility = Visibility.Visible;
+            img_Schraubenschema.Visibility = Visibility.Visible;
         }
         //Wenn Combobox0 geschlossen wird
         private void cbx_Antwort0_DropDownClosed(object sender, EventArgs e)
