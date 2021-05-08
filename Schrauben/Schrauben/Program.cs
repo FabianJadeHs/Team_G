@@ -50,11 +50,11 @@ namespace Schrauben
             test1.Volumen();
             test1.Gewicht();
             test1.Preis();
-            test1.Spannungsquerschnitt();
-            test1.Standardausgaben();
-            test1.Flaechentraegheitsmoment();
             test1.Schwerpunkt();
+            test1.Spannungsquerschnitt();
+            test1.Flaechentraegheitsmoment();
             test1.Vorspannkraft();
+            test1.Standardausgaben();
             Console.ReadKey();
 
             
