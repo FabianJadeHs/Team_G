@@ -71,8 +71,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Firmenbild.png" />
-    <Content Include="Schraubenschema.png" />
+    <Content Include="Firmenbild.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Schraubenschema.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
