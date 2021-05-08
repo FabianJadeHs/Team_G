@@ -26,6 +26,7 @@ namespace Schrauben
         public string[] Arten { get; set; }
         public string[] Regelgewinde { get; set; }
         public string[] Richtung { get; set; }
+        public string[] Kopfarten { get; set; }
 
         #region Initialisierung
         //neues Objekt einer Klasse wird initialisiert
@@ -42,8 +43,11 @@ namespace Schrauben
                   
             Arten = new string[] { "Regelgewinde", "Feingewinde", "Trapezgewinde" };
             Richtung = new string[] { "Rechtsgewinde", "Linksgewinde" };
+            Kopfarten = new string[] { "Sechskant", "Zylinderkopf", "Senkkopf", "Gewindestift", };
+            
             //Regelgewinde = new string[] {} 
 
+            DataContext = this;
             DataContext = this;
             DataContext = this;
             
@@ -73,6 +77,7 @@ namespace Schrauben
             //neue Tabelle wird deklariert
             Tabelle tab = new Tabelle();
             Materialtabelle tab2 = new Materialtabelle();
+            Festigkeitstabelle tab3 = new Festigkeitstabelle();
 
             //Schraubenarray wird zeilenweise durchgegangen
             foreach (Schraubenarray m in tab.getAll())
@@ -111,7 +116,25 @@ namespace Schrauben
             foreach (Materialarray n in tab2.getAll())
             {
                 cbx_Antwort4.Items.Add(n.Materialbezeichnung);
+
+                foreach (Festigkeitsarray o in tab3.getAll())
+                {
+                    /*
+                    if (cbx_Antwort4.SelectedItem == n.Materialbezeichnung)
+                    {
+                        cbx_Antwort8.Items.Add(o.Festigkeitsklassenbezeichnung);
+                    }
+                    else
+                    {
+                        cbx_Antwort8.Items.Clear();
+                        cbx_Antwort8.Items.Add("Keine Festigkeitswerte zulässig!");
+                    }
+                    */
+
+                }
             }
+            
+            
 
         }
         //Wenn Combobox0 wieder geöffnet wird, wird gecleart
