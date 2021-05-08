@@ -63,6 +63,7 @@ namespace Schrauben
             lbl_Begruessung.Content = "";
             tctl_Fenster.Visibility = Visibility.Visible;
             btn_Berechnen.Visibility = Visibility.Visible;
+            btn_Konfigurieren.Visibility = Visibility.Hidden;
         }
         //Wenn Combobox0 geschlossen wird
         private void cbx_Antwort0_DropDownClosed(object sender, EventArgs e)
