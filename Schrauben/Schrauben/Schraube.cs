@@ -15,6 +15,7 @@ namespace Schrauben
         public string Wunschmaterial { get; set; }
         public double Wunschanzahl { get; set; }
         public string Wunschschraubenkopf { get; set; }
+        public string Wunschfestigkeit { get; set; }
 
         //globale Variablen innerhalb der class werden definiert damit Unterprogramme kürzer sind
         double rundung = 0;
@@ -200,8 +201,12 @@ namespace Schrauben
 
             foreach (Festigkeitsarray o in tab3.getAll())
             {
-                //Berechnung der benötigten Vorspannkraft
-                vorspannkraft = spannungsquerschnitt * 0.9 * o.Streckgrenze;    
+                if (Wunschfestigkeit == o.Festigkeitsklassenbezeichnung)
+                {
+                    //Berechnung der benötigten Vorspannkraft
+                    vorspannkraft = spannungsquerschnitt * 0.9 * o.Streckgrenze;
+                }
+                
             }
             // Ausgabe der Vorspannkraft
             Console.WriteLine("Vorspannkraft beträgt" + vorspannkraft + "N"); 
