@@ -71,8 +71,7 @@ namespace Schrauben
 
                 else if(Wunschgewindeart == m.Gewindebezeichnung && Wunschschraubenkopf == "Senkkopf")   // Volumenberechnung Senkkopf
                 {
-                    // - (2.598 * Math.Pow((m.InnensechskantS / 2), 2) * m.SechskanttiefeS)
-                    kopfvolumen = (((Math.PI * (m.KopfhoeheS)) / 12) * (Math.Pow((m.KopfdurchmesserS), 2) + Math.Pow((m.Nenndurchmesser), 2) + ((m.KopfdurchmesserS) * (m.Nenndurchmesser))));
+                    kopfvolumen = (((Math.PI * (m.KopfhoeheS)) / 12) * (Math.Pow((m.KopfdurchmesserS), 2) + Math.Pow((m.Nenndurchmesser), 2) + ((m.KopfdurchmesserS) * (m.Nenndurchmesser)))) - (2.598 * Math.Pow((m.InnensechskantS / 2), 2) * m.SechskanttiefeS);
                 }
 
                 else if(Wunschgewindeart == m.Gewindebezeichnung && Wunschschraubenkopf == "Gewindestift")  // Volumenberechnung "Kopf" des Gewindestiftes, Volumen wird negativ, da "Kopf" im Gewinde
