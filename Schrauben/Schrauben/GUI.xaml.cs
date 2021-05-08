@@ -27,6 +27,7 @@ namespace Schrauben
         public string[] Regelgewinde { get; set; }
         public string[] Richtung { get; set; }
         public string[] Kopfarten { get; set; }
+        public string[] Materialien { get; set; }
 
         #region Initialisierung
         //neues Objekt einer Klasse wird initialisiert
@@ -44,9 +45,10 @@ namespace Schrauben
             Arten = new string[] { "Regelgewinde", "Feingewinde", "Trapezgewinde" };
             Richtung = new string[] { "Rechtsgewinde", "Linksgewinde" };
             Kopfarten = new string[] { "Sechskant", "Zylinderkopf", "Senkkopf", "Gewindestift", };
-            
+            Materialien = new string[] { "Baustahl", "V4A", "Messing", "Aluminium", "Kupfer" };
             //Regelgewinde = new string[] {} 
 
+            DataContext = this;
             DataContext = this;
             DataContext = this;
             DataContext = this;
@@ -112,36 +114,27 @@ namespace Schrauben
                 
             }
             //beispielsweise comboboxfüllung
-            
-            foreach (Materialarray n in tab2.getAll())
+            foreach (Festigkeitsarray o in tab3.getAll())
             {
-                cbx_Antwort4.Items.Add(n.Materialbezeichnung);
-
-                foreach (Festigkeitsarray o in tab3.getAll())
+                if (cbx_Antwort4.Text == "Baustahl")
                 {
-                    /*
-                    if (cbx_Antwort4.SelectedItem == n.Materialbezeichnung)
-                    {
-                        cbx_Antwort8.Items.Add(o.Festigkeitsklassenbezeichnung);
-                    }
-                    else
-                    {
-                        cbx_Antwort8.Items.Clear();
-                        cbx_Antwort8.Items.Add("Keine Festigkeitswerte zulässig!");
-                    }
-                    */
-
+                    cbx_Antwort8.Items.Add(o.Festigkeitsklassenbezeichnung);
+                }
+                else
+                {
+                    cbx_Antwort8.Items.Clear();
+                    cbx_Antwort8.Items.Add("Keine Festigkeitswerte zulässig!");
                 }
             }
-            
-            
+
+
 
         }
         //Wenn Combobox0 wieder geöffnet wird, wird gecleart
         private void cbx_Antwort0_DropDownOpened(object sender, EventArgs e)
         {
             cbx_Antwort1.Items.Clear();
-            cbx_Antwort4.Items.Clear();
+            //cbx_Antwort4.Items.Clear();
         }
         //Wenn Combobox1 geschlossen wird
         private void cbx_Antwort1_DropDownClosed(object sender, EventArgs e)
