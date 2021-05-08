@@ -26,8 +26,8 @@ namespace Schrauben
             //Leerzeichen ergeben keine Fehler
             test1.Wunschgewindeart = test1.Wunschgewindeart.Replace(" ", String.Empty);
 
-            //Console.WriteLine("Welcher Schraubenkopftyp ist gewünscht? (Sechskant/Zylinderkopf/Senkkopf/Gewindestift)");
-            //test1.Wunschschraubenkopf = Console.ReadLine();
+            Console.WriteLine("Welcher Schraubenkopftyp ist gewünscht? (Sechskant/Zylinderkopf/Senkkopf/Gewindestift)");
+            test1.Wunschschraubenkopf = Console.ReadLine();
 
             Console.WriteLine("Wie lang soll das Gewinde sein?");
             test1.Wunschgewindelaenge = double.Parse(Console.ReadLine());
