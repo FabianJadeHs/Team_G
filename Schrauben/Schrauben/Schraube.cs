@@ -177,7 +177,7 @@ namespace Schrauben
                 }
                   
             }
-            Console.WriteLine("Der Schwerpunkt liegt" + schwerpunkt + "mm unterhalb des Schraubenkopfes");
+            Console.WriteLine("Der Schwerpunkt liegt " + schwerpunkt + " mm unterhalb des Schraubenkopfes");
         }
 
         public void Spannungsquerschnitt() //Unterprogramm Spannungsquerschnittsberechnung
@@ -211,7 +211,7 @@ namespace Schrauben
                 ftm = Math.Pow((spannungsquerschnitt / (4 / Math.PI)), 2) * (Math.PI / 32);
             }
 
-            Console.WriteLine("Das Flächenträgheitsmoment beträgt" + ftm + "mm^4");
+            Console.WriteLine("Das Flächenträgheitsmoment beträgt " + ftm + " mm^4");
         }
 
         
@@ -230,7 +230,7 @@ namespace Schrauben
                 
             }
             // Ausgabe der Vorspannkraft
-            Console.WriteLine("Vorspannkraft beträgt" + vorspannkraft + "N"); 
+            Console.WriteLine("Vorspannkraft beträgt " + vorspannkraft + " N"); 
         }
      
 
