@@ -68,7 +68,7 @@
                     <StackPanel Margin="3.4,0,0,-0.2" Grid.Column="1">
                         <ComboBox x:Name="cbx_Antwort4" DropDownClosed="cbx_Antwort4_DropDownClosed" Margin="2,0,2,11"/>
                         <TextBox x:Name="txtb_Antwort5" Margin="2,0,2,12" PreviewTextInput="NumbervalidationTextBox"/>
-                        <ComboBox x:Name="cbx_Antwort6" DropDownClosed="cbx_Antwort6_DropDownClosed" Margin="2,0,2,12"/>
+                        <ComboBox x:Name="cbx_Antwort6" ItemsSource="{Binding Kopfarten}" DropDownClosed="cbx_Antwort6_DropDownClosed" Margin="2,0,2,12"/>
                         <ComboBox x:Name="cbx_Antwort8" Margin="2,0,2,0"/>
                     </StackPanel>
                 </Grid>
