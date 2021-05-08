@@ -89,16 +89,14 @@ namespace Schrauben
                 
                 if (cbx_Antwort0.Text == "Regelgewinde")
                 {
+                   /* string[] Regelgewind = new string[33];
+
+                    Array.ConstrainedCopy(m.Gewindebezeichnung, 0, Regelgewind, 0, 32);
+                   */
+
                     cbx_Antwort1.Items.Add(m.Gewindebezeichnung);
 
-                    /*
-                    int j = 0;
-                    while(m.Gewindebezeichnung != "0")
-                    {
-                        cbx_Antwort1.Items.Add(m.Gewindebezeichnung{j};);
-                        j++;
-                    }
-                    */                    
+                               
                 }
                 //Wenn Feingewinde ausgewählt
                 if (cbx_Antwort0.Text == "Feingewinde")
