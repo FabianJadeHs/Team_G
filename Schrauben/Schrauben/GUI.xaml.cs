@@ -65,6 +65,7 @@ namespace Schrauben
             btn_Berechnen.Visibility = Visibility.Visible;
             img_Logo.Visibility = Visibility.Visible;
             img_Schraubenschema.Visibility = Visibility.Visible;
+            btn_Konfigurieren.Visibility = Visibility.Hidden;
         }
         //Wenn Combobox0 geschlossen wird
         private void cbx_Antwort0_DropDownClosed(object sender, EventArgs e)
