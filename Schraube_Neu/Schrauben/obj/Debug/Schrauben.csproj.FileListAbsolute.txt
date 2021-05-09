@@ -28,3 +28,18 @@ C:\Users\kayas\Desktop\x\Program\Schrauben\obj\Debug\Schrauben.g.resources
 C:\Users\kayas\Desktop\x\Program\Schrauben\obj\Debug\Schrauben.csproj.CoreCompileInputs.cache
 C:\Users\kayas\Desktop\x\Program\Schrauben\obj\Debug\Schrauben.exe
 C:\Users\kayas\Desktop\x\Program\Schrauben\obj\Debug\Schrauben.pdb
+C:\Users\Anwender\OneDrive\Desktop\Hochschule\AAA\HSP Mecke\Team_G\Team_G\Schraube_Neu\Schrauben\bin\Debug\Firmenbild.png
+C:\Users\Anwender\OneDrive\Desktop\Hochschule\AAA\HSP Mecke\Team_G\Team_G\Schraube_Neu\Schrauben\bin\Debug\Schraubenschema.png
+C:\Users\Anwender\OneDrive\Desktop\Hochschule\AAA\HSP Mecke\Team_G\Team_G\Schraube_Neu\Schrauben\bin\Debug\Schrauben.exe.config
+C:\Users\Anwender\OneDrive\Desktop\Hochschule\AAA\HSP Mecke\Team_G\Team_G\Schraube_Neu\Schrauben\bin\Debug\Schrauben.exe
+C:\Users\Anwender\OneDrive\Desktop\Hochschule\AAA\HSP Mecke\Team_G\Team_G\Schraube_Neu\Schrauben\bin\Debug\Schrauben.pdb
+C:\Users\Anwender\OneDrive\Desktop\Hochschule\AAA\HSP Mecke\Team_G\Team_G\Schraube_Neu\Schrauben\obj\Debug\Schrauben.csprojAssemblyReference.cache
+C:\Users\Anwender\OneDrive\Desktop\Hochschule\AAA\HSP Mecke\Team_G\Team_G\Schraube_Neu\Schrauben\obj\Debug\GUI.g.cs
+C:\Users\Anwender\OneDrive\Desktop\Hochschule\AAA\HSP Mecke\Team_G\Team_G\Schraube_Neu\Schrauben\obj\Debug\Schrauben_Content.g.cs
+C:\Users\Anwender\OneDrive\Desktop\Hochschule\AAA\HSP Mecke\Team_G\Team_G\Schraube_Neu\Schrauben\obj\Debug\Schrauben_MarkupCompile.cache
+C:\Users\Anwender\OneDrive\Desktop\Hochschule\AAA\HSP Mecke\Team_G\Team_G\Schraube_Neu\Schrauben\obj\Debug\Schrauben_MarkupCompile.lref
+C:\Users\Anwender\OneDrive\Desktop\Hochschule\AAA\HSP Mecke\Team_G\Team_G\Schraube_Neu\Schrauben\obj\Debug\GUI.baml
+C:\Users\Anwender\OneDrive\Desktop\Hochschule\AAA\HSP Mecke\Team_G\Team_G\Schraube_Neu\Schrauben\obj\Debug\Schrauben.g.resources
+C:\Users\Anwender\OneDrive\Desktop\Hochschule\AAA\HSP Mecke\Team_G\Team_G\Schraube_Neu\Schrauben\obj\Debug\Schrauben.csproj.CoreCompileInputs.cache
+C:\Users\Anwender\OneDrive\Desktop\Hochschule\AAA\HSP Mecke\Team_G\Team_G\Schraube_Neu\Schrauben\obj\Debug\Schrauben.exe
+C:\Users\Anwender\OneDrive\Desktop\Hochschule\AAA\HSP Mecke\Team_G\Team_G\Schraube_Neu\Schrauben\obj\Debug\Schrauben.pdb
