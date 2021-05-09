@@ -173,34 +173,25 @@ namespace Schrauben
 
             Schraube test1 = new Schraube();
 
-            //Kundeneingaben wie er die Schraube haben möchte
+            
 
             test1.Wunschgewindeart = cbx_Antwort1.Text;
-
-            //Groß und Kleinschreibung sind durch den Befehl egal
+                       
             test1.Wunschgewindeart = test1.Wunschgewindeart.ToUpper();
-            //Leerzeichen ergeben keine Fehler
+            
             test1.Wunschgewindeart = test1.Wunschgewindeart.Replace(" ", String.Empty);
-
 
             test1.Wunschschraubenkopf = cbx_Antwort6.Text;
 
-
             test1.Wunschgewindelaenge = double.Parse(txtb_Antwort2.Text);
-
-            Console.WriteLine("Wie lang soll der Schaft sein?");
+                                 
             test1.Wunschschaftlaenge = double.Parse(txtb_Antwort3.Text);
-
 
             test1.Wunschmaterial = cbx_Antwort4.Text;
 
-
             //test1.Wunschfestigkeit = Console.ReadLine();
 
-
             test1.Wunschanzahl = double.Parse(txtb_Antwort5.Text);
-
-
 
             //Unterprogramme werden abgerufen und geben Werte aus
             double rundung = test1.Rundung();
@@ -211,10 +202,8 @@ namespace Schrauben
             double volumen = test1.Volumen();
             richTextBox.AppendText("Das Volumen einer Schraube beträgt " + volumen + " mm³." + Environment.NewLine);
 
-
             double gewicht = test1.Gewicht();
             richTextBox.AppendText("Das Gewicht einer Schraube beträgt " + gewicht + " in g." + Environment.NewLine);
-
 
             double preis = test1.Preis();
             richTextBox.AppendText("Der Preis aller Schrauben beziffert sich auf " + preis + " Euro insgesamt." + Environment.NewLine);
