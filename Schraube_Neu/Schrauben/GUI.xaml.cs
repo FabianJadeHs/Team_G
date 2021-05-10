@@ -160,17 +160,7 @@ namespace Schrauben
         #region Variablenzuweisung
         private void btn_Berechnen_Click(object sender, RoutedEventArgs e)
         {
-
-            /*
-            Guiversuch.Wunschgewindeart = cbx_Antwort1.Text;
-            Guiversuch.Wunschmaterial = cbx_Antwort4.Text;
-            Guiversuch.Wunschschraubenkopf = cbx_Antwort6.Text;
-            Guiversuch.Wunschgewindelaenge = double.Parse(txtb_Antwort2.Text);
-            Guiversuch.Wunschschaftlaenge = double.Parse(txtb_Antwort3.Text);
-            Guiversuch.Wunschanzahl = double.Parse(txtb_Antwort5.Text);
-            */
-
-
+                       
             Schraube test1 = new Schraube();
 
             
