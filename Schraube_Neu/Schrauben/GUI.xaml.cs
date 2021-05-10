@@ -49,9 +49,7 @@ namespace Schrauben
             //Regelgewinde = new string[] {} 
 
             DataContext = this;
-            DataContext = this;
-            DataContext = this;
-            DataContext = this;
+           
             
         }
         #endregion
@@ -81,37 +79,55 @@ namespace Schrauben
             Materialtabelle tab2 = new Materialtabelle();
             Festigkeitstabelle tab3 = new Festigkeitstabelle();
 
-            //Schraubenarray wird zeilenweise durchgegangen
-            foreach (Schraubenarray m in tab.getAll())
+
+
+            if (cbx_Antwort0.Text == "Regelgewinde")
             {
-                //wenn Regelgewinde ausgewähl, dann wird nur passendes angezeigt
-                //passt noch nicht, weil alles angezeigt wird
-                
-                if (cbx_Antwort0.Text == "Regelgewinde")
-                {
-                   /* string[] Regelgewind = new string[33];
 
-                    Array.ConstrainedCopy(m.Gewindebezeichnung, 0, Regelgewind, 0, 32);
-                   */
+                Schraubenarray[] Regelgewind = new Schraubenarray[33];
 
-                    cbx_Antwort1.Items.Add(m.Gewindebezeichnung);
+                Array.Copy(tab.getAll(), 0, Regelgewind, 0, 33);
+                //Schraubenarray wird zeilenweise durchgegangen
+                foreach (Schraubenarray m in Regelgewind)
 
-                               
-                }
-                //Wenn Feingewinde ausgewählt
-                if (cbx_Antwort0.Text == "Feingewinde")
-                {
-                    //Alles wird geschlossen
-                    //Environment.Exit(0);
-                    cbx_Antwort1.Items.Add(m.Gewindebezeichnung);
-                }
-                //Wenn Trapezgewinde ausgewählt
-                if (cbx_Antwort0.Text == "Trapezgewinde")
                 {
                     cbx_Antwort1.Items.Add(m.Gewindebezeichnung);
+
                 }
-                
             }
+
+            
+            if (cbx_Antwort0.Text == "Feingewinde")
+            {
+                Schraubenarray[] feinSchraubeArray = new Schraubenarray[51];
+
+                Array.Copy(tab.getAll(), 34, feinSchraubeArray, 0, 51);
+                //Schraubenarray wird zeilenweise durchgegangen
+                foreach (Schraubenarray m in feinSchraubeArray)
+
+                {
+                    cbx_Antwort1.Items.Add(m.Gewindebezeichnung);
+
+                }
+            }
+
+
+            if (cbx_Antwort0.Text == "Trapezgewinde")
+            {
+                Schraubenarray[] trapezSchraubeArray = new Schraubenarray[24];
+
+                Array.Copy(tab.getAll(), 85, trapezSchraubeArray, 0, 24);
+                //Schraubenarray wird zeilenweise durchgegangen
+                foreach (Schraubenarray m in trapezSchraubeArray)
+
+                {
+                    cbx_Antwort1.Items.Add(m.Gewindebezeichnung);
+
+                }
+            }
+            
+                
+            
             //beispielsweise comboboxfüllung
             foreach (Festigkeitsarray o in tab3.getAll())
             {
