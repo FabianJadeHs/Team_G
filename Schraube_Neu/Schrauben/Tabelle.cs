@@ -42,7 +42,7 @@ namespace Schrauben
                 liste.Add(new Schraubenarray { Gewindebezeichnung = Gewindebezeichnung, Steigung = Steigung, Schluesselweite = Schluesselweite, Nenndurchmesser = Nenndurchmesser, Schraubenkopfhoehe = Schraubenkopfhoehe, Schraubenkopfbreite = Schraubenkopfbreite, InnensechskantZ = InnensechskantZ, SechskanttiefeZ = SechskanttiefeZ, KopfhoeheZ = KopfhoeheZ, KopfdurchmesserZ = KopfdurchmesserZ, InnensechskantS = InnensechskantS, SechskanttiefeS = SechskanttiefeS, KopfhoeheS = KopfhoeheS, KopfdurchmesserS = KopfdurchmesserS, InnensechkantGS = InnensechskantGS, SechskanttiefeGS = SechskanttiefeGS });
             }
         }
-        //Ausgabe der Daten als Array weil Array kann nicht verändert werden
+        //Ausgabe der Daten als Array, weil Array nicht verändert werden kann
         public Schraubenarray[] getAll()
         {
             return liste.ToArray();
