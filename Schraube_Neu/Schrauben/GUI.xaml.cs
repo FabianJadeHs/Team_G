@@ -203,30 +203,30 @@ namespace Schrauben
 
             //Unterprogramme werden abgerufen und geben Werte aus
             double rundung = test1.Rundung();
-            richTextBox.AppendText("Die Rundung beträgt " + rundung + " mm." + Environment.NewLine);
+            richTextBox.AppendText("Die Rundung beträgt " + Math.Round(rundung,3) + " mm." + Environment.NewLine);
 
             test1.Kopfvolumen();
 
             double volumen = test1.Volumen();
-            richTextBox.AppendText("Das Volumen einer Schraube beträgt " + volumen + " mm³." + Environment.NewLine);
+            richTextBox.AppendText("Das Volumen einer Schraube beträgt " + Math.Round(volumen,2) + " mm³." + Environment.NewLine);
 
             double gewicht = test1.Gewicht();
-            richTextBox.AppendText("Das Gewicht einer Schraube beträgt " + gewicht + " in g." + Environment.NewLine);
+            richTextBox.AppendText("Das Gewicht einer Schraube beträgt " + Math.Round(gewicht,2) + " in g." + Environment.NewLine);
 
             double preis = test1.Preis();
-            richTextBox.AppendText("Der Preis aller Schrauben beziffert sich auf " + preis + " Euro insgesamt." + Environment.NewLine);
+            richTextBox.AppendText("Der Preis aller Schrauben beziffert sich auf " + Math.Round(preis,2) + " Euro insgesamt." + Environment.NewLine);
 
             double schwerpunkt = test1.Schwerpunkt();
-            richTextBox.AppendText("Der Schwerpunkt liegt " + schwerpunkt + " mm unterhalb des Schraubenkopfes" + Environment.NewLine);
+            richTextBox.AppendText("Der Schwerpunkt liegt " + Math.Round(schwerpunkt,2) + " mm unterhalb des Schraubenkopfes" + Environment.NewLine);
 
             double spannungsquerschnitt = test1.Spannungsquerschnitt();
-            richTextBox.AppendText("Der Spannungsquerschnitt einer Schraube beträgt " + spannungsquerschnitt + " mm²." + Environment.NewLine);
+            richTextBox.AppendText("Der Spannungsquerschnitt einer Schraube beträgt " + Math.Round(spannungsquerschnitt,2) + " mm²." + Environment.NewLine);
 
             double ftm = test1.Flaechentraegheitsmoment();
-            richTextBox.AppendText("Das Flächenträgheitsmoment beträgt " + ftm + " mm^4" + Environment.NewLine);
+            richTextBox.AppendText("Das Flächenträgheitsmoment beträgt " + Math.Round(ftm,2) + " mm^4" + Environment.NewLine);
 
             double vorspannkraft = test1.Vorspannkraft();
-            richTextBox.AppendText("Vorspannkraft beträgt " + vorspannkraft + " N" + Environment.NewLine);
+            richTextBox.AppendText("Vorspannkraft beträgt " + Math.Round(vorspannkraft,2) + " N" + Environment.NewLine);
 
             double schluesselweite = test1.Schluesselweite();
             richTextBox.AppendText("Die Schluesselweite beträgt " + schluesselweite  + Environment.NewLine);

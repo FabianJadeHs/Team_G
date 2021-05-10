@@ -82,7 +82,7 @@
                     <StackPanel Grid.Column="0">
                         <Label/>
                     </StackPanel>
-                    <RichTextBox x:Name="richTextBox" HorizontalAlignment="Left" Height="217" Margin="10,10,0,0" VerticalAlignment="Top" Width="526" Grid.ColumnSpan="2">
+                    <RichTextBox IsReadOnly="True" x:Name="richTextBox" HorizontalAlignment="Left" Height="217" Margin="10,10,0,0" VerticalAlignment="Top" Width="526" Grid.ColumnSpan="2">
                         <FlowDocument>
                             <Paragraph>
                                 <Run Text=""/>

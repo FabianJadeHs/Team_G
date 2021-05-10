@@ -16,8 +16,8 @@ namespace Schrauben
             fenster.Content = meinGUI;
             fenster.ShowDialog();
 
-            Console.WriteLine("Press any key...");
-            Console.ReadKey();
+            //Console.WriteLine("Press any key...");
+            //Console.ReadKey();
 
             
         }
