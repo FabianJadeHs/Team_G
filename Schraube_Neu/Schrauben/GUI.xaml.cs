@@ -102,7 +102,8 @@ namespace Schrauben
                 if (cbx_Antwort0.Text == "Feingewinde")
                 {
                     //Alles wird geschlossen
-                    Environment.Exit(0);
+                    //Environment.Exit(0);
+                    cbx_Antwort1.Items.Add(m.Gewindebezeichnung);
                 }
                 //Wenn Trapezgewinde ausgewählt
                 if (cbx_Antwort0.Text == "Trapezgewinde")
@@ -114,6 +115,8 @@ namespace Schrauben
             //beispielsweise comboboxfüllung
             foreach (Festigkeitsarray o in tab3.getAll())
             {
+                cbx_Antwort8.Items.Add(o.Festigkeitsklassenbezeichnung);
+                /*
                 if (cbx_Antwort4.Text == "Baustahl")
                 {
                     cbx_Antwort8.Items.Add(o.Festigkeitsklassenbezeichnung);
@@ -122,7 +125,7 @@ namespace Schrauben
                 {
                     cbx_Antwort8.Items.Clear();
                     cbx_Antwort8.Items.Add("Keine Festigkeitswerte zulässig!");
-                }
+                }*/
             }
 
 
@@ -160,7 +163,7 @@ namespace Schrauben
         #region Variablenzuweisung
         private void btn_Berechnen_Click(object sender, RoutedEventArgs e)
         {
-                       
+            
             Schraube test1 = new Schraube();
 
             
@@ -179,7 +182,7 @@ namespace Schrauben
 
             test1.Wunschmaterial = cbx_Antwort4.Text;
 
-            //test1.Wunschfestigkeit = Console.ReadLine();
+            test1.Wunschfestigkeit = cbx_Antwort8.Text;
 
             test1.Wunschanzahl = double.Parse(txtb_Antwort5.Text);
 
