@@ -6,7 +6,7 @@ namespace Schrauben
 {
     class Materialtabelle
     {
-        //Liste kann nicht direkt eingesehen oder geändert werden um Datenhoheit zu haben
+        //Liste kann nicht direkt eingesehen oder geändert werden, um Datenhoheit zu haben
         private List<Materialarray> liste;
 
         public Materialtabelle()
@@ -30,7 +30,7 @@ namespace Schrauben
 
             }
         }
-        //Ausgabe der Daten als Array weil Array kann nicht verändert werden
+        //Ausgabe der Daten als Array, weil Array nicht verändert werden kann
         public Materialarray[] getAll()
         {
             return liste.ToArray();
