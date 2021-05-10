@@ -71,13 +71,14 @@ namespace Schrauben
             img_Schraubenschema.Visibility = Visibility.Visible;
             btn_Konfigurieren.Visibility = Visibility.Hidden;
         }
+        Festigkeitstabelle tab3 = new Festigkeitstabelle();
         //Wenn Combobox0 geschlossen wird
         private void cbx_Antwort0_DropDownClosed(object sender, EventArgs e)
         {
             //neue Tabellen werden deklariert
             Tabelle tab = new Tabelle();
             Materialtabelle tab2 = new Materialtabelle();
-            Festigkeitstabelle tab3 = new Festigkeitstabelle();
+            
 
 
 
@@ -125,27 +126,6 @@ namespace Schrauben
 
                 }
             }
-            
-                
-            
-            //beispielsweise comboboxfüllung
-            foreach (Festigkeitsarray o in tab3.getAll())
-            {
-                cbx_Antwort8.Items.Add(o.Festigkeitsklassenbezeichnung);
-                /*
-                if (cbx_Antwort4.Text == "Baustahl")
-                {
-                    cbx_Antwort8.Items.Add(o.Festigkeitsklassenbezeichnung);
-                }
-                else
-                {
-                    cbx_Antwort8.Items.Clear();
-                    cbx_Antwort8.Items.Add("Keine Festigkeitswerte zulässig!");
-                }*/
-            }
-
-
-
         }
         //Wenn Combobox0 wieder geöffnet wird, wird gecleart
         private void cbx_Antwort0_DropDownOpened(object sender, EventArgs e)
@@ -153,22 +133,17 @@ namespace Schrauben
             cbx_Antwort1.Items.Clear();
             //cbx_Antwort4.Items.Clear();
         }
-        private void cbx_Antwort1_DropDownClosed(object sender, EventArgs e)
+        private void cbx_Antwort4_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-        }
-        private void cbx_Antwort4_DropDownClosed(object sender, EventArgs e)
-        {
-
-
-        }
-        private void cbx_Antwort6_DropDownClosed(object sender, EventArgs e)
-        {
-
-        }
-        private void cbx_Antwort7_DropDownClosed(object sender, EventArgs e)
-        {
-
+            if (cbx_Antwort4.Text == "Baustahl")
+            {
+                Festigkeitsarray BaustahlFestigkeitsarray = new Festigkeitsarray[10];
+                Array.Copy(tab3.getAll(), 0, BaustahlFestigkeitsarray, 0, 10);
+                foreach (Materialarray o in BaustahlFestigkeitsarray)
+                {
+                    cbx_Antwort8.
+                }
+            }
         }
         private void NumbervalidationTextBox(object sender, TextCompositionEventArgs e)
         {
@@ -179,6 +154,7 @@ namespace Schrauben
         #region Variablenzuweisung
         private void btn_Berechnen_Click(object sender, RoutedEventArgs e)
         {
+            
             //neues Objekt wird erzeugt
             Schraube test1 = new Schraube();
 
@@ -236,5 +212,7 @@ namespace Schrauben
                        
         }
         #endregion
+
+
     }
 }
