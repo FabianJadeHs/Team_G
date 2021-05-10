@@ -14,7 +14,7 @@ namespace Schrauben
         static void Main()
         {
             new GUI_control();
-
+            /*
             Schraube test1 = new Schraube();
             
 
@@ -58,7 +58,7 @@ namespace Schrauben
 
             Console.ReadKey();
 
-            
+            */
 
         }
         
