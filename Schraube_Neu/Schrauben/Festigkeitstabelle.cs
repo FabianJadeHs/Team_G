@@ -31,7 +31,7 @@ namespace Schrauben
 
             }
         }
-        //Ausgabe der Daten als Array weil Array kann nicht verändert werden
+        //Ausgabe der Daten als Array, weil Array nicht verändert werden kann
         public Festigkeitsarray[] getAll()
         {
             return liste.ToArray();
