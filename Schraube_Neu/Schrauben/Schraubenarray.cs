@@ -2,7 +2,7 @@
 {
     class Schraubenarray
     {
-        //Eigenschaften des Arrays werden definiert
+        // Eigenschaften des Arrays werden definiert, enthält alle wichtigen Werte für die Berechnungen
         public string Gewindebezeichnung { get; set; }
         public double Steigung { get; set; }
         public double Schluesselweite { get; set; }
