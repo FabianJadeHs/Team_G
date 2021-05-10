@@ -31,6 +31,9 @@ namespace Schrauben
         double d3 = 0;    // Kerndurchmesser des Außengewindes
         double ftm = 0;
         double vorspannkraft = 0;
+        double schluesselweite = 0;
+        double steigung = 0;
+
 
         public double Rundung() //Unterprogramm Rundungsberechnung
         {
@@ -51,7 +54,7 @@ namespace Schrauben
             Console.WriteLine("Die Rundung beträgt " + rundung + " mm.");
             return rundung;
         }
-        
+
         public void Kopfvolumen()  // Unterprogramm Kopfvolumen, zum Abdecken verschiedener Kopfarten
         {
             //neue Tabelle wird deklariert
@@ -67,28 +70,28 @@ namespace Schrauben
 
                 else if (Wunschgewindeart == m.Gewindebezeichnung && Wunschschraubenkopf == "Zylinderkopf")  // Volumenberechnung Zylinderkopf
                 {
-                    kopfvolumen = m.KopfhoeheZ * Math.PI * Math.Pow((m.KopfdurchmesserZ / 2), 2) - (2.598 * Math.Pow((m.InnensechskantZ / 2), 2) * m.SechskanttiefeZ); 
+                    kopfvolumen = m.KopfhoeheZ * Math.PI * Math.Pow((m.KopfdurchmesserZ / 2), 2) - (2.598 * Math.Pow((m.InnensechskantZ / 2), 2) * m.SechskanttiefeZ);
                 }
 
-                else if(Wunschgewindeart == m.Gewindebezeichnung && Wunschschraubenkopf == "Senkkopf")   // Volumenberechnung Senkkopf
+                else if (Wunschgewindeart == m.Gewindebezeichnung && Wunschschraubenkopf == "Senkkopf")   // Volumenberechnung Senkkopf
                 {
                     kopfvolumen = (((Math.PI * (m.KopfhoeheS)) / 12) * (Math.Pow((m.KopfdurchmesserS), 2) + Math.Pow((m.Nenndurchmesser), 2) + ((m.KopfdurchmesserS) * (m.Nenndurchmesser)))) - (2.598 * Math.Pow((m.InnensechskantS / 2), 2) * m.SechskanttiefeS);
                 }
 
-                else if(Wunschgewindeart == m.Gewindebezeichnung && Wunschschraubenkopf == "Gewindestift")  // Volumenberechnung "Kopf" des Gewindestiftes, Volumen wird negativ, da "Kopf" im Gewinde
+                else if (Wunschgewindeart == m.Gewindebezeichnung && Wunschschraubenkopf == "Gewindestift")  // Volumenberechnung "Kopf" des Gewindestiftes, Volumen wird negativ, da "Kopf" im Gewinde
                 {
-                    kopfvolumen = - 2.598 * Math.Pow((m.InnensechkantGS / 2), 2) * m.SechskanttiefeGS;
+                    kopfvolumen = -2.598 * Math.Pow((m.InnensechkantGS / 2), 2) * m.SechskanttiefeGS;
                 }
-                                                
+
             }
         }
-        
+
 
         public double Volumen() //Unterprogramm Volumenberechnung
         {
             //neue Tabelle wird deklariert
             Tabelle tab = new Tabelle();
-            
+
 
             //Schraubenarray wird zeilenweise durchgegangen
             foreach (Schraubenarray m in tab.getAll())
@@ -160,26 +163,26 @@ namespace Schrauben
                 // Summe der Volumen * Abstand geteilt durch die Summe der Volumen
                 // Aufgrund unterschiedlicher Geometrien muss hier zwischen den unterschiedlichen Köpfen unterschieden werden
 
-                if (Wunschschraubenkopf == "Sechskant")    
+                if (Wunschschraubenkopf == "Sechskant")
                 {
                     schwerpunkt = (kopfvolumen * (-m.Schraubenkopfhoehe / 2) + schaftvolumen * (gesamtlaenge / 2)) / (kopfvolumen + schaftvolumen);
                 }
 
-                else if (Wunschschraubenkopf == "Zylinderkopf")  
+                else if (Wunschschraubenkopf == "Zylinderkopf")
                 {
                     schwerpunkt = (kopfvolumen * (-m.KopfhoeheZ / 2) + schaftvolumen * (gesamtlaenge / 2)) / (kopfvolumen + schaftvolumen);
                 }
 
-                else if (Wunschschraubenkopf == "Senkkopf") 
+                else if (Wunschschraubenkopf == "Senkkopf")
                 {
                     schwerpunkt = (kopfvolumen * (-m.KopfhoeheS / 2) + schaftvolumen * (gesamtlaenge / 2)) / (kopfvolumen + schaftvolumen);
                 }
 
-                else if (Wunschschraubenkopf == "Gewindestift")  
+                else if (Wunschschraubenkopf == "Gewindestift")
                 {
                     schwerpunkt = (kopfvolumen * (-m.SechskanttiefeGS / 2) + schaftvolumen * (gesamtlaenge / 2)) / (kopfvolumen + schaftvolumen);
                 }
-                  
+
             }
             Console.WriteLine("Der Schwerpunkt liegt " + schwerpunkt + " mm unterhalb des Schraubenkopfes");
             return schwerpunkt;
@@ -189,7 +192,7 @@ namespace Schrauben
         {
             //neue Tabelle wird erzeugt
             Tabelle tab = new Tabelle();
-            
+
 
             //Array wird zeilenweise durchgegangen
             foreach (Schraubenarray m in tab.getAll())
@@ -221,7 +224,7 @@ namespace Schrauben
             return ftm;
         }
 
-        
+
         public double Vorspannkraft()
         {
             //neue Tabelle wird deklariert
@@ -234,13 +237,13 @@ namespace Schrauben
                     //Berechnung der benötigten Vorspannkraft
                     vorspannkraft = spannungsquerschnitt * 0.9 * o.Streckgrenze;
                 }
-                
+
             }
             // Ausgabe der Vorspannkraft
             Console.WriteLine("Vorspannkraft beträgt " + vorspannkraft + " N");
             return vorspannkraft;
         }
-     
+
 
         public string Standardausgaben()
         {
@@ -263,7 +266,7 @@ namespace Schrauben
                     Console.WriteLine("Die Schlüsselweite ist " + m.Schluesselweite);
 
                     merge = m.Steigung.ToString() + "," + m.Schraubenkopfbreite.ToString() + "," + m.Schluesselweite.ToString();
-                   
+
 
                 }
             }
@@ -271,6 +274,36 @@ namespace Schrauben
             return merge;
         }
 
+        public double Schluesselweite()
+        {
+            Tabelle tab = new Tabelle();
+            foreach (Schraubenarray m in tab.getAll())
+            {
 
+                if (Wunschgewindeart == m.Gewindebezeichnung)
+                {
+                    schluesselweite = m.Schluesselweite;
+                }
+            }
+
+            return schluesselweite;
+
+        }
+
+        public double Steigung()
+        {
+            Tabelle tab = new Tabelle();
+            foreach (Schraubenarray m in tab.getAll())
+            {
+
+                if (Wunschgewindeart == m.Gewindebezeichnung)
+                {
+                    steigung = m.Steigung;
+                }
+            }
+
+            return steigung;
+
+        }
     }
 }
