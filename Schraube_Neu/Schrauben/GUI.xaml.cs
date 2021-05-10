@@ -71,7 +71,7 @@ namespace Schrauben
             img_Schraubenschema.Visibility = Visibility.Visible;
             btn_Konfigurieren.Visibility = Visibility.Hidden;
         }
-        Festigkeitstabelle tab3 = new Festigkeitstabelle();
+        
         //Wenn Combobox0 geschlossen wird
         private void cbx_Antwort0_DropDownClosed(object sender, EventArgs e)
         {
@@ -133,18 +133,30 @@ namespace Schrauben
             cbx_Antwort1.Items.Clear();
             //cbx_Antwort4.Items.Clear();
         }
-        private void cbx_Antwort4_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        private void cbx_Antwort4_DropDownClosed(object sender, EventArgs e)
         {
+
+            cbx_Antwort8.Items.Clear();
+            Festigkeitstabelle tab3 = new Festigkeitstabelle();
+
             if (cbx_Antwort4.Text == "Baustahl")
             {
-                Festigkeitsarray BaustahlFestigkeitsarray = new Festigkeitsarray[10];
+                Festigkeitsarray[] BaustahlFestigkeitsarray = new Festigkeitsarray[10];
                 Array.Copy(tab3.getAll(), 0, BaustahlFestigkeitsarray, 0, 10);
-                foreach (Materialarray o in BaustahlFestigkeitsarray)
+                foreach (Festigkeitsarray p in BaustahlFestigkeitsarray)
+
                 {
-                    cbx_Antwort8.
+                    cbx_Antwort8.Items.Add(p.Festigkeitsklassenbezeichnung);
                 }
             }
+
+            else
+            {
+                cbx_Antwort8.Items.Add("Standard Festigkeiten");
+            }
         }
+
         private void NumbervalidationTextBox(object sender, TextCompositionEventArgs e)
         {
             //nur Eingaben von 0 bis 9 sind möglich
@@ -211,8 +223,9 @@ namespace Schrauben
             richTextBox.AppendText("Die Steigung beträgt " + steigung + Environment.NewLine);
                        
         }
+
         #endregion
 
-
+       
     }
 }
