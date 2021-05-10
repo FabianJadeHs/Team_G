@@ -6,7 +6,7 @@ namespace Schrauben
 {
     class Tabelle
     {
-        //Liste kann nicht direkt eingesehen oder geändert werden um Datenhoheit zu haben
+        //Liste kann nicht direkt eingesehen oder geändert werden, um Datenhoheit zu haben
         private List<Schraubenarray> liste;
 
         public Tabelle()
@@ -14,7 +14,7 @@ namespace Schrauben
             //neue leere Liste
             liste = new List<Schraubenarray>();
 
-            //Daten werden aus csv Datein eingelesen; wird zeilenweise als strings eingelesen
+            //Daten werden aus csv Datei eingelesen; wird zeilenweise als strings eingelesen
             string[] zeilen = File.ReadAllLines(@"..\..\..\Schrauben.csv");
 
             //für jede Zeile wird der string in Werte getrennt und als Array erzeugt
