@@ -228,15 +228,12 @@ namespace Schrauben
             double vorspannkraft = test1.Vorspannkraft();
             richTextBox.AppendText("Vorspannkraft beträgt " + vorspannkraft + " N" + Environment.NewLine);
 
-            string sda = test1.Standardausgaben();
+            double schluesselweite = test1.Schluesselweite();
+            richTextBox.AppendText("Die Schluesselweite beträgt " + schluesselweite  + Environment.NewLine);
 
-            string split = sda;
-            List<string> list = new List<string>();
-            list = split.Split(',').ToList();
-
-            richTextBox.AppendText("Die Gewindesteigung der Schraube beträgt " + list[0] + " mm." + Environment.NewLine);
-            richTextBox.AppendText("Die Schraubenkopfbreite beträgt " + list[1] + " mm." + Environment.NewLine);
-            richTextBox.AppendText("Die Schlüsselweite ist " + list[2] + Environment.NewLine);
+            double steigung = test1.Steigung();
+            richTextBox.AppendText("Die Steigung beträgt " + steigung + Environment.NewLine);
+                       
         }
         #endregion
     }
