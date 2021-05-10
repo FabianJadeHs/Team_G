@@ -4,7 +4,7 @@ namespace Schrauben
 {
     class Schraube
     {
-        //Eigenschaften der Schraube
+        // Eigenschaften der Schraube
         public double Gewindelaenge { get; set; }
         public double Schaftlaenge { get; set; }
         public double Material { get; set; }
@@ -17,7 +17,7 @@ namespace Schrauben
         public string Wunschschraubenkopf { get; set; }
         public string Wunschfestigkeit { get; set; }
 
-        //globale Variablen innerhalb der class werden definiert damit Unterprogramme kürzer sind
+        // globale Variablen innerhalb der class werden definiert damit Unterprogramme kürzer sind
         double rundung = 0;
         double volumen = 0;
         double kopfvolumen = 0;
@@ -62,6 +62,7 @@ namespace Schrauben
 
             foreach (Schraubenarray m in tab.getAll())
             {
+                //in Zeilen werden die Gewindebezeichnungen auf Gleichheit mit dem Wunschgewinde UND die Auswahl des Schraubenkopfes geprüft
                 //das Volumen der verschiedenen Schraubenköpfe wird ausgerechnet
                 if (Wunschgewindeart == m.Gewindebezeichnung && Wunschschraubenkopf == "Sechskant")    // Volumenberechnung Sechskantkopf, wenn Auswahl in ComboBox entsprechend ist
                 {
@@ -82,7 +83,6 @@ namespace Schrauben
                 {
                     kopfvolumen = -2.598 * Math.Pow((m.InnensechkantGS / 2), 2) * m.SechskanttiefeGS;
                 }
-
             }
         }
 
