@@ -6,7 +6,7 @@ namespace Schrauben
 {
     class Festigkeitstabelle
     {
-        //Liste kann nicht direkt eingesehen oder geändert werden um Datenhoheit zu haben
+        //Liste kann nicht direkt eingesehen oder geändert werden, um Datenhoheit zu haben
         private List<Festigkeitsarray> liste;
 
         public Festigkeitstabelle()
