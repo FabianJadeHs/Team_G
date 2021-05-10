@@ -79,7 +79,7 @@ namespace Schrauben
             Tabelle tab = new Tabelle();
             Materialtabelle tab2 = new Materialtabelle();
             
-
+            //Abfrage nach dem Gewindetyp
 
 
             if (cbx_Antwort0.Text == "Regelgewinde")
@@ -87,7 +87,7 @@ namespace Schrauben
 
                 Schraubenarray[] Regelgewind = new Schraubenarray[33];
 
-                Array.Copy(tab.getAll(), 0, Regelgewind, 0, 33);
+                Array.Copy(tab.getAll(), 0, Regelgewind, 0, 33);            //Gibt vor, welche Zeilen des Arrays ausgegeben werden mit Beginn und Anzahl der nachfolgenden Zeilen
                 //Schraubenarray wird zeilenweise durchgegangen
                 foreach (Schraubenarray m in Regelgewind)
 
@@ -102,7 +102,7 @@ namespace Schrauben
             {
                 Schraubenarray[] feinSchraubeArray = new Schraubenarray[51];
 
-                Array.Copy(tab.getAll(), 34, feinSchraubeArray, 0, 51);
+                Array.Copy(tab.getAll(), 34, feinSchraubeArray, 0, 51);        //Gibt vor, welche Zeilen des Arrays ausgegeben werden mit Beginn und Anzahl der nachfolgenden Zeilen
                 //Schraubenarray wird zeilenweise durchgegangen
                 foreach (Schraubenarray m in feinSchraubeArray)
 
@@ -117,7 +117,7 @@ namespace Schrauben
             {
                 Schraubenarray[] trapezSchraubeArray = new Schraubenarray[24];
 
-                Array.Copy(tab.getAll(), 85, trapezSchraubeArray, 0, 24);
+                Array.Copy(tab.getAll(), 85, trapezSchraubeArray, 0, 24);     //Gibt vor, welche Zeilen des Arrays ausgegeben werden mit Beginn und Anzahl der nachfolgenden Zeilen
                 //Schraubenarray wird zeilenweise durchgegangen
                 foreach (Schraubenarray m in trapezSchraubeArray)
 
@@ -134,23 +134,25 @@ namespace Schrauben
             //cbx_Antwort4.Items.Clear();
         }
 
-        private void cbx_Antwort4_DropDownClosed(object sender, EventArgs e)
+        private void cbx_Antwort4_DropDownClosed(object sender, EventArgs e)    //Abfrage des Materials
         {
 
             cbx_Antwort8.Items.Clear();
             Festigkeitstabelle tab3 = new Festigkeitstabelle();
 
+            //Nur die Auswahl Baustahl ermöglicht das Auswählen unterschiedlicher Festigkeitsklassen
+
             if (cbx_Antwort4.Text == "Baustahl")
             {
                 Festigkeitsarray[] BaustahlFestigkeitsarray = new Festigkeitsarray[10];
-                Array.Copy(tab3.getAll(), 0, BaustahlFestigkeitsarray, 0, 10);
+                Array.Copy(tab3.getAll(), 0, BaustahlFestigkeitsarray, 0, 10);           //Stellt die entsprechenden Zeilen aus dem Array zur Auswahl dar
                 foreach (Festigkeitsarray p in BaustahlFestigkeitsarray)
 
                 {
                     cbx_Antwort8.Items.Add(p.Festigkeitsklassenbezeichnung);
                 }
             }
-
+            //Ausgabe wenn kein Baustahl ausgewählt wurde
             else
             {
                 cbx_Antwort8.Items.Add("Standard Festigkeiten");
@@ -170,7 +172,7 @@ namespace Schrauben
             //neues Objekt wird erzeugt
             Schraube test1 = new Schraube();
 
-            //benötigte Variablen werden aus Eingaben genommen
+            //benötigte Variablen werden aus Eingaben in der GUI genommen
             test1.Wunschgewindeart = cbx_Antwort1.Text;
                        
             test1.Wunschgewindeart = test1.Wunschgewindeart.ToUpper();
