@@ -76,7 +76,7 @@ namespace Schrauben
         //Wenn Combobox0 geschlossen wird
         private void cbx_Antwort0_DropDownClosed(object sender, EventArgs e)
         {
-            //neue Tabelle wird deklariert
+            //neue Tabellen werden deklariert
             Tabelle tab = new Tabelle();
             Materialtabelle tab2 = new Materialtabelle();
             Festigkeitstabelle tab3 = new Festigkeitstabelle();
@@ -137,7 +137,6 @@ namespace Schrauben
             cbx_Antwort1.Items.Clear();
             //cbx_Antwort4.Items.Clear();
         }
-        //Wenn Combobox1 geschlossen wird
         private void cbx_Antwort1_DropDownClosed(object sender, EventArgs e)
         {
 
@@ -157,17 +156,17 @@ namespace Schrauben
         }
         private void NumbervalidationTextBox(object sender, TextCompositionEventArgs e)
         {
+            //nur Eingaben von 0 bis 9 sind möglich
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
         #region Variablenzuweisung
         private void btn_Berechnen_Click(object sender, RoutedEventArgs e)
         {
-            
+            //neues Objekt wird erzeugt
             Schraube test1 = new Schraube();
 
-            
-
+            //benötigte Variablen werden aus Eingaben genommen
             test1.Wunschgewindeart = cbx_Antwort1.Text;
                        
             test1.Wunschgewindeart = test1.Wunschgewindeart.ToUpper();
@@ -222,13 +221,7 @@ namespace Schrauben
             richTextBox.AppendText("Die Gewindesteigung der Schraube beträgt " + list[0] + " mm." + Environment.NewLine);
             richTextBox.AppendText("Die Schraubenkopfbreite beträgt " + list[1] + " mm." + Environment.NewLine);
             richTextBox.AppendText("Die Schlüsselweite ist " + list[2] + Environment.NewLine);
-
-
-
         }
-
-
-
         #endregion
     }
 }
