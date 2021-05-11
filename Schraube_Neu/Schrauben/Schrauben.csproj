@@ -74,6 +74,9 @@
     <Content Include="Firmenbild.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="neuesSchema.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Schraubenschema.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
