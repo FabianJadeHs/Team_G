@@ -167,7 +167,12 @@ namespace Schrauben
         #region Variablenzuweisung
         private void btn_Berechnen_Click(object sender, RoutedEventArgs e)
         {
-            
+
+            //eine einfache Methode die richTextBox leer zu machen
+            richTextBox.SelectAll();
+
+            richTextBox.Selection.Text="";
+
             //neues Objekt wird erzeugt
             Schraube test1 = new Schraube();
 
