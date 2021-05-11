@@ -15,10 +15,8 @@ namespace Schrauben
 
             fenster.Content = meinGUI;
             fenster.ShowDialog();
-
-            
-        }
-               
+                        
+        }     
 
     }
     
