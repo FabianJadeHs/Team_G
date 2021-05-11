@@ -131,7 +131,6 @@ namespace Schrauben
         private void cbx_Antwort0_DropDownOpened(object sender, EventArgs e)
         {
             cbx_Antwort1.Items.Clear();
-            //cbx_Antwort4.Items.Clear();
         }
 
         private void cbx_Antwort4_DropDownClosed(object sender, EventArgs e)    //Abfrage des Materials
