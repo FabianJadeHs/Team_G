@@ -97,7 +97,7 @@
             </TabItem>
         </TabControl>
         <Image x:Name="img_Logo" HorizontalAlignment="Left" Height="90" Margin="10,10,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="104" Grid.ColumnSpan="2" Source="Firmenbild.png"/>
-        <Image x:Name="img_Schraubenschema" Grid.ColumnSpan="2" Grid.Column="2" HorizontalAlignment="Left" Height="154" Margin="9.6,38.6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="208" Source="Schraubenschema.png"/>
+        <Image x:Name="img_neuesSchema" Grid.ColumnSpan="2" Grid.Column="2" HorizontalAlignment="Left" Height="153" Margin="9.6,63.6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="208" Source="neuesSchema.png"/>
 
     </Grid>
 </UserControl>
