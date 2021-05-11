@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("firmenbild.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("neuesschema.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("schraubenschema.png")]
 
 
