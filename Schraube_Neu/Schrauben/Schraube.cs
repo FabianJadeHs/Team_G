@@ -243,37 +243,7 @@ namespace Schrauben
             Console.WriteLine("Vorspannkraft beträgt " + vorspannkraft + " N");
             return vorspannkraft;
         }
-
-
-        public string Standardausgaben()
-        {
-            //neue Tabelle wird deklariert
-            Tabelle tab = new Tabelle();
-            string merge = "";
-
-            //Schraubenarray wird zeilenweise durchgegangen
-            foreach (Schraubenarray m in tab.getAll())
-            {
-                //in Zeilen werden die Gewindebezeichnungen auf gleichheit mit dem Wunschgewinde geprüft
-                if (Wunschgewindeart == m.Gewindebezeichnung)
-                {
-                    //Ausgabe Gewindesteigung
-                    Console.WriteLine("Die Gewindesteigung der Schraube beträgt " + m.Steigung + " mm.");
-
-                    //Ausgabe Schraubenkopfbreite
-                    Console.WriteLine("Die Schraubenkopfbreite beträgt " + m.Schraubenkopfbreite + " mm.");
-                    //Ausgabe Schluesselweite
-                    Console.WriteLine("Die Schlüsselweite ist " + m.Schluesselweite);
-
-                    merge = m.Steigung.ToString() + "," + m.Schraubenkopfbreite.ToString() + "," + m.Schluesselweite.ToString();
-
-
-                }
-            }
-
-            return merge;
-        }
-
+               
         public double Schluesselweite()
         {
             Tabelle tab = new Tabelle();
