@@ -172,12 +172,8 @@ namespace Schrauben
             Schraube test1 = new Schraube();
 
             //benötigte Variablen werden aus Eingaben in der GUI genommen
-            test1.Wunschgewindeart = cbx_Antwort1.Text;
-                       
-            test1.Wunschgewindeart = test1.Wunschgewindeart.ToUpper();
-            
-            test1.Wunschgewindeart = test1.Wunschgewindeart.Replace(" ", String.Empty);
-
+            test1.Wunschgewindeart = cbx_Antwort1.Text;                     
+         
             test1.Wunschschraubenkopf = cbx_Antwort6.Text;
 
             test1.Wunschgewindelaenge = double.Parse(txtb_Antwort2.Text);
