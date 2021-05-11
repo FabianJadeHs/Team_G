@@ -40,7 +40,7 @@ namespace Schrauben
             tctl_Fenster.Visibility = Visibility.Hidden;
             btn_Berechnen.Visibility = Visibility.Hidden;
             img_Logo.Visibility = Visibility.Hidden;
-            img_neuesSchema.Visibility = Visibility.Hidden;
+            img_drittesSchema.Visibility = Visibility.Hidden;
                   
             Arten = new string[] { "Regelgewinde", "Feingewinde", "Trapezgewinde" };
             Richtung = new string[] { "Rechtsgewinde", "Linksgewinde" };
@@ -68,7 +68,7 @@ namespace Schrauben
             tctl_Fenster.Visibility = Visibility.Visible;
             btn_Berechnen.Visibility = Visibility.Visible;
             img_Logo.Visibility = Visibility.Visible;
-            img_neuesSchema.Visibility = Visibility.Visible;
+            img_drittesSchema.Visibility = Visibility.Visible;
             btn_Konfigurieren.Visibility = Visibility.Hidden;
         }
         
