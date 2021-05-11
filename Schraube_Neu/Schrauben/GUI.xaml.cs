@@ -193,9 +193,7 @@ namespace Schrauben
 
             //Unterprogramme werden abgerufen und geben Werte aus
             double rundung = test1.Rundung();
-            richTextBox.AppendText("Die Rundung beträgt " + Math.Round(rundung,3) + " mm." + Environment.NewLine);
-
-            test1.Kopfvolumen();
+            richTextBox.AppendText("Die Rundung beträgt " + Math.Round(rundung,3) + " mm." + Environment.NewLine+Environment.NewLine);
 
             double volumen = test1.Volumen();
             richTextBox.AppendText("Das Volumen einer Schraube beträgt " + Math.Round(volumen,2) + " mm³." + Environment.NewLine);
