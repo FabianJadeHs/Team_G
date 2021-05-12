@@ -40,9 +40,9 @@
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0" Grid.ColumnSpan="3">
                         <Label x:Name="lbl_Frage0" Content="Welches Gewinde ist gewünscht?" Margin="10,1,-0.4,6"/>
-                        <Label x:Name="lbl_Frage1" Content="Welche Gewindegröße ist gewünscht?" Margin="10,0,-0.4,6"/>
-                        <Label x:Name="lbl_Frage2" Content="Wie lang soll das Gewinde sein?" Margin="10,0,-0.4,6"/>
-                        <Label x:Name="lbl_Frage3" Content="Wie lang soll der Schaft sein?" Margin="10,0,-0.4,6"/>
+                        <Label x:Name="lbl_Frage1" Content="Welche Gewindegröße (D) ist gewünscht?" Margin="10,0,-0.4,6"/>
+                        <Label x:Name="lbl_Frage2" Content="Wie lang soll das Gewinde (G) sein?" Margin="10,0,-0.4,6"/>
+                        <Label x:Name="lbl_Frage3" Content="Wie lang soll der Schaft (S) sein?" Margin="10,0,-0.4,6"/>
                         <Label x:Name="lbl_Frage7" Content="Rechts- oder Linksgewinde?" Margin="10,0,-0.4,6"/>
                     </StackPanel>
                     <StackPanel Grid.Column="3">
