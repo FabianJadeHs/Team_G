@@ -97,7 +97,7 @@
             </TabItem>
         </TabControl>
         <Image x:Name="img_Logo" HorizontalAlignment="Left" Height="90" Margin="10,10,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="104" Grid.ColumnSpan="2" Source="Firmenbild.png"/>
-        <Image x:Name="img_drittesSchema" Grid.ColumnSpan="2" Grid.Column="2" HorizontalAlignment="Left" Height="150" Margin="9.6,55.6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="208" Source="drittesSchema.png"/>
+        <Image x:Name="img_viertesSchema" Grid.ColumnSpan="2" Grid.Column="2" HorizontalAlignment="Left" Height="166" Margin="9.6,46.6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="208" Source="viertesSchema.png"/>
 
     </Grid>
 </UserControl>
