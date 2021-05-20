@@ -43,7 +43,7 @@ namespace Schrauben
         double schluesselweite = 0;
         double steigung = 0;
 
-
+        #region Berechnungen
         public double Rundung() //Unterprogramm Rundungsberechnung
         {
             //neue Tabelle wird deklariert
@@ -284,6 +284,7 @@ namespace Schrauben
             return steigung;
 
         }
+        #endregion
 
         public Schraube(double laenge, double gewindeLaenge, string gewindeart,
            string gewinde, double k, double Ri, double P)
