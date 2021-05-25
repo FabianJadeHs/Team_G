@@ -30,7 +30,7 @@ namespace Schrauben
                     cc.ErstelleLeereSkizze();
                     Console.WriteLine("2");
 
-                    Schraube dieSchraube = new Schraube(60, 50, "Standartgewinde", "M8", 5.3d, 4d, 1.25d);
+                    Produkt dieSchraube = new Produkt(60, 50, "Standartgewinde", "M8", 5.3d, 4d, 1.25d);
 
                     cc.ErzeugeZylinder(dieSchraube);
                     Console.WriteLine("Schaft");
