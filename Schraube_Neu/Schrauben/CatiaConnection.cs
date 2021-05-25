@@ -141,7 +141,7 @@ namespace Schrauben
         #endregion
 
         #region Schraube
-        internal void ErzeugeZylinder(Schraube mySchraube)
+        internal void ErzeugeZylinder(Produkt mySchraube)
         {
             myPart = hsp_catiaPartDoc.Part;
             Bodies bodies = myPart.Bodies;
@@ -203,7 +203,7 @@ namespace Schrauben
         }
 
         // Erzeugt eine Helix 
-        internal void ErzeugeGewindeHelix(Schraube mySchraube)
+        internal void ErzeugeGewindeHelix(Produkt mySchraube)
         {
             Double P = mySchraube.P;
             Double Ri = mySchraube.Ri;
@@ -284,7 +284,7 @@ namespace Schrauben
         }
 
         // Separate Skizzenerzeugung für de Helix
-        private Sketch makeGewindeSkizze(Schraube dieSchraube)
+        private Sketch makeGewindeSkizze(Produkt dieSchraube)
         {
             Double P = dieSchraube.P;
             Double Ri = dieSchraube.Ri;
