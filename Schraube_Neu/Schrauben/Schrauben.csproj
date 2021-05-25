@@ -33,30 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Interop.HybridShapeTypeLib">
-      <HintPath>..\..\..\MinimalCatia\Verweise\Interop.HybridShapeTypeLib.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="Interop.INFITF">
-      <HintPath>..\..\..\..\..\Desktop\Schraube_Neu\Verweise\Interop.INFITF.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="Interop.KnowledgewareTypeLib">
-      <HintPath>..\..\..\MinimalCatia\Verweise\Interop.KnowledgewareTypeLib.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="Interop.MECMOD">
-      <HintPath>..\..\..\..\..\Desktop\Schraube_Neu\Verweise\Interop.MECMOD.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="Interop.PARTITF">
-      <HintPath>..\..\..\..\..\Desktop\Schraube_Neu\Verweise\Interop.PARTITF.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="Interop.ProductStructureTypeLib">
-      <HintPath>..\..\..\MinimalCatia\Verweise\Interop.ProductStructureTypeLib.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -81,6 +57,7 @@
     <Compile Include="GUI_control.cs" />
     <Compile Include="Materialarray.cs" />
     <Compile Include="Materialtabelle.cs" />
+    <Compile Include="Produkt.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Schraube.cs" />
