@@ -94,3 +94,6 @@ C:\Users\Büro\Documents\GitHub\Team_G\Schraube_Neu\Schrauben\bin\Debug\viertesS
 C:\Users\Anwender\OneDrive\Desktop\Hochschule\AAA\HSP Mecke\Team_G\Team_G\Schraube_Neu\Schrauben\bin\Debug\drittesSchema.png
 C:\Users\Anwender\OneDrive\Desktop\Hochschule\AAA\HSP Mecke\Team_G\Team_G\Schraube_Neu\Schrauben\bin\Debug\neuesSchema.png
 C:\Users\Anwender\OneDrive\Desktop\Hochschule\AAA\HSP Mecke\Team_G\Team_G\Schraube_Neu\Schrauben\bin\Debug\viertesSchema.png
+C:\Users\butsc\Documents\GitHub\Team_G\Schraube_Neu\Schrauben\bin\Debug\drittesSchema.png
+C:\Users\butsc\Documents\GitHub\Team_G\Schraube_Neu\Schrauben\bin\Debug\neuesSchema.png
+C:\Users\butsc\Documents\GitHub\Team_G\Schraube_Neu\Schrauben\bin\Debug\viertesSchema.png
