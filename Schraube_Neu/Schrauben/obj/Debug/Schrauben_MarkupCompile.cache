@@ -4,16 +4,26 @@
 exe
 C#
 .cs
+<<<<<<< HEAD
 C:\Users\SENTIMENT\Documents\GitHub\Team_G\Schraube_Neu\Schrauben\obj\Debug\
+=======
+C:\Users\butsc\Documents\GitHub\Team_G\Schraube_Neu\Schrauben\obj\Debug\
+>>>>>>> b883a5ee8f88c781e46b8309fad4c32a24b25b85
 Schrauben
 none
 false
 DEBUG;TRACE
 
 11797800699
+<<<<<<< HEAD
 42079038576
 121129094693
 13-1505183044
+=======
+5-339694881
+14-18216024
+19724777492
+>>>>>>> b883a5ee8f88c781e46b8309fad4c32a24b25b85
 GUI.xaml;
 
 True
