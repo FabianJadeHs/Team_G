@@ -17,6 +17,8 @@ namespace Schrauben
         public string Wunschschraubenkopf { get; set; }
         public string Wunschfestigkeit { get; set; }
 
+
+
         // globale Variablen innerhalb der class werden definiert damit Unterprogramme kürzer sind
         double rundung = 0;
         double volumen = 0;
@@ -34,7 +36,7 @@ namespace Schrauben
         double schluesselweite = 0;
         double steigung = 0;
 
-
+        #region Berechnungen
         public double Rundung() //Unterprogramm Rundungsberechnung
         {
             //neue Tabelle wird deklariert
@@ -275,5 +277,8 @@ namespace Schrauben
             return steigung;
 
         }
+        #endregion
+
+
     }
 }
