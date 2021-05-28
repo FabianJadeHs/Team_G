@@ -35,9 +35,24 @@ namespace Schrauben
                     cc.ErzeugeZylinder(dieSchraube);
                     Console.WriteLine("Schaft");
 
-                    // cc.ErzeugeGewindeFeature();
+                    
                     cc.ErzeugeGewindeHelix(dieSchraube);
                     Console.WriteLine("Gewinde");
+
+                    cc.Zylinderkopf();
+                    Console.WriteLine("Zylinderkopf");
+
+                    //cc.Sechskant();
+                    //Console.WriteLine("Sechskant");
+
+                    //cc.Senkkopf();
+                    //Console.WriteLine("Senkkopf");
+
+                    //cc.Innensechskant();
+                    //Console.WriteLine("Innensechskant");
+
+                    cc.Schlitz();
+                    Console.WriteLine("Schlitz");
                 }
                 else
                 {
