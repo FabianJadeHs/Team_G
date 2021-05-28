@@ -44,7 +44,7 @@ namespace Schrauben
                   
             Arten = new string[] { "Regelgewinde", "Feingewinde", "Trapezgewinde" };
             Richtung = new string[] { "Rechtsgewinde", "Linksgewinde" };
-            Kopfarten = new string[] { "Sechskant", "Zylinderkopf", "Senkkopf", "Gewindestift", };
+            Kopfarten = new string[] { "Sechskant", "Zylinderkopf mit Innensechskant", "Zylinderkopf mit Schlitz", "Senkkopf mit Innensechskant", "Senkkopf mit Schlitz", "Gewindestift", };
             Materialien = new string[] { "Baustahl", "V4A", "Messing", "Aluminium", "Kupfer" };
             //Regelgewinde = new string[] {} 
 
