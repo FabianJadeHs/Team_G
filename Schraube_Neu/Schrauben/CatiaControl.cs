@@ -30,7 +30,7 @@ namespace Schrauben
                     cc.ErstelleLeereSkizze();
                     Console.WriteLine("2");
 
-                    Produkt dieSchraube = new Produkt(60, 50, "Standardgewinde", "M8", 5.3d, 4d, 1.25d);
+                    Produkt dieSchraube = new Produkt(60, 50, "Standardgewinde", "M8", 5.3d, 4d, 1.25d);     //Was für Daten will er hier in der Klammer haben????
 
                     cc.ErzeugeZylinder(dieSchraube);
                     Console.WriteLine("Schaft");
@@ -39,38 +39,40 @@ namespace Schrauben
                     cc.ErzeugeGewindeHelix(dieSchraube);
                     Console.WriteLine("Gewinde");
 
-                    if (Wunschschraubenkopf == "Zylinderkopf")       // Daten aus "Produkt" übernehmen, damit das in "CatiaControl drin ist?
+                    if (dieSchraube.Wunschschraubenkopf == "Zylinderkopf")       
                     {
-                        cc.Zylinderkopf();
+                        cc.Zylinderkopf(dieSchraube);
                         Console.WriteLine("Zylinderkopf");
 
-                        cc.Innensechskant();
+                        cc.InnensechskantZ(dieSchraube);
                         Console.WriteLine("Innensechskant");
                     }
 
-                    else if (Wunschschraubenkopf == "Sechskant")
+                    else if (dieSchraube.Wunschschraubenkopf == "Sechskant")
                     {
-                        cc.Sechskant();
+                        cc.Sechskant(dieSchraube);
                         Console.WriteLine("Sechskant");
                     }
                     
-                    else if (Wunschschraubenkopf == "Senkkopf")
+                    else if (dieSchraube.Wunschschraubenkopf == "Senkkopf")
                     {
-                        cc.Senkkopf();
+                        cc.Senkkopf(dieSchraube);
                         Console.WriteLine("Senkkopf");
 
-                        cc.Innensechskant();
+                        cc.InnensechskantS(dieSchraube);
                         Console.WriteLine("Innensechskant");
                     }
 
-                    else if (Wunschschraubenkopf == "Gewindestift")
+                    else if (dieSchraube.Wunschschraubenkopf == "Gewindestift")
                     {
-                        cc.Gewindestift();
+                        cc.Gewindestift(dieSchraube);
                         Console.WriteLine("Gewindestift");
+
+                        cc.InnensechskantGS(dieSchraube);
+                        Console.WriteLine("Innensechskant");
                     }
                                        
-                    cc.Innensechskant();
-                    Console.WriteLine("Innensechskant");
+                    
 
                     //Wann und wo den Schlitz anbinden
                     cc.Schlitz();

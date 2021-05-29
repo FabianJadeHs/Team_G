@@ -136,7 +136,7 @@ namespace Schrauben
             HybridShapePointCoord HelixStartpunkt = HSF.AddNewPointCoord(0, 0, Ri);
             Reference RefHelixStartpunkt = myPart.CreateReferenceFromObject(HelixStartpunkt);
 
-            HybridShapeHelix Helix = HSF.AddNewHelix(RefHelixDir, false, RefHelixStartpunkt, P, mySchraube.gewindeLaenge, false, 0, 0, false);
+            HybridShapeHelix Helix = HSF.AddNewHelix(RefHelixDir, false, RefHelixStartpunkt, P, mySchraube.Wunschgewindelaenge, false, 0, 0, false);
 
             Reference RefHelix = myPart.CreateReferenceFromObject(Helix);
             Reference RefmyGewinde = myPart.CreateReferenceFromObject(myGewinde);
@@ -264,14 +264,14 @@ namespace Schrauben
 
         #endregion
 
-        internal void Zylinderkopf()
+        internal void Zylinderkopf(Produkt mySchraube)
         {
             //myKopf=Skizze
             //in CatiaControl Klasse aufrufen
             //CreateCircle(H0, V0, 20, 0, 0)=(Höhe,Breite,Radius,0,0)
 
-            double R = 15;
-            double H = 5;
+            double R = mySchraube.KopfdurchmesserZ / 2;
+            double H = mySchraube.KopfhoeheZ;
 
 
             OriginElements catOriginElements = hsp_catiaPartDoc.Part.OriginElements;
@@ -317,9 +317,9 @@ namespace Schrauben
 
         }
 
-        internal void Sechskant()
+        internal void Sechskant(Produkt mySchraube)
         {
-            double SW = 10;
+            double SW = mySchraube.Schluesselweite;
             double K = 2 * SW / Math.Sqrt(3);
 
 
@@ -402,9 +402,9 @@ namespace Schrauben
 
         }
 
-        internal void Senkkopf()
+        internal void Senkkopf(Produkt mySchraube)
         {
-            double KR = 15;
+            double KR = mySchraube.KopfhoeheS;       //Stmmt nicht ganz mit der wirklichen Höhe überein, muss größer als die Höhe sein!!!!
 
             OriginElements catOriginElements = hsp_catiaPartDoc.Part.OriginElements;
             Reference RefmyPlaneZX = (Reference)catOriginElements.PlaneZX;
@@ -456,7 +456,7 @@ namespace Schrauben
 
         }
 
-        internal void Gewindestift()
+        internal void Gewindestift(Produkt mySchraube)
         {
             /*
             double SW = 10;
@@ -542,14 +542,188 @@ namespace Schrauben
             */
         }
 
-        internal void Innensechskant()
+        internal void InnensechskantZ(Produkt mySchraube)
         {
             //Innenschlüsselweite
-            double Ib = 10;
+            double Ib = mySchraube.InnensechskantZ;
             //Kantenlänge
             double K = 2 * Ib / Math.Sqrt(3);
             //tiefe 
-            double T = 3;
+            double T = mySchraube.SechskanttiefeZ;
+
+
+
+            OriginElements catOriginElements = hsp_catiaPartDoc.Part.OriginElements;
+            Reference refPlane = kopfFlaeche;
+
+            Sketch myInnensechskant = mySketches.Add(refPlane);
+            myPart.InWorkObject = myInnensechskant;
+            myInnensechskant.set_Name("Innensechskant");
+
+            myPart.InWorkObject = myPart.MainBody;
+
+
+            // Rechteck in Skizze einzeichnen
+            // Skizze oeffnen
+            Factory2D catFactory2D1 = myInnensechskant.OpenEdition();
+
+            // Rechteck erzeugen
+
+            // erst die Punkte
+            //oben links gegen Uhrzeigersein
+            Point2D catPoint2D1 = catFactory2D1.CreatePoint(-K / 2, Ib);
+            Point2D catPoint2D2 = catFactory2D1.CreatePoint(-K, 0);
+            Point2D catPoint2D3 = catFactory2D1.CreatePoint(-K / 2, -Ib);
+            Point2D catPoint2D4 = catFactory2D1.CreatePoint(K / 2, -Ib);
+            // meine Punkte
+            Point2D catPoint2D5 = catFactory2D1.CreatePoint(K, 0);
+            Point2D catPoint2D6 = catFactory2D1.CreatePoint(K / 2, Ib);
+
+
+
+            // dann die Linien im Uhrzeiger oben links start
+
+            Line2D catLine2D1 = catFactory2D1.CreateLine(-K / 2, Ib, -K, 0);
+            catLine2D1.StartPoint = catPoint2D1;
+            catLine2D1.EndPoint = catPoint2D2;
+
+            Line2D catLine2D2 = catFactory2D1.CreateLine(-K, 0, -K / 2, -Ib);
+            catLine2D2.StartPoint = catPoint2D2;
+            catLine2D2.EndPoint = catPoint2D3;
+
+            Line2D catLine2D3 = catFactory2D1.CreateLine(-K / 2, -Ib, K / 2, -Ib);
+            catLine2D3.StartPoint = catPoint2D3;
+            catLine2D3.EndPoint = catPoint2D4;
+
+            Line2D catLine2D4 = catFactory2D1.CreateLine(K / 2, -Ib, K, 0);
+            catLine2D4.StartPoint = catPoint2D4;
+            catLine2D4.EndPoint = catPoint2D5;
+            //meine
+            Line2D catLine2D5 = catFactory2D1.CreateLine(K, 0, K / 2, Ib);
+            catLine2D5.StartPoint = catPoint2D5;
+            catLine2D5.EndPoint = catPoint2D6;
+
+            Line2D catLine2D6 = catFactory2D1.CreateLine(K / 2, Ib, -K / 2, Ib);
+            catLine2D6.StartPoint = catPoint2D6;
+            catLine2D6.EndPoint = catPoint2D1;
+
+
+
+
+            // Skizzierer verlassen
+            myInnensechskant.CloseEdition();
+            // Part aktualisieren
+            hsp_catiaPartDoc.Part.Update();
+
+            // Hauptkoerper in Bearbeitung definieren
+            hsp_catiaPartDoc.Part.InWorkObject = hsp_catiaPartDoc.Part.MainBody;
+
+            // Block(Balken) erzeugen
+            Pocket Loch = SF.AddNewPocket(myInnensechskant, T);
+            Loch.set_Name("Innensechskant");
+
+            // Part aktualisieren
+            hsp_catiaPartDoc.Part.Update();
+
+
+
+        }
+
+        internal void InnensechskantS(Produkt mySchraube)
+        {
+            //Innenschlüsselweite
+            double Ib = mySchraube.InnensechskantS;
+            //Kantenlänge
+            double K = 2 * Ib / Math.Sqrt(3);
+            //tiefe 
+            double T = mySchraube.SechskanttiefeS;
+
+
+
+            OriginElements catOriginElements = hsp_catiaPartDoc.Part.OriginElements;
+            Reference refPlane = kopfFlaeche;
+
+            Sketch myInnensechskant = mySketches.Add(refPlane);
+            myPart.InWorkObject = myInnensechskant;
+            myInnensechskant.set_Name("Innensechskant");
+
+            myPart.InWorkObject = myPart.MainBody;
+
+
+            // Rechteck in Skizze einzeichnen
+            // Skizze oeffnen
+            Factory2D catFactory2D1 = myInnensechskant.OpenEdition();
+
+            // Rechteck erzeugen
+
+            // erst die Punkte
+            //oben links gegen Uhrzeigersein
+            Point2D catPoint2D1 = catFactory2D1.CreatePoint(-K / 2, Ib);
+            Point2D catPoint2D2 = catFactory2D1.CreatePoint(-K, 0);
+            Point2D catPoint2D3 = catFactory2D1.CreatePoint(-K / 2, -Ib);
+            Point2D catPoint2D4 = catFactory2D1.CreatePoint(K / 2, -Ib);
+            // meine Punkte
+            Point2D catPoint2D5 = catFactory2D1.CreatePoint(K, 0);
+            Point2D catPoint2D6 = catFactory2D1.CreatePoint(K / 2, Ib);
+
+
+
+            // dann die Linien im Uhrzeiger oben links start
+
+            Line2D catLine2D1 = catFactory2D1.CreateLine(-K / 2, Ib, -K, 0);
+            catLine2D1.StartPoint = catPoint2D1;
+            catLine2D1.EndPoint = catPoint2D2;
+
+            Line2D catLine2D2 = catFactory2D1.CreateLine(-K, 0, -K / 2, -Ib);
+            catLine2D2.StartPoint = catPoint2D2;
+            catLine2D2.EndPoint = catPoint2D3;
+
+            Line2D catLine2D3 = catFactory2D1.CreateLine(-K / 2, -Ib, K / 2, -Ib);
+            catLine2D3.StartPoint = catPoint2D3;
+            catLine2D3.EndPoint = catPoint2D4;
+
+            Line2D catLine2D4 = catFactory2D1.CreateLine(K / 2, -Ib, K, 0);
+            catLine2D4.StartPoint = catPoint2D4;
+            catLine2D4.EndPoint = catPoint2D5;
+            //meine
+            Line2D catLine2D5 = catFactory2D1.CreateLine(K, 0, K / 2, Ib);
+            catLine2D5.StartPoint = catPoint2D5;
+            catLine2D5.EndPoint = catPoint2D6;
+
+            Line2D catLine2D6 = catFactory2D1.CreateLine(K / 2, Ib, -K / 2, Ib);
+            catLine2D6.StartPoint = catPoint2D6;
+            catLine2D6.EndPoint = catPoint2D1;
+
+
+
+
+            // Skizzierer verlassen
+            myInnensechskant.CloseEdition();
+            // Part aktualisieren
+            hsp_catiaPartDoc.Part.Update();
+
+            // Hauptkoerper in Bearbeitung definieren
+            hsp_catiaPartDoc.Part.InWorkObject = hsp_catiaPartDoc.Part.MainBody;
+
+            // Block(Balken) erzeugen
+            Pocket Loch = SF.AddNewPocket(myInnensechskant, T);
+            Loch.set_Name("Innensechskant");
+
+            // Part aktualisieren
+            hsp_catiaPartDoc.Part.Update();
+
+
+
+        }
+
+        internal void InnensechskantGS(Produkt mySchraube)
+        {
+            //Innenschlüsselweite
+            double Ib = mySchraube.InnensechskantGS;
+            //Kantenlänge
+            double K = 2 * Ib / Math.Sqrt(3);
+            //tiefe 
+            double T = mySchraube.SechskanttiefeGS;
 
 
 
