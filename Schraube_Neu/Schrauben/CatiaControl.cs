@@ -30,7 +30,7 @@ namespace Schrauben
                     cc.ErstelleLeereSkizze();
                     Console.WriteLine("2");
 
-                    Produkt dieSchraube = new Produkt(60, 50, "Standartgewinde", "M8", 5.3d, 4d, 1.25d);
+                    Produkt dieSchraube = new Produkt(60, 50, "Standardgewinde", "M8", 5.3d, 4d, 1.25d);
 
                     cc.ErzeugeZylinder(dieSchraube);
                     Console.WriteLine("Schaft");
@@ -39,18 +39,40 @@ namespace Schrauben
                     cc.ErzeugeGewindeHelix(dieSchraube);
                     Console.WriteLine("Gewinde");
 
-                    cc.Zylinderkopf();
-                    Console.WriteLine("Zylinderkopf");
+                    if (Wunschschraubenkopf == "Zylinderkopf")       // Daten aus "Produkt" übernehmen, damit das in "CatiaControl drin ist?
+                    {
+                        cc.Zylinderkopf();
+                        Console.WriteLine("Zylinderkopf");
 
-                    //cc.Sechskant();
-                    //Console.WriteLine("Sechskant");
+                        cc.Innensechskant();
+                        Console.WriteLine("Innensechskant");
+                    }
 
-                    //cc.Senkkopf();
-                    //Console.WriteLine("Senkkopf");
+                    else if (Wunschschraubenkopf == "Sechskant")
+                    {
+                        cc.Sechskant();
+                        Console.WriteLine("Sechskant");
+                    }
+                    
+                    else if (Wunschschraubenkopf == "Senkkopf")
+                    {
+                        cc.Senkkopf();
+                        Console.WriteLine("Senkkopf");
 
-                    //cc.Innensechskant();
-                    //Console.WriteLine("Innensechskant");
+                        cc.Innensechskant();
+                        Console.WriteLine("Innensechskant");
+                    }
 
+                    else if (Wunschschraubenkopf == "Gewindestift")
+                    {
+                        cc.Gewindestift();
+                        Console.WriteLine("Gewindestift");
+                    }
+                                       
+                    cc.Innensechskant();
+                    Console.WriteLine("Innensechskant");
+
+                    //Wann und wo den Schlitz anbinden
                     cc.Schlitz();
                     Console.WriteLine("Schlitz");
                 }

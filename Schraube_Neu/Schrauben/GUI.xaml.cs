@@ -67,6 +67,7 @@ namespace Schrauben
             lbl_Begruessung.Content = "";
             tctl_Fenster.Visibility = Visibility.Visible;
             btn_Berechnen.Visibility = Visibility.Visible;
+            btn_Exportieren.Visibility = Visibility.Visible;
             img_Logo.Visibility = Visibility.Visible;
             img_viertesSchema.Visibility = Visibility.Visible;
             btn_Konfigurieren.Visibility = Visibility.Hidden;
@@ -226,6 +227,10 @@ namespace Schrauben
 
         #endregion
 
-       
+        private void btn_Exportieren_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
     }
 }

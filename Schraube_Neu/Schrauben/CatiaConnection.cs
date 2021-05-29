@@ -394,7 +394,7 @@ namespace Schrauben
             Pad catPad1 = catShapeFactory1.AddNewPad(mySechskant, -5);
 
             // Block umbenennen
-            catPad1.set_Name("Sechkant");
+            catPad1.set_Name("Sechskant");
 
             // Part aktualisieren
             hsp_catiaPartDoc.Part.Update();
@@ -454,6 +454,92 @@ namespace Schrauben
             kopfFlaeche = myPart.CreateReferenceFromName("Selection_RSur:(Face:(Brp:((Brp:(Shaft.1;0:(Brp:(Sketch.3;1)));Brp:(Pad.1;1)));None:();Cf12:());Shaft.1_ResultOUT;Z0;G9061)");
 
 
+        }
+
+        internal void Gewindestift()
+        {
+            /*
+            double SW = 10;
+            double K = 2 * SW / Math.Sqrt(3);
+
+
+
+            OriginElements catOriginElements = hsp_catiaPartDoc.Part.OriginElements;
+            Reference RefmyPlaneYZ = (Reference)catOriginElements.PlaneYZ;
+
+            Sketch mySechskant = mySketches.Add(RefmyPlaneYZ);
+            myPart.InWorkObject = mySechskant;
+            mySechskant.set_Name("Sechskantkopf");
+
+            myPart.InWorkObject = myPart.MainBody;
+
+
+            // Rechteck in Skizze einzeichnen
+            // Skizze oeffnen
+            Factory2D catFactory2D1 = mySechskant.OpenEdition();
+
+            // Rechteck erzeugen
+
+            // erst die Punkte
+            //oben links gegen Uhrzeigersein
+            Point2D catPoint2D1 = catFactory2D1.CreatePoint(-K / 2, SW);
+            Point2D catPoint2D2 = catFactory2D1.CreatePoint(-K, 0);
+            Point2D catPoint2D3 = catFactory2D1.CreatePoint(-K / 2, -SW);
+            Point2D catPoint2D4 = catFactory2D1.CreatePoint(K / 2, -SW);
+            // meine Punkte
+            Point2D catPoint2D5 = catFactory2D1.CreatePoint(K, 0);
+            Point2D catPoint2D6 = catFactory2D1.CreatePoint(K / 2, SW);
+
+
+
+            // dann die Linien im Uhrzeiger oben links start
+
+            Line2D catLine2D1 = catFactory2D1.CreateLine(-K / 2, SW, -K, 0);
+            catLine2D1.StartPoint = catPoint2D1;
+            catLine2D1.EndPoint = catPoint2D2;
+
+            Line2D catLine2D2 = catFactory2D1.CreateLine(-K, 0, -K / 2, -SW);
+            catLine2D2.StartPoint = catPoint2D2;
+            catLine2D2.EndPoint = catPoint2D3;
+
+            Line2D catLine2D3 = catFactory2D1.CreateLine(-K / 2, -SW, K / 2, -SW);
+            catLine2D3.StartPoint = catPoint2D3;
+            catLine2D3.EndPoint = catPoint2D4;
+
+            Line2D catLine2D4 = catFactory2D1.CreateLine(K / 2, -SW, K, 0);
+            catLine2D4.StartPoint = catPoint2D4;
+            catLine2D4.EndPoint = catPoint2D5;
+            //meine
+            Line2D catLine2D5 = catFactory2D1.CreateLine(K, 0, K / 2, SW);
+            catLine2D5.StartPoint = catPoint2D5;
+            catLine2D5.EndPoint = catPoint2D6;
+
+            Line2D catLine2D6 = catFactory2D1.CreateLine(K / 2, SW, -K / 2, SW);
+            catLine2D6.StartPoint = catPoint2D6;
+            catLine2D6.EndPoint = catPoint2D1;
+
+
+
+
+            // Skizzierer verlassen
+            mySechskant.CloseEdition();
+            // Part aktualisieren
+            hsp_catiaPartDoc.Part.Update();
+
+            // Hauptkoerper in Bearbeitung definieren
+            hsp_catiaPartDoc.Part.InWorkObject = hsp_catiaPartDoc.Part.MainBody;
+
+            // Block(Balken) erzeugen
+            ShapeFactory catShapeFactory1 = (ShapeFactory)hsp_catiaPartDoc.Part.ShapeFactory;
+            Pad catPad1 = catShapeFactory1.AddNewPad(mySechskant, -5);
+
+            // Block umbenennen
+            catPad1.set_Name("Sechkant");
+
+            // Part aktualisieren
+            hsp_catiaPartDoc.Part.Update();
+
+            */
         }
 
         internal void Innensechskant()
