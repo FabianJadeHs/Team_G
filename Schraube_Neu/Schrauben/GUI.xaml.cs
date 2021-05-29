@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.IO;
 using System.Collections;
 using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace Schrauben
 {
@@ -41,7 +42,8 @@ namespace Schrauben
             btn_Berechnen.Visibility = Visibility.Hidden;
             img_Logo.Visibility = Visibility.Hidden;
             img_viertesSchema.Visibility = Visibility.Hidden;
-                  
+            btn_Exportieren.Visibility = Visibility.Hidden;
+
             Arten = new string[] { "Regelgewinde", "Feingewinde", "Trapezgewinde" };
             Richtung = new string[] { "Rechtsgewinde", "Linksgewinde" };
             Kopfarten = new string[] { "Sechskant", "Zylinderkopf mit Innensechskant", "Zylinderkopf mit Schlitz", "Senkkopf mit Innensechskant", "Senkkopf mit Schlitz", "Gewindestift", };
@@ -227,9 +229,9 @@ namespace Schrauben
 
         #endregion
 
-        private void btn_Exportieren_Click(object sender, RoutedEventArgs e)
+        public void btn_Exportieren_Click(object sender, RoutedEventArgs e)
         {
-            
+            new CatiaControl();
         }
 
     }

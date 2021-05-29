@@ -4,13 +4,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace Schrauben
 {
-
-    class CatiaControl
+    class Program
     {
-        CatiaControl()
+
+        [STAThread]
+        static void Main()
+        {
+
+            new GUI_control();
+
+        }
+
+    }
+
+    public class CatiaControl
+    {
+        public CatiaControl()
         {
             try
             {
@@ -91,11 +104,12 @@ namespace Schrauben
             Console.ReadKey();
 
         }
-
+        /*
         static void Main(string[] args)
         {
             new CatiaControl();
         }
+        */
     }
 
 }

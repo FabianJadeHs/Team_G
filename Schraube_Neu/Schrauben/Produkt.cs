@@ -25,7 +25,7 @@
         public double SechskanttiefeGS { get; private set; }
 
 
-        public Produkt(double laenge, double Wunschgewindelaenge, double Wunschschaftlaenge, string Wunschgewindeart,
+        public Produkt(double Wunschgewindelaenge, double Wunschschaftlaenge, string Wunschgewindeart,
             string Wunschgewinde, string Wunschschraubenkopf, double k, double Nenndurchmesser, double Steigung, double Schluesselweite,
             double KopfhoeheZ, double KopfdurchmesserZ, double KopfhoeheS, double KopfdurchmesserS, double InnensechskantZ, double SechskanttiefeZ,
             double InnensechskantS, double SechskanttiefeS, double InnensechskantGS, double SechskanttiefeGS)
