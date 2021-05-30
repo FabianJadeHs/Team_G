@@ -29,7 +29,7 @@
         <Button x:Name="btn_Konfigurieren" Content="Konfigurieren" Grid.Row="3" Grid.Column="3" Click="btn_Konfigurieren_Click" Margin="0.6,0.8,0.4,0"/>
         <Button x:Name="btn_Schliessen" Content="Schließen" Click="btn_Schliessen_Click" Grid.Row="3" Margin="0,0.8,0,0"/>
         <Button x:Name="btn_Berechnen" Content="Berechnen" Grid.Column="3"  Grid.Row="3" Height="44" Margin="0" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100" Click="btn_Berechnen_Click" />
-        <Button x:Name="btn_Exportieren" Content="Exportieren an Catia" Grid.Column="2"  Grid.Row="3" Height="44" Margin="0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="120" Click="btn_Berechnen_Click" />
+        <Button x:Name="btn_Exportieren" Content="Exportieren an Catia" Grid.Column="2"  Grid.Row="3" Height="44" Margin="0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="120" Click="btn_Exportieren_Click" />
         <TabControl x:Name="tctl_Fenster" Margin="10,9.6,0,0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="552" Height="265" VerticalAlignment="Top">
             <TabItem Header="Schrauben">
                 <Grid Background="#FFFFF7F7">
