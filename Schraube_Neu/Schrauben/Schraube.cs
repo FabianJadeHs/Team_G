@@ -2,7 +2,7 @@
 
 namespace Schrauben
 {
-    class Schraube
+    public class Schraube
     {
         // Eigenschaften der Schraube
         public double Gewindelaenge { get; set; }
@@ -16,8 +16,7 @@ namespace Schrauben
         public double Wunschanzahl { get; set; }
         public string Wunschschraubenkopf { get; set; }
         public string Wunschfestigkeit { get; set; }
-
-
+           
 
         // globale Variablen innerhalb der class werden definiert damit Unterprogramme kürzer sind
         double rundung = 0;
@@ -35,6 +34,18 @@ namespace Schrauben
         double vorspannkraft = 0;
         double schluesselweite = 0;
         double steigung = 0;
+        double nenndurchmesser = 0;
+        double innensechskantz = 0;
+        double sechskanttiefeZ = 0;
+        double innensechskantS = 0;
+        double sechskanttiegeS = 0;
+        double innensechskantGS = 0;
+        double sechskanttiefeGS = 0;
+        double kopfhoeheZ = 0;
+        double kopfdurchmesserS = 0;
+        double kopfhoeheS = 0;
+        double kopfdurchmesserZ = 0;
+        double kopfhoeheSE = 0;
 
         #region Berechnungen
         public double Rundung() //Unterprogramm Rundungsberechnung
@@ -226,7 +237,6 @@ namespace Schrauben
             return ftm;
         }
 
-
         public double Vorspannkraft()
         {
             //neue Tabelle wird deklariert
@@ -276,6 +286,185 @@ namespace Schrauben
 
             return steigung;
 
+        }
+
+        public double Nenndurchmesser()
+        {
+
+            Tabelle tab = new Tabelle();
+            foreach (Schraubenarray m in tab.getAll())
+            {
+
+                if (Wunschgewindeart == m.Gewindebezeichnung)
+                {
+                    nenndurchmesser = m.Nenndurchmesser;
+                }
+            }
+
+            return nenndurchmesser;
+        }
+
+        public double InnensechskantZ()
+        {
+            Tabelle tab = new Tabelle();
+            foreach (Schraubenarray m in tab.getAll())
+            {
+
+                if (Wunschgewindeart == m.Gewindebezeichnung)
+                {
+                    innensechskantz = m.InnensechskantZ;
+                }
+            }
+
+            return innensechskantz;
+        }
+
+        public double SechskanttiefeZ()
+        {
+            Tabelle tab = new Tabelle();
+            foreach (Schraubenarray m in tab.getAll())
+            {
+
+                if (Wunschgewindeart == m.Gewindebezeichnung)
+                {
+                    sechskanttiefeZ = m.SechskanttiefeZ;
+                }
+            }
+
+            return sechskanttiefeZ;
+        }
+
+        public double InnensechskantS()
+        {
+            Tabelle tab = new Tabelle();
+            foreach (Schraubenarray m in tab.getAll())
+            {
+
+                if (Wunschgewindeart == m.Gewindebezeichnung)
+                {
+                    innensechskantS = m.InnensechskantS;
+                }
+            }
+
+            return innensechskantS;
+        }
+
+        public double SechskanttiefeS()
+        {
+            Tabelle tab = new Tabelle();
+            foreach (Schraubenarray m in tab.getAll())
+            {
+
+                if (Wunschgewindeart == m.Gewindebezeichnung)
+                {
+                    sechskanttiegeS = m.SechskanttiefeS;
+                }
+            }
+
+            return sechskanttiegeS;
+        }
+
+        public double InnensechskantGS()
+        {
+            Tabelle tab = new Tabelle();
+            foreach (Schraubenarray m in tab.getAll())
+            {
+
+                if (Wunschgewindeart == m.Gewindebezeichnung)
+                {
+                    innensechskantGS = m.InnensechkantGS;
+                }
+            }
+
+            return innensechskantGS;
+        }
+
+        public double SechskanttiefeGS()
+        {
+            Tabelle tab = new Tabelle();
+            foreach (Schraubenarray m in tab.getAll())
+            {
+
+                if (Wunschgewindeart == m.Gewindebezeichnung)
+                {
+                    sechskanttiefeGS = m.SechskanttiefeGS;
+                }
+            }
+
+            return sechskanttiefeGS;
+        }
+
+        public double KopfhoeheZ()
+        {
+            Tabelle tab = new Tabelle();
+            foreach (Schraubenarray m in tab.getAll())
+            {
+
+                if (Wunschgewindeart == m.Gewindebezeichnung)
+                {
+                    kopfhoeheZ = m.KopfhoeheZ;
+                }
+            }
+            return kopfhoeheZ;
+        }
+
+        public double KopfdurchmesserS()
+        {
+
+            Tabelle tab = new Tabelle();
+            foreach (Schraubenarray m in tab.getAll())
+            {
+
+                if (Wunschgewindeart == m.Gewindebezeichnung)
+                {
+                    kopfdurchmesserS = m.KopfdurchmesserS;
+                }
+            }
+            return kopfdurchmesserS;
+        }
+
+        public double KopfhoeheS()
+        {
+            Tabelle tab = new Tabelle();
+            foreach (Schraubenarray m in tab.getAll())
+            {
+
+                if (Wunschgewindeart == m.Gewindebezeichnung)
+                {
+                    kopfhoeheS = m.KopfhoeheS;
+                }
+            }
+            return kopfhoeheS;
+        }
+
+        public double KopfdurchmesserZ()
+        {
+
+            Tabelle tab = new Tabelle();
+            foreach (Schraubenarray m in tab.getAll())
+            {
+
+                if (Wunschgewindeart == m.Gewindebezeichnung)
+                {
+                    kopfdurchmesserZ = m.KopfdurchmesserZ;
+                }
+            }
+            return kopfdurchmesserZ;
+        }
+
+        public double KopfhoeheSE()
+        {
+
+            Tabelle tab = new Tabelle();
+            foreach (Schraubenarray m in tab.getAll())
+            {
+
+                if (Wunschgewindeart == m.Gewindebezeichnung)
+                {
+                    kopfhoeheSE = m.Schraubenkopfhoehe;
+                }
+            }
+            return kopfhoeheSE;
         }
         #endregion
 

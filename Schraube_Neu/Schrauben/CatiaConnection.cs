@@ -86,8 +86,10 @@ namespace Schrauben
         #endregion
 
         #region Schraube
-        internal void ErzeugeZylinder(Produkt mySchraube)
+        internal void ErzeugeZylinder(Schraube mySchraube)
         {
+            double Ri = mySchraube.Nenndurchmesser() / 2;
+
             myPart = hsp_catiaPartDoc.Part;
             Bodies bodies = myPart.Bodies;
             myBody = myPart.MainBody;
@@ -107,7 +109,7 @@ namespace Schrauben
             double H0 = 0;
             double V0 = 0;
             Point2D Ursprung = catFactory2D1.CreatePoint(H0, V0);
-            Circle2D Kreis = catFactory2D1.CreateCircle(H0, V0, mySchraube.Ri, 0, 0);
+            Circle2D Kreis = catFactory2D1.CreateCircle(H0, V0, Ri, 0, 0);
             Kreis.CenterPoint = Ursprung;
 
             // ... schliessen
@@ -115,17 +117,17 @@ namespace Schrauben
 
             // Schraubenschaft durch ein Pad erstellen
             Reference RefMySchaft = myPart.CreateReferenceFromObject(hsp_catiaSkizze);
-            mySchaft = SF.AddNewPadFromRef(RefMySchaft, mySchraube.laenge);
+            mySchaft = SF.AddNewPadFromRef(RefMySchaft, mySchraube.Wunschgewindelaenge+mySchraube.Wunschschaftlaenge);
             myPart.Update();
 
         }                  
 
         // Erzeugt eine Helix 
-        internal void ErzeugeGewindeHelix(Produkt mySchraube)
+        internal void ErzeugeGewindeHelix(Schraube mySchraube)
         {
-            Double P = mySchraube.P;
-            Double Ri = mySchraube.Ri;
-            double l = mySchraube.laenge;
+            double P = mySchraube.Steigung();
+            double Ri =mySchraube.Nenndurchmesser()/2;
+            double l = mySchraube.Wunschschaftlaenge+mySchraube.Wunschgewindelaenge;
             HSF = (HybridShapeFactory)myPart.HybridShapeFactory;
 
             Sketch myGewinde = makeGewindeSkizze(mySchraube);
@@ -203,11 +205,11 @@ namespace Schrauben
         }
 
         // Separate Skizzenerzeugung für de Helix
-        private Sketch makeGewindeSkizze(Produkt dieSchraube)
+        private Sketch makeGewindeSkizze(Schraube mySchraube)
         {
-            Double P = dieSchraube.P;
-            Double Ri = dieSchraube.Ri;
-            double l = dieSchraube.laenge;
+            double P = mySchraube.Steigung();
+            double Ri = mySchraube.Nenndurchmesser()/2;
+            double l = mySchraube.Wunschgewindelaenge + mySchraube.Wunschschaftlaenge;
 
             OriginElements catOriginElements = hsp_catiaPartDoc.Part.OriginElements;
             Reference RefmyPlaneZX = (Reference)catOriginElements.PlaneZX;
@@ -264,14 +266,14 @@ namespace Schrauben
 
         #endregion
 
-        internal void Zylinderkopf(Produkt mySchraube)
+        internal void Zylinderkopf(Schraube mySchraube)
         {
             //myKopf=Skizze
             //in CatiaControl Klasse aufrufen
             //CreateCircle(H0, V0, 20, 0, 0)=(Höhe,Breite,Radius,0,0)
 
-            double R = mySchraube.KopfdurchmesserZ / 2;
-            double H = mySchraube.KopfhoeheZ;
+            double R = mySchraube.Nenndurchmesser()/2;
+            double H = mySchraube.KopfhoeheZ();
 
 
             OriginElements catOriginElements = hsp_catiaPartDoc.Part.OriginElements;
@@ -317,10 +319,11 @@ namespace Schrauben
 
         }
 
-        internal void Sechskant(Produkt mySchraube)
+        internal void Sechskant(Schraube mySchraube)
         {
-            double SW = mySchraube.Schluesselweite;
+            double SW = mySchraube.Schluesselweite()/2;
             double K = 2 * SW / Math.Sqrt(3);
+            double T = mySchraube.KopfhoeheSE();
 
 
 
@@ -391,7 +394,7 @@ namespace Schrauben
 
             // Block(Balken) erzeugen
             ShapeFactory catShapeFactory1 = (ShapeFactory)hsp_catiaPartDoc.Part.ShapeFactory;
-            Pad catPad1 = catShapeFactory1.AddNewPad(mySechskant, -5);
+            Pad catPad1 = catShapeFactory1.AddNewPad(mySechskant, -T);
 
             // Block umbenennen
             catPad1.set_Name("Sechskant");
@@ -402,9 +405,9 @@ namespace Schrauben
 
         }
 
-        internal void Senkkopf(Produkt mySchraube)
+        internal void Senkkopf(Schraube mySchraube)
         {
-            double KR = mySchraube.KopfhoeheS;       //Stmmt nicht ganz mit der wirklichen Höhe überein, muss größer als die Höhe sein!!!!
+            double KR = mySchraube.KopfhoeheS();       //Stmmt nicht ganz mit der wirklichen Höhe überein, muss größer als die Höhe sein!!!!
 
             OriginElements catOriginElements = hsp_catiaPartDoc.Part.OriginElements;
             Reference RefmyPlaneZX = (Reference)catOriginElements.PlaneZX;
@@ -456,7 +459,7 @@ namespace Schrauben
 
         }
 
-        internal void Gewindestift(Produkt mySchraube)
+        internal void Gewindestift(Schraube mySchraube)
         {
             /*
             double SW = 10;
@@ -542,14 +545,14 @@ namespace Schrauben
             */
         }
 
-        internal void InnensechskantZ(Produkt mySchraube)
+        internal void InnensechskantZ(Schraube mySchraube)
         {
             //Innenschlüsselweite
-            double Ib = mySchraube.InnensechskantZ;
+            double Ib = mySchraube.InnensechskantZ();
             //Kantenlänge
             double K = 2 * Ib / Math.Sqrt(3);
             //tiefe 
-            double T = mySchraube.SechskanttiefeZ;
+            double T = mySchraube.SechskanttiefeZ();
 
 
 
@@ -629,14 +632,14 @@ namespace Schrauben
 
         }
 
-        internal void InnensechskantS(Produkt mySchraube)
+        internal void InnensechskantS(Schraube mySchraube)
         {
             //Innenschlüsselweite
-            double Ib = mySchraube.InnensechskantS;
+            double Ib = mySchraube.InnensechskantS();
             //Kantenlänge
             double K = 2 * Ib / Math.Sqrt(3);
             //tiefe 
-            double T = mySchraube.SechskanttiefeS;
+            double T = mySchraube.SechskanttiefeS();
 
 
 
@@ -716,14 +719,14 @@ namespace Schrauben
 
         }
 
-        internal void InnensechskantGS(Produkt mySchraube)
+        internal void InnensechskantGS(Schraube mySchraube)
         {
             //Innenschlüsselweite
-            double Ib = mySchraube.InnensechskantGS;
+            double Ib = mySchraube.InnensechskantGS();
             //Kantenlänge
             double K = 2 * Ib / Math.Sqrt(3);
             //tiefe 
-            double T = mySchraube.SechskanttiefeGS;
+            double T = mySchraube.SechskanttiefeGS();
 
 
 

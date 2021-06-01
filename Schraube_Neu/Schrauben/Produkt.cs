@@ -1,4 +1,4 @@
-﻿namespace Schrauben
+﻿/*namespace Schrauben
 {
     // Unterdatei zur Auflistung der Variablen die Catia übergeben werden
     class Produkt
@@ -54,4 +54,5 @@
     }
 
 }
+*/
 

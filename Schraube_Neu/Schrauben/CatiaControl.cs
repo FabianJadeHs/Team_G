@@ -23,7 +23,7 @@ namespace Schrauben
 
     public class CatiaControl
     {
-        public CatiaControl()
+        public CatiaControl(Schraube schraube)
         {
             try
             {
@@ -43,47 +43,37 @@ namespace Schrauben
                     cc.ErstelleLeereSkizze();
                     Console.WriteLine("2");
 
-                    Produkt dieSchraube = new Produkt(60, 50, "Standardgewinde", "M8", 5.3d, 4d, 1.25d);     //Was für Daten will er hier in der Klammer haben????
+                   //Produkt dieSchraube = new Produkt(schraube);     //Was für Daten will er hier in der Klammer haben????
 
-                    cc.ErzeugeZylinder(dieSchraube);
+                    cc.ErzeugeZylinder(schraube);
                     Console.WriteLine("Schaft");
 
                     
-                    cc.ErzeugeGewindeHelix(dieSchraube);
+                    cc.ErzeugeGewindeHelix(schraube);
                     Console.WriteLine("Gewinde");
 
-                    if (dieSchraube.Wunschschraubenkopf == "Zylinderkopf")       
-                    {
-                        cc.Zylinderkopf(dieSchraube);
-                        Console.WriteLine("Zylinderkopf");
+                    cc.Zylinderkopf(schraube);
+                    Console.WriteLine("Zylinderkopf");
 
-                        cc.InnensechskantZ(dieSchraube);
-                        Console.WriteLine("Innensechskant");
-                    }
-
-                    else if (dieSchraube.Wunschschraubenkopf == "Sechskant")
-                    {
-                        cc.Sechskant(dieSchraube);
-                        Console.WriteLine("Sechskant");
-                    }
+                    cc.InnensechskantZ(schraube);
+                    Console.WriteLine("Innensechskant");
+                    /*
+                    cc.Sechskant(schraube);
+                    Console.WriteLine("Sechskant");
                     
-                    else if (dieSchraube.Wunschschraubenkopf == "Senkkopf")
-                    {
-                        cc.Senkkopf(dieSchraube);
-                        Console.WriteLine("Senkkopf");
+                    cc.Senkkopf(schraube);
+                    Console.WriteLine("Senkkopf");
 
-                        cc.InnensechskantS(dieSchraube);
-                        Console.WriteLine("Innensechskant");
-                    }
+                    cc.InnensechskantS(schraube);
+                    Console.WriteLine("Innensechskant");                
+                                       
+                    
+                    cc.Gewindestift(schraube);
+                    Console.WriteLine("Gewindestift");
 
-                    else if (dieSchraube.Wunschschraubenkopf == "Gewindestift")
-                    {
-                        cc.Gewindestift(dieSchraube);
-                        Console.WriteLine("Gewindestift");
-
-                        cc.InnensechskantGS(dieSchraube);
-                        Console.WriteLine("Innensechskant");
-                    }
+                    cc.InnensechskantGS(schraube);
+                    Console.WriteLine("Innensechskant");
+                    */
                                        
                     
 

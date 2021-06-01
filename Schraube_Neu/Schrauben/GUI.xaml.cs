@@ -24,6 +24,7 @@ namespace Schrauben
     /// </summary>
     public partial class GUI : UserControl
     {
+        private Schraube test1;
         public string[] Arten { get; set; }
         public string[] Regelgewinde { get; set; }
         public string[] Richtung { get; set; }
@@ -231,7 +232,7 @@ namespace Schrauben
 
         public void btn_Exportieren_Click(object sender, RoutedEventArgs e)
         {
-            new CatiaControl();
+            new CatiaControl(test1);
         }
 
     }
