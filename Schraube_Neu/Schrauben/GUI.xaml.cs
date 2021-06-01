@@ -71,7 +71,6 @@ namespace Schrauben
             lbl_Begruessung.Content = "";
             tctl_Fenster.Visibility = Visibility.Visible;
             btn_Berechnen.Visibility = Visibility.Visible;
-            btn_Exportieren.Visibility = Visibility.Visible;
             img_Logo.Visibility = Visibility.Visible;
             img_viertesSchema.Visibility = Visibility.Visible;
             btn_Konfigurieren.Visibility = Visibility.Hidden;
@@ -179,7 +178,7 @@ namespace Schrauben
         #region Variablenzuweisung
         private void btn_Berechnen_Click(object sender, RoutedEventArgs e)
         {
-
+            
             //eine einfache Methode die richTextBox leer zu machen
             richTextBox.SelectAll();
 
@@ -236,7 +235,10 @@ namespace Schrauben
 
             double ri = test1.Nenndurchmesser();
             richTextBox.AppendText(("Der Durchmesser beträgt ") + ri + Environment.NewLine);
-                       
+
+            //Button Exportieren sichtbar schalten
+            btn_Exportieren.Visibility = Visibility.Visible;
+
         }
 
         #endregion
