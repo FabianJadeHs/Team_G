@@ -52,11 +52,11 @@ namespace Schrauben
                     cc.ErzeugeGewindeHelix(schraube);
                     Console.WriteLine("Gewinde");
 
-                    cc.Zylinderkopf(schraube);
-                    Console.WriteLine("Zylinderkopf");
+                    //cc.Zylinderkopf(schraube);
+                    //Console.WriteLine("Zylinderkopf");
 
-                    cc.InnensechskantZ(schraube);
-                    Console.WriteLine("Innensechskant");
+                    //cc.InnensechskantZ(schraube);
+                    //Console.WriteLine("Innensechskant");
                     /*
                     cc.Sechskant(schraube);
                     Console.WriteLine("Sechskant");
@@ -78,8 +78,8 @@ namespace Schrauben
                     
 
                     //Wann und wo den Schlitz anbinden
-                    cc.Schlitz();
-                    Console.WriteLine("Schlitz");
+                    //cc.Schlitz();
+                    //Console.WriteLine("Schlitz");
                 }
                 else
                 {

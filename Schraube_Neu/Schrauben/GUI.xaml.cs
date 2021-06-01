@@ -24,7 +24,8 @@ namespace Schrauben
     /// </summary>
     public partial class GUI : UserControl
     {
-        private Schraube test1;
+        
+        public Schraube test1 = new Schraube();
         public string[] Arten { get; set; }
         public string[] Regelgewinde { get; set; }
         public string[] Richtung { get; set; }
@@ -178,7 +179,7 @@ namespace Schrauben
             richTextBox.Selection.Text="";
 
             //neues Objekt wird erzeugt
-            Schraube test1 = new Schraube();
+            //Schraube test1 = new Schraube();
 
             //benötigte Variablen werden aus Eingaben in der GUI genommen
             test1.Wunschgewindeart = cbx_Antwort1.Text;                     
@@ -222,9 +223,12 @@ namespace Schrauben
 
             double schluesselweite = test1.Schluesselweite();
             richTextBox.AppendText("Die Schluesselweite beträgt " + schluesselweite  + Environment.NewLine);
-
+            
             double steigung = test1.Steigung();
             richTextBox.AppendText("Die Steigung beträgt " + steigung + Environment.NewLine);
+
+            double ri = test1.Nenndurchmesser();
+            richTextBox.AppendText(("Der Durchmesser beträgt ") + ri + Environment.NewLine);
                        
         }
 

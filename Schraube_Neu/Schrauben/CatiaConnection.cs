@@ -272,7 +272,7 @@ namespace Schrauben
             //in CatiaControl Klasse aufrufen
             //CreateCircle(H0, V0, 20, 0, 0)=(Höhe,Breite,Radius,0,0)
 
-            double R = mySchraube.Nenndurchmesser()/2;
+            double R = mySchraube.KopfdurchmesserZ()/2;
             double H = mySchraube.KopfhoeheZ();
 
 
@@ -548,7 +548,7 @@ namespace Schrauben
         internal void InnensechskantZ(Schraube mySchraube)
         {
             //Innenschlüsselweite
-            double Ib = mySchraube.InnensechskantZ();
+            double Ib = mySchraube.InnensechskantZ()/2;
             //Kantenlänge
             double K = 2 * Ib / Math.Sqrt(3);
             //tiefe 
