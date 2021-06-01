@@ -137,7 +137,14 @@ namespace Schrauben
         {
             cbx_Antwort1.Items.Clear();
         }
-
+        private void cbx_Antwort6_DropDownClosed(object sender, EventArgs e)
+        {
+            if (cbx_Antwort6.Text == "Gewindestift")
+            {
+                txtb_Antwort3.Text = "Keine Schaftauswahl möglich!";
+                txtb_Antwort3.IsReadOnly = true;
+            }
+        }
         private void cbx_Antwort4_DropDownClosed(object sender, EventArgs e)    //Abfrage des Materials
         {
 
@@ -238,6 +245,7 @@ namespace Schrauben
         {
             new CatiaControl(test1);
         }
+
 
     }
 }
