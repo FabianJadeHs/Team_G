@@ -140,7 +140,7 @@ namespace Schrauben
         {
             if (cbx_Antwort6.Text == "Gewindestift")
             {
-                txtb_Antwort3.Text = "Keine Schaftauswahl möglich!";
+                txtb_Antwort3.Text = "0";
                 txtb_Antwort3.IsReadOnly = true;
             }
         }
@@ -218,7 +218,7 @@ namespace Schrauben
          
             test1.Wunschschraubenkopf = cbx_Antwort6.Text;
 
-            test1.Wunschgewindelaenge = double.Parse(txtb_Antwort2.Text);
+            test1.Wunschgewindelaenge = double.Parse(txtb_Antwort2.Text);            
                                  
             test1.Wunschschaftlaenge = double.Parse(txtb_Antwort3.Text);
 
@@ -227,6 +227,8 @@ namespace Schrauben
             test1.Wunschfestigkeit = cbx_Antwort8.Text;
 
             test1.Wunschanzahl = double.Parse(txtb_Antwort5.Text);
+
+            test1.Gewinderichtung = cbx_Antwort7.Text;
 
             //Unterprogramme werden abgerufen und geben Werte aus
             double rundung = test1.Rundung();

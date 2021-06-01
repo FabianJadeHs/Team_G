@@ -42,15 +42,42 @@ namespace Schrauben
                     // Erstelle eine Skizze
                     cc.ErstelleLeereSkizze();
                     Console.WriteLine("2");
-
-                   //Produkt dieSchraube = new Produkt(schraube);     //Was für Daten will er hier in der Klammer haben????
-
+                                       
                     cc.ErzeugeZylinder(schraube);
                     Console.WriteLine("Schaft");
-
-                    
+                                        
                     cc.ErzeugeGewindeHelix(schraube);
                     Console.WriteLine("Gewinde");
+
+                    if (schraube.Wunschschraubenkopf == "Sechskant")
+                    {
+                        cc.Sechskant(schraube);
+                    }
+                    else if(schraube.Wunschschraubenkopf=="Zylinderkopf mit Innensechskant")
+                    {
+                        cc.Zylinderkopf(schraube);
+                        cc.InnensechskantZ(schraube);
+                    }
+                    else if(schraube.Wunschschraubenkopf=="Zylinderkopf mit Schlitz")
+                    {
+                        cc.Zylinderkopf(schraube);
+                        cc.Schlitz();
+                    }
+                    else if(schraube.Wunschschraubenkopf=="Senkkopf mit Innensechskant")
+                    {
+                        cc.Senkkopf(schraube);
+                        cc.InnensechskantS(schraube);
+                    }
+                    else if(schraube.Wunschschraubenkopf=="Senkkopf mit Schlitz")
+                    {
+                        cc.Senkkopf(schraube);
+                        cc.Schlitz();
+                    }
+                    else if (schraube.Wunschschraubenkopf == "Gewindestift")
+                    {
+                        cc.InnensechskantGS(schraube);
+                        cc.FaseGewindestift(schraube);
+                    }
 
                     //cc.Zylinderkopf(schraube);
                     //Console.WriteLine("Zylinderkopf");

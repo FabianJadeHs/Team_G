@@ -128,6 +128,17 @@ namespace Schrauben
             double P = mySchraube.Steigung();
             double Ri =mySchraube.Nenndurchmesser()/2;
             double l = mySchraube.Wunschschaftlaenge+mySchraube.Wunschgewindelaenge;
+            bool s=true;
+
+            if(mySchraube.Gewinderichtung=="Rechtsgewinde")
+            {
+                s = false;
+            }
+            else if (mySchraube.Gewinderichtung == "Linksgewinde")
+            {
+                s = true;
+            }
+
             HSF = (HybridShapeFactory)myPart.HybridShapeFactory;
 
             Sketch myGewinde = makeGewindeSkizze(mySchraube);
@@ -138,7 +149,7 @@ namespace Schrauben
             HybridShapePointCoord HelixStartpunkt = HSF.AddNewPointCoord(0, 0, Ri);
             Reference RefHelixStartpunkt = myPart.CreateReferenceFromObject(HelixStartpunkt);
 
-            HybridShapeHelix Helix = HSF.AddNewHelix(RefHelixDir, false, RefHelixStartpunkt, P, mySchraube.Wunschgewindelaenge, false, 0, 0, false);
+            HybridShapeHelix Helix = HSF.AddNewHelix(RefHelixDir, false, RefHelixStartpunkt, P, mySchraube.Wunschgewindelaenge, s, 0, 0, false);
 
             Reference RefHelix = myPart.CreateReferenceFromObject(Helix);
             Reference RefmyGewinde = myPart.CreateReferenceFromObject(myGewinde);
@@ -264,6 +275,63 @@ namespace Schrauben
             return myGewinde;
         }
 
+        private Sketch makeGewindeSkizzeTrapez(Schraube mySchraube)
+        {
+            Double ac = 0.5;                                                                            //Spitzenspiel
+            Double steigung = mySchraube.Steigung();
+            Double hoehe = 0.5 * steigung * ac;
+            Double breite = 0.366 * steigung - 0.54 * ac;
+            Double radius = mySchraube.Nenndurchmesser() / 2;
+
+            OriginElements catOriginElements = hsp_catiaPartDoc.Part.OriginElements;
+            Reference RefmyPlaneZX = (Reference)catOriginElements.PlaneZX;
+
+            Sketch myGewinde = mySketches.Add(RefmyPlaneZX);
+            myPart.InWorkObject = myGewinde;
+            myGewinde.set_Name("Gewinde");
+
+            double verschiebung = mySchraube.Wunschgewindelaenge + mySchraube.Wunschschaftlaenge;
+
+            double V_oben_rechts = verschiebung;
+            double H_oben_rechts = radius;
+
+            double V_unten_rechts = verschiebung - breite - 2 * hoehe * Math.Tan(Math.PI / 12);
+            double H_unten_rechts = radius;
+
+            double V_unten_links = verschiebung - hoehe * Math.Tan(Math.PI / 12) - breite;
+            double H_unten_links = radius - hoehe;
+
+            double V_oben_links = verschiebung - hoehe * Math.Tan(Math.PI / 12);
+            double H_oben_links = radius - hoehe;
+
+            Factory2D factory2D = myGewinde.OpenEdition();
+
+            Point2D Oben_links = factory2D.CreatePoint(H_oben_links, V_oben_links);
+            Point2D Oben_rechts = factory2D.CreatePoint(H_oben_rechts, V_oben_rechts);
+            Point2D Unten_links = factory2D.CreatePoint(H_unten_links, V_unten_links);
+            Point2D Unten_rechts = factory2D.CreatePoint(H_unten_rechts, V_unten_rechts);
+
+            Line2D aussen = factory2D.CreateLine(H_oben_rechts, V_oben_rechts, H_unten_rechts, V_unten_rechts);
+            aussen.StartPoint = Oben_rechts;
+            aussen.EndPoint = Unten_rechts;
+
+            Line2D unten = factory2D.CreateLine(H_unten_links, V_unten_links, H_unten_rechts, V_unten_rechts);
+            unten.StartPoint = Unten_rechts;
+            unten.EndPoint = Unten_links;
+
+            Line2D innen = factory2D.CreateLine(H_unten_links, V_unten_links, H_oben_links, V_oben_links);
+            innen.StartPoint = Unten_links;
+            innen.EndPoint = Oben_links;
+
+            Line2D oben = factory2D.CreateLine(H_oben_rechts, V_oben_rechts, H_oben_links, V_oben_links);
+            oben.StartPoint = Oben_links;
+            oben.EndPoint = Oben_rechts;
+
+            myGewinde.CloseEdition();
+            myPart.Update();
+
+            return myGewinde;
+        }
         #endregion
 
         internal void Zylinderkopf(Schraube mySchraube)
@@ -407,7 +475,7 @@ namespace Schrauben
 
         internal void Senkkopf(Schraube mySchraube)
         {
-            double KR = mySchraube.KopfhoeheS();       //Stmmt nicht ganz mit der wirklichen Höhe überein, muss größer als die Höhe sein!!!!
+            double KR = mySchraube.KopfhoeheS()+mySchraube.Nenndurchmesser()/2;       //Stmmt nicht ganz mit der wirklichen Höhe überein, muss größer als die Höhe sein!!!!
 
             OriginElements catOriginElements = hsp_catiaPartDoc.Part.OriginElements;
             Reference RefmyPlaneZX = (Reference)catOriginElements.PlaneZX;
@@ -457,93 +525,7 @@ namespace Schrauben
             kopfFlaeche = myPart.CreateReferenceFromName("Selection_RSur:(Face:(Brp:((Brp:(Shaft.1;0:(Brp:(Sketch.3;1)));Brp:(Pad.1;1)));None:();Cf12:());Shaft.1_ResultOUT;Z0;G9061)");
 
 
-        }
-
-        internal void Gewindestift(Schraube mySchraube)
-        {
-            /*
-            double SW = 10;
-            double K = 2 * SW / Math.Sqrt(3);
-
-
-
-            OriginElements catOriginElements = hsp_catiaPartDoc.Part.OriginElements;
-            Reference RefmyPlaneYZ = (Reference)catOriginElements.PlaneYZ;
-
-            Sketch mySechskant = mySketches.Add(RefmyPlaneYZ);
-            myPart.InWorkObject = mySechskant;
-            mySechskant.set_Name("Sechskantkopf");
-
-            myPart.InWorkObject = myPart.MainBody;
-
-
-            // Rechteck in Skizze einzeichnen
-            // Skizze oeffnen
-            Factory2D catFactory2D1 = mySechskant.OpenEdition();
-
-            // Rechteck erzeugen
-
-            // erst die Punkte
-            //oben links gegen Uhrzeigersein
-            Point2D catPoint2D1 = catFactory2D1.CreatePoint(-K / 2, SW);
-            Point2D catPoint2D2 = catFactory2D1.CreatePoint(-K, 0);
-            Point2D catPoint2D3 = catFactory2D1.CreatePoint(-K / 2, -SW);
-            Point2D catPoint2D4 = catFactory2D1.CreatePoint(K / 2, -SW);
-            // meine Punkte
-            Point2D catPoint2D5 = catFactory2D1.CreatePoint(K, 0);
-            Point2D catPoint2D6 = catFactory2D1.CreatePoint(K / 2, SW);
-
-
-
-            // dann die Linien im Uhrzeiger oben links start
-
-            Line2D catLine2D1 = catFactory2D1.CreateLine(-K / 2, SW, -K, 0);
-            catLine2D1.StartPoint = catPoint2D1;
-            catLine2D1.EndPoint = catPoint2D2;
-
-            Line2D catLine2D2 = catFactory2D1.CreateLine(-K, 0, -K / 2, -SW);
-            catLine2D2.StartPoint = catPoint2D2;
-            catLine2D2.EndPoint = catPoint2D3;
-
-            Line2D catLine2D3 = catFactory2D1.CreateLine(-K / 2, -SW, K / 2, -SW);
-            catLine2D3.StartPoint = catPoint2D3;
-            catLine2D3.EndPoint = catPoint2D4;
-
-            Line2D catLine2D4 = catFactory2D1.CreateLine(K / 2, -SW, K, 0);
-            catLine2D4.StartPoint = catPoint2D4;
-            catLine2D4.EndPoint = catPoint2D5;
-            //meine
-            Line2D catLine2D5 = catFactory2D1.CreateLine(K, 0, K / 2, SW);
-            catLine2D5.StartPoint = catPoint2D5;
-            catLine2D5.EndPoint = catPoint2D6;
-
-            Line2D catLine2D6 = catFactory2D1.CreateLine(K / 2, SW, -K / 2, SW);
-            catLine2D6.StartPoint = catPoint2D6;
-            catLine2D6.EndPoint = catPoint2D1;
-
-
-
-
-            // Skizzierer verlassen
-            mySechskant.CloseEdition();
-            // Part aktualisieren
-            hsp_catiaPartDoc.Part.Update();
-
-            // Hauptkoerper in Bearbeitung definieren
-            hsp_catiaPartDoc.Part.InWorkObject = hsp_catiaPartDoc.Part.MainBody;
-
-            // Block(Balken) erzeugen
-            ShapeFactory catShapeFactory1 = (ShapeFactory)hsp_catiaPartDoc.Part.ShapeFactory;
-            Pad catPad1 = catShapeFactory1.AddNewPad(mySechskant, -5);
-
-            // Block umbenennen
-            catPad1.set_Name("Sechkant");
-
-            // Part aktualisieren
-            hsp_catiaPartDoc.Part.Update();
-
-            */
-        }
+        }              
 
         internal void InnensechskantZ(Schraube mySchraube)
         {
@@ -635,7 +617,7 @@ namespace Schrauben
         internal void InnensechskantS(Schraube mySchraube)
         {
             //Innenschlüsselweite
-            double Ib = mySchraube.InnensechskantS();
+            double Ib = mySchraube.InnensechskantS()/2;
             //Kantenlänge
             double K = 2 * Ib / Math.Sqrt(3);
             //tiefe 
@@ -722,7 +704,7 @@ namespace Schrauben
         internal void InnensechskantGS(Schraube mySchraube)
         {
             //Innenschlüsselweite
-            double Ib = mySchraube.InnensechskantGS();
+            double Ib = mySchraube.InnensechskantGS()/2;
             //Kantenlänge
             double K = 2 * Ib / Math.Sqrt(3);
             //tiefe 
@@ -731,9 +713,11 @@ namespace Schrauben
 
 
             OriginElements catOriginElements = hsp_catiaPartDoc.Part.OriginElements;
-            Reference refPlane = kopfFlaeche;
+            Reference RefmyPlaneYZ = (Reference)catOriginElements.PlaneYZ;
 
-            Sketch myInnensechskant = mySketches.Add(refPlane);
+            Sketch mySechskant = mySketches.Add(RefmyPlaneYZ);
+
+            Sketch myInnensechskant = mySketches.Add(RefmyPlaneYZ);
             myPart.InWorkObject = myInnensechskant;
             myInnensechskant.set_Name("Innensechskant");
 
@@ -796,7 +780,7 @@ namespace Schrauben
             hsp_catiaPartDoc.Part.InWorkObject = hsp_catiaPartDoc.Part.MainBody;
 
             // Block(Balken) erzeugen
-            Pocket Loch = SF.AddNewPocket(myInnensechskant, T);
+            Pocket Loch = SF.AddNewPocket(myInnensechskant, -T);
             Loch.set_Name("Innensechskant");
 
             // Part aktualisieren
@@ -861,6 +845,64 @@ namespace Schrauben
             // Part aktualisieren
             hsp_catiaPartDoc.Part.Update();
         }
+
+        internal void FaseGewindestift(Schraube mySchraube)
+        {
+            double P = mySchraube.Steigung();
+            double Ri = mySchraube.Nenndurchmesser() / 2;
+            
+
+            OriginElements catOriginElements = this.hsp_catiaPartDoc.Part.OriginElements;
+            Reference RefmyPlaneZX = (Reference)catOriginElements.PlaneZX;
+
+            HybridShapeDirection Dir = HSF.AddNewDirectionByCoord(1, 0, 0);
+            Reference RefDir = myPart.CreateReferenceFromObject(Dir);
+
+            Sketch FaseG = mySketches.Add(RefmyPlaneZX);
+            myPart.InWorkObject = FaseG;
+            FaseG.set_Name("FaseKopf");
+
+            myPart.InWorkObject = myPart.MainBody;
+
+            double H_links = Ri;
+            double V_links =  0.65 * P;
+
+            double H_rechts = Ri;
+            double V_rechts = 0;
+
+            double H_unten = Ri - 0.65 * P;
+            double V_unten = 0;
+
+            Factory2D catFactory2D3 = FaseG.OpenEdition();
+
+            Point2D links = catFactory2D3.CreatePoint(H_links, V_links);
+            Point2D rechts = catFactory2D3.CreatePoint(H_rechts, V_rechts);
+            Point2D unten = catFactory2D3.CreatePoint(H_unten, V_unten);
+
+            Line2D Oben = catFactory2D3.CreateLine(H_links, V_links, H_rechts, V_rechts);
+            Oben.StartPoint = links;
+            Oben.EndPoint = rechts;
+
+            Line2D hypo = catFactory2D3.CreateLine(H_links, V_links, H_unten, V_unten);
+            hypo.StartPoint = links;
+            hypo.EndPoint = unten;
+
+            Line2D seite = catFactory2D3.CreateLine(H_unten, V_unten, H_rechts, V_rechts);
+            seite.StartPoint = unten;
+            seite.EndPoint = rechts;
+
+            FaseG.CloseEdition();
+
+            myPart.InWorkObject = myBody;
+            myPart.Update();
+
+            Groove myChamfer = SF.AddNewGroove(FaseG);
+            myChamfer.RevoluteAxis = RefDir;
+
+            myPart.Update();
+        }
+
+       
 
     }
 

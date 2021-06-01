@@ -16,6 +16,7 @@ namespace Schrauben
         public double Wunschanzahl { get; set; }
         public string Wunschschraubenkopf { get; set; }
         public string Wunschfestigkeit { get; set; }
+        public string Gewinderichtung { get; set; }
            
 
         // globale Variablen innerhalb der class werden definiert damit Unterprogramme kürzer sind
