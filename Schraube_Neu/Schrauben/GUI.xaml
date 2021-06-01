@@ -50,8 +50,8 @@
                         <ComboBox x:Name="cbx_Antwort6" ItemsSource="{Binding Kopfarten}" Margin="2,0,2,12" DropDownClosed="cbx_Antwort6_DropDownClosed"/>
                         <ComboBox x:Name="cbx_Antwort0" ItemsSource="{Binding Arten}" DropDownClosed="cbx_Antwort0_DropDownClosed" DropDownOpened="cbx_Antwort0_DropDownOpened" Margin="2,2,2,10"/>
                         <ComboBox x:Name="cbx_Antwort1" ItemsSource="{Binding Gewindearten}" Margin="2,0,2,12"/>
-                        <TextBox x:Name="txtb_Antwort2" Margin="2,0,2,14" PreviewTextInput="NumbervalidationTextBox"/>
-                        <TextBox x:Name="txtb_Antwort3" Margin="2,0,2,12" PreviewTextInput="NumbervalidationTextBox"/>
+                        <TextBox x:Name="txtb_Antwort2" Margin="2,0,2,14" PreviewTextInput="NumbervalidationTextBox" LostFocus="txtb_Antwort2_LostFocus"/>
+                        <TextBox x:Name="txtb_Antwort3" Margin="2,0,2,12" PreviewTextInput="NumbervalidationTextBox" LostFocus="txtb_Antwort3_LostFocus"/>
                         <ComboBox x:Name="cbx_Antwort7" ItemsSource="{Binding Richtung}" Margin="2,0,2,10"/>
                     </StackPanel>
 

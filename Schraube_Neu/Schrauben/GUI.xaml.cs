@@ -168,6 +168,32 @@ namespace Schrauben
                 cbx_Antwort8.Items.Add("Standard Festigkeiten");
             }
         }
+        private void txtb_Antwort3_LostFocus(object sender, RoutedEventArgs e)
+        {
+            test1.Wunschgewindeart = cbx_Antwort1.Text;
+            double steigung = test1.Steigung();
+            if (double.Parse(txtb_Antwort3.Text) < 3 * steigung)
+            {
+                txtb_Antwort3.Background = Brushes.Red;
+            }
+            else
+            {
+                txtb_Antwort3.Background = Brushes.White;
+            }
+        }
+        private void txtb_Antwort2_LostFocus(object sender, RoutedEventArgs e)
+        {
+            test1.Wunschgewindeart = cbx_Antwort1.Text;
+            double steigung = test1.Steigung();
+            if (double.Parse(txtb_Antwort2.Text) < 3 * steigung)
+            {
+                txtb_Antwort2.Background = Brushes.Red;
+            }
+            else
+            {
+                txtb_Antwort2.Background = Brushes.White;
+            }
+        }
 
         private void NumbervalidationTextBox(object sender, TextCompositionEventArgs e)
         {
