@@ -168,7 +168,7 @@ namespace Schrauben
                 cbx_Antwort8.Items.Add("Standard Festigkeiten");
             }
         }
-        private void txtb_Antwort3_LostFocus(object sender, RoutedEventArgs e)
+        private void txtb_Antwort3_TextChanged(object sender, TextChangedEventArgs e)
         {
             test1.Wunschgewindeart = cbx_Antwort1.Text;
 
@@ -188,7 +188,8 @@ namespace Schrauben
                 }
             }
         }
-        private void txtb_Antwort2_LostFocus(object sender, RoutedEventArgs e)
+
+        private void txtb_Antwort2_TextChanged(object sender, TextChangedEventArgs e)
         {
             test1.Wunschgewindeart = cbx_Antwort1.Text;
             double steigung = test1.Steigung();
@@ -206,7 +207,6 @@ namespace Schrauben
                 }
             }
         }
-
         private void NumbervalidationTextBox(object sender, TextCompositionEventArgs e)
         {
             //nur Eingaben von 0 bis 9 sind möglich
