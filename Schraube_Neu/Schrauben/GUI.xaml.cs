@@ -174,7 +174,10 @@ namespace Schrauben
 
             double steigung = test1.Steigung();
             double ri = test1.Nenndurchmesser();
-
+            if (txtb_Antwort3.Text == "")
+            {
+                txtb_Antwort3.Text = "0";
+            }
             if (double.Parse(txtb_Antwort3.Text) < 3 * steigung)
             {
                 txtb_Antwort3.Background = Brushes.Red;
@@ -194,6 +197,10 @@ namespace Schrauben
             test1.Wunschgewindeart = cbx_Antwort1.Text;
             double steigung = test1.Steigung();
             double ri = test1.Nenndurchmesser();
+            if ( txtb_Antwort2.Text == "")
+            {
+                txtb_Antwort2.Text = "0";
+            }
             if (double.Parse(txtb_Antwort2.Text) < 3 * steigung)
             {
                 txtb_Antwort2.Background = Brushes.Red;
