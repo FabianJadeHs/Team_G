@@ -269,7 +269,7 @@ namespace Schrauben
             //richTextBox.AppendText("Die Rundung beträgt " + Math.Round(rundung,3) + " mm." + Environment.NewLine+Environment.NewLine);
 
             double preis = test1.Preis();
-            richTextBox.AppendText("Preis gesamt: " + Math.Round(preis, 2) + " Euro" + Environment.NewLine);
+            richTextBox.AppendText("Preis gesamt: " + Math.Round(preis, 2) + " Euro" + Environment.NewLine+Environment.NewLine);
 
             double gewicht = test1.Gewicht();
             richTextBox.AppendText("Gewicht einer Schraube: " + Math.Round(gewicht, 2) + " g" + Environment.NewLine);
