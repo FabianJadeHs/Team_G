@@ -139,24 +139,9 @@ namespace Schrauben
                 s = true;
             }
 
-            Sketch myGewinde = null;
-
-            switch (mySchraube.Gewindeart)
-            {
-                case "Regelgewinde":
-                    myGewinde = makeGewindeSkizze(mySchraube);
-                    break;
-                case "Trapezgewinde":
-                    myGewinde = makeGewindeSkizzeTrapez(mySchraube);
-                    break;
-                case "Feingewinde":
-                    myGewinde = makeGewindeSkizze(mySchraube);
-                    break;
-
-            }
-
             HSF = (HybridShapeFactory)myPart.HybridShapeFactory;
-                       
+
+            Sketch myGewinde = makeGewindeSkizze(mySchraube);
 
             HybridShapeDirection HelixDir = HSF.AddNewDirectionByCoord(1, 0, 0);
             Reference RefHelixDir = myPart.CreateReferenceFromObject(HelixDir);
