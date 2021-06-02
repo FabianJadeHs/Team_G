@@ -79,6 +79,7 @@ namespace Schrauben
         //Wenn Combobox0 geschlossen wird
         private void cbx_Antwort0_DropDownClosed(object sender, EventArgs e)
         {
+            
             //neue Tabellen werden deklariert
             Tabelle tab = new Tabelle();
             Materialtabelle tab2 = new Materialtabelle();
@@ -135,6 +136,7 @@ namespace Schrauben
         private void cbx_Antwort0_DropDownOpened(object sender, EventArgs e)
         {
             cbx_Antwort1.Items.Clear();
+            cbx_Antwort1.MaxDropDownHeight = 240;
         }
         private void cbx_Antwort6_DropDownClosed(object sender, EventArgs e)
         {
@@ -142,6 +144,20 @@ namespace Schrauben
             {
                 txtb_Antwort3.Text = "0";
                 txtb_Antwort3.IsReadOnly = true;
+                cbx_Antwort0.Text = "Regelgewinde";
+                cbx_Antwort1.Items.Clear();
+
+                Schraubenarray[] Regelgewind = new Schraubenarray[33];
+                Tabelle tab = new Tabelle();
+                Array.Copy(tab.getAll(), 0, Regelgewind, 0, 33);            //Gibt vor, welche Zeilen des Arrays ausgegeben werden mit Beginn und Anzahl der nachfolgenden Zeilen
+                //Schraubenarray wird zeilenweise durchgegangen
+                foreach (Schraubenarray m in Regelgewind)
+
+                {
+                    cbx_Antwort1.Items.Add(m.Gewindebezeichnung);
+
+                }
+
             }
         }
         private void cbx_Antwort4_DropDownClosed(object sender, EventArgs e)    //Abfrage des Materials
@@ -178,10 +194,7 @@ namespace Schrauben
             {
                 txtb_Antwort3.Text = "0";
             }
-            if (double.Parse(txtb_Antwort3.Text) < 3 * steigung)
-            {
-                txtb_Antwort3.Background = Brushes.Red;
-            }
+
             else
             {
                 txtb_Antwort3.Background = Brushes.White;
