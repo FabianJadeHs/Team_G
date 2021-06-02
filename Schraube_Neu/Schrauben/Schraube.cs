@@ -48,6 +48,7 @@ namespace Schrauben
         double kopfhoeheS = 0;
         double kopfdurchmesserZ = 0;
         double kopfhoeheSE = 0;
+        double absatzdurchmesser = 0;
 
         #region Berechnungen
         public double Rundung() //Unterprogramm Rundungsberechnung
@@ -467,6 +468,21 @@ namespace Schrauben
                 }
             }
             return kopfhoeheSE;
+        }
+
+        public double Absatzdurchmesser()
+        {
+
+            Tabelle tab = new Tabelle();
+            foreach (Schraubenarray m in tab.getAll())
+            {
+
+                if (Wunschgewindeart == m.Gewindebezeichnung)
+                {
+                    absatzdurchmesser = m.Absatzdurchmesser;
+                }
+            }
+            return absatzdurchmesser;
         }
         #endregion
 
