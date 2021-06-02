@@ -265,38 +265,38 @@ namespace Schrauben
             test1.Gewindeart = cbx_Antwort0.Text;
 
             //Unterprogramme werden abgerufen und geben Werte aus
-            double rundung = test1.Rundung();
-            richTextBox.AppendText("Die Rundung beträgt " + Math.Round(rundung,3) + " mm." + Environment.NewLine+Environment.NewLine);
-
-            double volumen = test1.Volumen();
-            richTextBox.AppendText("Das Volumen einer Schraube beträgt " + Math.Round(volumen,2) + " mm³." + Environment.NewLine);
-
-            double gewicht = test1.Gewicht();
-            richTextBox.AppendText("Das Gewicht einer Schraube beträgt " + Math.Round(gewicht,2) + " in g." + Environment.NewLine);
+            //double rundung = test1.Rundung();
+            //richTextBox.AppendText("Die Rundung beträgt " + Math.Round(rundung,3) + " mm." + Environment.NewLine+Environment.NewLine);
 
             double preis = test1.Preis();
-            richTextBox.AppendText("Der Preis aller Schrauben beziffert sich auf " + Math.Round(preis,2) + " Euro insgesamt." + Environment.NewLine);
+            richTextBox.AppendText("Preis gesamt: " + Math.Round(preis, 2) + " Euro" + Environment.NewLine);
 
+            double gewicht = test1.Gewicht();
+            richTextBox.AppendText("Gewicht einer Schraube: " + Math.Round(gewicht, 2) + " g" + Environment.NewLine);
+
+            double volumen = test1.Volumen();
+            richTextBox.AppendText("Volumen einer Schraube: " + Math.Round(volumen,2) + " mm³." + Environment.NewLine);
+            
             double schwerpunkt = test1.Schwerpunkt();
-            richTextBox.AppendText("Der Schwerpunkt liegt " + Math.Round(schwerpunkt,2) + " mm unterhalb des Schraubenkopfes" + Environment.NewLine);
+            richTextBox.AppendText("Schwerpunkt: " + Math.Round(schwerpunkt,2) + " mm unterhalb des Schraubenkopfes" + Environment.NewLine);
 
             double spannungsquerschnitt = test1.Spannungsquerschnitt();
-            richTextBox.AppendText("Der Spannungsquerschnitt einer Schraube beträgt " + Math.Round(spannungsquerschnitt,2) + " mm²." + Environment.NewLine);
+            richTextBox.AppendText("Spannungsquerschnitt: " + Math.Round(spannungsquerschnitt,2) + " mm²." + Environment.NewLine);
 
             double ftm = test1.Flaechentraegheitsmoment();
-            richTextBox.AppendText("Das Flächenträgheitsmoment beträgt " + Math.Round(ftm,2) + " mm^4" + Environment.NewLine);
+            richTextBox.AppendText("Flächenträgheitsmoment: " + Math.Round(ftm,2) + " mm^4" + Environment.NewLine);
 
             double vorspannkraft = test1.Vorspannkraft();
-            richTextBox.AppendText("Vorspannkraft beträgt " + Math.Round(vorspannkraft,2) + " N" + Environment.NewLine);
+            richTextBox.AppendText("Vorspannkraft: " + Math.Round(vorspannkraft,2) + " N" + Environment.NewLine);
 
             double schluesselweite = test1.Schluesselweite();
-            richTextBox.AppendText("Die Schluesselweite beträgt " + schluesselweite  + Environment.NewLine);
+            richTextBox.AppendText("Schluesselweite: " + schluesselweite  + Environment.NewLine);
             
             double steigung = test1.Steigung();
-            richTextBox.AppendText("Die Steigung beträgt " + steigung + Environment.NewLine);
+            richTextBox.AppendText("Steigung: " + steigung + Environment.NewLine);
 
             double ri = test1.Nenndurchmesser();
-            richTextBox.AppendText(("Der Durchmesser beträgt ") + ri + Environment.NewLine);
+            richTextBox.AppendText(("Nenndurchmesser: ") + ri + Environment.NewLine);
 
             //Button Exportieren sichtbar schalten
             btn_Exportieren.Visibility = Visibility.Visible;
