@@ -923,7 +923,57 @@ namespace Schrauben
             myPart.Update();
         }
 
-       
+        internal void SechskantRund(Schraube mySchraube)
+        {
+            double SW = mySchraube.Schluesselweite() / 2;
+            double K = 2 * SW / Math.Sqrt(3);
+            double T = mySchraube.KopfhoeheSE();
+
+            OriginElements catOriginElements = hsp_catiaPartDoc.Part.OriginElements;
+            Reference RefmyPlaneXY = (Reference)catOriginElements.PlaneXY;
+
+            HybridShapeDirection Dir = HSF.AddNewDirectionByCoord(1, 0, 0);
+            Reference RefDir = myPart.CreateReferenceFromObject(Dir);
+
+            Sketch mySechskantrund = mySketches.Add(RefmyPlaneXY);
+            myPart.InWorkObject = mySechskantrund;
+            mySechskantrund.set_Name("Sechskantrund");
+
+            myPart.InWorkObject = myPart.MainBody;
+
+            Factory2D catFactory2D1 = mySechskantrund.OpenEdition();
+
+
+            //Kopfmitte
+            Point2D catPoint2D1 = catFactory2D1.CreatePoint(-T, K);
+            //Kopfaußen
+            Point2D catPoint2D2 = catFactory2D1.CreatePoint(-T, SW);
+            //Untenmitte
+            Point2D catPoint2D3 = catFactory2D1.CreatePoint(-T + Math.Tan((30 * Math.PI) / 180) * (K - SW), K);
+
+            Line2D catLine2D1 = catFactory2D1.CreateLine(-T, K, -T, SW);
+            catLine2D1.StartPoint = catPoint2D1;
+            catLine2D1.EndPoint = catPoint2D2;
+
+            Line2D catLine2D2 = catFactory2D1.CreateLine(-T, SW, -T + Math.Tan((30 * Math.PI) / 180) * (K - SW), K);
+            catLine2D2.StartPoint = catPoint2D2;
+            catLine2D2.EndPoint = catPoint2D3;
+
+            Line2D catLine2D3 = catFactory2D1.CreateLine(-T + Math.Tan((30 * Math.PI) / 180) * (K - SW), K, -T, K);
+            catLine2D3.StartPoint = catPoint2D3;
+            catLine2D3.EndPoint = catPoint2D1;
+
+            myPart.InWorkObject = myBody;
+            myPart.Update();
+
+            Groove rund = SF.AddNewGroove(mySechskantrund);
+            rund.RevoluteAxis = RefDir;
+            rund.set_Name("Sechskantrund");
+
+            myPart.Update();
+
+        }
+
 
     }
 
