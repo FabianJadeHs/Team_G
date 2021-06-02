@@ -974,7 +974,63 @@ namespace Schrauben
 
         }
 
+        internal void SechskantPlatte(Schraube mySchraube)
+        {
+            double b = mySchraube.KopfhoeheS() * 0.1;
+            double r = mySchraube.Absatzdurchmesser() ;
 
+            OriginElements catOriginElements = hsp_catiaPartDoc.Part.OriginElements;
+            Reference RefmyPlaneZX = (Reference)catOriginElements.PlaneZX;
+
+            HybridShapeDirection Dir = HSF.AddNewDirectionByCoord(1, 0, 0);
+            Reference RefDir = myPart.CreateReferenceFromObject(Dir);
+
+            Sketch mySechskantPlatte = mySketches.Add(RefmyPlaneZX);
+            myPart.InWorkObject = mySechskantPlatte;
+            mySechskantPlatte.set_Name("SechskantPlatte");
+
+            myPart.InWorkObject = myPart.MainBody;
+
+            Factory2D catFactory2D1 = mySechskantPlatte.OpenEdition();
+
+            //obenlinks
+            Point2D catPoint2D1 = catFactory2D1.CreatePoint(r, b);
+            //untenlinks
+            Point2D catPoint2D2 = catFactory2D1.CreatePoint(0, b);
+            //untenrechts
+            Point2D catPoint2D3 = catFactory2D1.CreatePoint(0, 0);
+            //obenrechts
+            Point2D catPoint2D4 = catFactory2D1.CreatePoint(r, 0);
+
+            Line2D catLine2D1 = catFactory2D1.CreateLine(r, b, 0, b);
+            catLine2D1.StartPoint = catPoint2D1;
+            catLine2D1.EndPoint = catPoint2D2;
+
+            Line2D catLine2D2 = catFactory2D1.CreateLine(0, b, 0, 0);
+            catLine2D2.StartPoint = catPoint2D2;
+            catLine2D2.EndPoint = catPoint2D3;
+
+            Line2D catLine2D3 = catFactory2D1.CreateLine(0, 0, r, 0);
+            catLine2D3.StartPoint = catPoint2D3;
+            catLine2D3.EndPoint = catPoint2D4;
+
+            Line2D catLine2D4 = catFactory2D1.CreateLine(r, 0, r, b);
+            catLine2D4.StartPoint = catPoint2D4;
+            catLine2D4.EndPoint = catPoint2D1;
+
+
+
+            // Skizzierer verlassen
+            mySechskantPlatte.CloseEdition();
+            // Part aktualisieren
+            hsp_catiaPartDoc.Part.Update();
+
+            Shaft sechskantPlatte = SF.AddNewShaft(mySechskantPlatte);
+            sechskantPlatte.RevoluteAxis = RefDir;
+            sechskantPlatte.set_Name("SechskantPlatte");
+
+            hsp_catiaPartDoc.Part.Update();
+        }
     }
 
 }

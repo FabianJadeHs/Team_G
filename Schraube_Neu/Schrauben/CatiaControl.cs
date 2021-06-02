@@ -53,6 +53,7 @@ namespace Schrauben
                     {
                         cc.Sechskant(schraube);
                         cc.SechskantRund(schraube);
+                        cc.SechskantPlatte(schraube);
                     }
                     else if(schraube.Wunschschraubenkopf=="Zylinderkopf mit Innensechskant")
                     {
