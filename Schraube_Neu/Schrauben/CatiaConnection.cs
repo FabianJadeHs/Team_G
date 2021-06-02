@@ -1035,9 +1035,9 @@ namespace Schrauben
         internal void SechsRadius(Schraube mySchraube)
         {
             double b = mySchraube.KopfhoeheS() * 0.1;
-            double d = mySchraube.Nenndurchmesser() / 2;
+            double d = mySchraube.Nenndurchmesser()/2;
             double r = 0.2;
-
+                       
 
             OriginElements catOriginElements = hsp_catiaPartDoc.Part.OriginElements;
             Reference RefmyPlaneZX = (Reference)catOriginElements.PlaneZX;
@@ -1054,9 +1054,9 @@ namespace Schrauben
             Factory2D catFactory2D1 = mySechsradius.OpenEdition();
 
             //innen
-            Point2D catPoint2D1 = catFactory2D1.CreatePoint(d, b + r);
+            Point2D catPoint2D1 = catFactory2D1.CreatePoint(d, b+r);
             //aussen
-            Point2D catPoint2D3 = catFactory2D1.CreatePoint(d + r, b);
+            Point2D catPoint2D3 = catFactory2D1.CreatePoint(d+r, b);
             //Mitte
             Point2D catPoint2D2 = catFactory2D1.CreatePoint(d, b);
             //mittelpunkt radius
@@ -1070,7 +1070,7 @@ namespace Schrauben
             catLine2D2.StartPoint = catPoint2D2;
             catLine2D2.EndPoint = catPoint2D3;
 
-            Circle2D Verrundung = catFactory2D1.CreateCircle(d + r, b + r, 0.2, 0, 0);
+            Circle2D Verrundung = catFactory2D1.CreateCircle(d+r, b+r,0.2, 0, 0);
             Verrundung.CenterPoint = catPoint2D4;
             Verrundung.StartPoint = catPoint2D1;
             Verrundung.EndPoint = catPoint2D3;
@@ -1086,7 +1086,9 @@ namespace Schrauben
 
             hsp_catiaPartDoc.Part.Update();
 
-        }
 
+        }
     }
+
+}
 
