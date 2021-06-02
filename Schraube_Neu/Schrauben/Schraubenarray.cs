@@ -19,11 +19,13 @@
         public double KopfdurchmesserS { get; set; }
         public double InnensechkantGS { get; set; }
         public double SechskanttiefeGS { get; set; }
+        public double Absatzdurchmesser { get; set; }
 
         // bei Ausgabe werden die Spalten getrennt
         public override string ToString()
         {
-            return Gewindebezeichnung + "|" + Steigung + "|" + Schluesselweite + "|" + Nenndurchmesser + "|" + Schraubenkopfhoehe + "|" + Schraubenkopfbreite + "|" + InnensechskantZ + "|" + SechskanttiefeZ + "|" + KopfhoeheZ + "|" + KopfdurchmesserZ + "|" + InnensechskantS + "|" + SechskanttiefeS + "|" + KopfhoeheS + "|" + KopfdurchmesserS + "|" + InnensechkantGS + "|" + SechskanttiefeGS;
+            return Gewindebezeichnung + "|" + Steigung + "|" + Schluesselweite + "|" + Nenndurchmesser + "|" + Schraubenkopfhoehe + "|" + Schraubenkopfbreite + "|" + InnensechskantZ + "|" + SechskanttiefeZ + "|" + KopfhoeheZ + 
+                "|" + KopfdurchmesserZ + "|" + InnensechskantS + "|" + SechskanttiefeS + "|" + KopfhoeheS + "|" + KopfdurchmesserS + "|" + InnensechkantGS + "|" + SechskanttiefeGS + "|" + Absatzdurchmesser;
         }
 
     }
