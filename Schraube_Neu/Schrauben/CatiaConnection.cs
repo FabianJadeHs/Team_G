@@ -398,7 +398,11 @@ namespace Schrauben
             mySchaft = SF.AddNewPadFromRef(RefMySchaft, -H);
             myPart.Update();
 
-            kopfFlaeche = myPart.CreateReferenceFromName("Selection_RSur:(Face:(Brp:(Pad.2;2);None:();Cf12:());Pad.2_ResultOUT;Z0;G9061)");
+            //Fabian
+            //kopfFlaeche = myPart.CreateReferenceFromName("Selection_RSur:(Face:(Brp:(Pad.2;2);None:();Cf12:());Pad.2_ResultOUT;Z0;G9061)"); 
+
+            //(Arne)
+            kopfFlaeche = myPart.CreateReferenceFromName("Selection_RSur:(Face:(Brp:(Pad.2;2);None:();Cf11:());Pad.2_ResultOUT;Z0;G8241)");   
 
         }
 
@@ -537,9 +541,11 @@ namespace Schrauben
 
             hsp_catiaPartDoc.Part.Update();
 
-            kopfFlaeche = myPart.CreateReferenceFromName("Selection_RSur:(Face:(Brp:((Brp:(Shaft.1;0:(Brp:(Sketch.3;1)));Brp:(Pad.1;1)));None:();Cf12:());Shaft.1_ResultOUT;Z0;G9061)");
+            //Fabian
+            //kopfFlaeche = myPart.CreateReferenceFromName("Selection_RSur:(Face:(Brp:((Brp:(Shaft.1;0:(Brp:(Sketch.3;1)));Brp:(Pad.1;1)));None:();Cf12:());Shaft.1_ResultOUT;Z0;G9061)");
 
-
+            //Arne
+            kopfFlaeche = myPart.CreateReferenceFromName("Selection_RSur:(Face:(Brp:((Brp:(Shaft.1;0:(Brp:(Sketch.3;1)));Brp:(Pad.1;1)));None:();Cf11:());Shaft.1_ResultOUT;Z0;G8241)");
         }              
 
         internal void InnensechskantZ(Schraube mySchraube)
