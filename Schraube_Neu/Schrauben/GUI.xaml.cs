@@ -249,6 +249,8 @@ namespace Schrauben
 
             test1.Gewinderichtung = cbx_Antwort7.Text;
 
+            test1.Gewindeart = cbx_Antwort0.Text;
+
             //Unterprogramme werden abgerufen und geben Werte aus
             double rundung = test1.Rundung();
             richTextBox.AppendText("Die Rundung beträgt " + Math.Round(rundung,3) + " mm." + Environment.NewLine+Environment.NewLine);
