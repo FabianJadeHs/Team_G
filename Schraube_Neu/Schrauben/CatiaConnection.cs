@@ -1031,7 +1031,62 @@ namespace Schrauben
 
             hsp_catiaPartDoc.Part.Update();
         }
-    }
 
-}
+        internal void SechsRadius(Schraube mySchraube)
+        {
+            double b = mySchraube.KopfhoeheS() * 0.1;
+            double d = mySchraube.Nenndurchmesser() / 2;
+            double r = 0.2;
+
+
+            OriginElements catOriginElements = hsp_catiaPartDoc.Part.OriginElements;
+            Reference RefmyPlaneZX = (Reference)catOriginElements.PlaneZX;
+
+            HybridShapeDirection Dir = HSF.AddNewDirectionByCoord(1, 0, 0);
+            Reference RefDir = myPart.CreateReferenceFromObject(Dir);
+
+            Sketch mySechsradius = mySketches.Add(RefmyPlaneZX);
+            myPart.InWorkObject = mySechsradius;
+            mySechsradius.set_Name("Sechskantradius");
+
+            myPart.InWorkObject = myPart.MainBody;
+
+            Factory2D catFactory2D1 = mySechsradius.OpenEdition();
+
+            //innen
+            Point2D catPoint2D1 = catFactory2D1.CreatePoint(d, b + r);
+            //aussen
+            Point2D catPoint2D3 = catFactory2D1.CreatePoint(d + r, b);
+            //Mitte
+            Point2D catPoint2D2 = catFactory2D1.CreatePoint(d, b);
+            //mittelpunkt radius
+            Point2D catPoint2D4 = catFactory2D1.CreatePoint(d + r, b + r);
+
+            Line2D catLine2D1 = catFactory2D1.CreateLine(d, b + r, d, b);
+            catLine2D1.StartPoint = catPoint2D1;
+            catLine2D1.EndPoint = catPoint2D2;
+
+            Line2D catLine2D2 = catFactory2D1.CreateLine(d, b, d + r, b);
+            catLine2D2.StartPoint = catPoint2D2;
+            catLine2D2.EndPoint = catPoint2D3;
+
+            Circle2D Verrundung = catFactory2D1.CreateCircle(d + r, b + r, 0.2, 0, 0);
+            Verrundung.CenterPoint = catPoint2D4;
+            Verrundung.StartPoint = catPoint2D1;
+            Verrundung.EndPoint = catPoint2D3;
+
+            // Skizzierer verlassen
+            mySechsradius.CloseEdition();
+            // Part aktualisieren
+            hsp_catiaPartDoc.Part.Update();
+
+            Shaft senkkopf = SF.AddNewShaft(mySechsradius);
+            senkkopf.RevoluteAxis = RefDir;
+            senkkopf.set_Name("Sechskantradius");
+
+            hsp_catiaPartDoc.Part.Update();
+
+        }
+
+    }
 
