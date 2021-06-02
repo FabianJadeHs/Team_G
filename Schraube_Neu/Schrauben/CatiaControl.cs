@@ -64,7 +64,7 @@ namespace Schrauben
                     else if(schraube.Wunschschraubenkopf=="Zylinderkopf mit Schlitz")
                     {
                         cc.Zylinderkopf(schraube);
-                        cc.Schlitz();
+                        cc.Schlitz(schraube);
                     }
                     else if(schraube.Wunschschraubenkopf=="Senkkopf mit Innensechskant")
                     {
@@ -74,7 +74,7 @@ namespace Schrauben
                     else if(schraube.Wunschschraubenkopf=="Senkkopf mit Schlitz")
                     {
                         cc.Senkkopf(schraube);
-                        cc.Schlitz();
+                        cc.Schlitz(schraube);
                     }
                     else if (schraube.Wunschschraubenkopf == "Gewindestift")
                     {

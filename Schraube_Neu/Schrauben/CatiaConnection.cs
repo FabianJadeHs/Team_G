@@ -811,8 +811,10 @@ namespace Schrauben
 
         }
 
-        internal void Schlitz()
+        internal void Schlitz(Schraube mySchraube)
         {
+            double b = mySchraube.Nenndurchmesser() / 4;
+            double t = b+0.1;
             OriginElements catOriginElements = hsp_catiaPartDoc.Part.OriginElements;
             Reference refPlane = kopfFlaeche;
 
@@ -831,24 +833,24 @@ namespace Schrauben
 
             // erst die Punkte
             //oben links gegen Uhrzeigersein
-            Point2D catPoint2D1 = catFactory2D1.CreatePoint(-1.5, 100);
-            Point2D catPoint2D2 = catFactory2D1.CreatePoint(1.5, 100);
-            Point2D catPoint2D3 = catFactory2D1.CreatePoint(1.5, -100);
-            Point2D catPoint2D4 = catFactory2D1.CreatePoint(-1.5, -100);
+            Point2D catPoint2D1 = catFactory2D1.CreatePoint(-b, 100);
+            Point2D catPoint2D2 = catFactory2D1.CreatePoint(b, 100);
+            Point2D catPoint2D3 = catFactory2D1.CreatePoint(b, -100);
+            Point2D catPoint2D4 = catFactory2D1.CreatePoint(-b, -100);
 
-            Line2D catLine2D1 = catFactory2D1.CreateLine(-1.5, 100, 1.5, 100);
+            Line2D catLine2D1 = catFactory2D1.CreateLine(-b, 100, b, 100);
             catLine2D1.StartPoint = catPoint2D1;
             catLine2D1.EndPoint = catPoint2D2;
 
-            Line2D catLine2D2 = catFactory2D1.CreateLine(1.5, 100, 1.5, -100);
+            Line2D catLine2D2 = catFactory2D1.CreateLine(b, 100, b, -100);
             catLine2D2.StartPoint = catPoint2D2;
             catLine2D2.EndPoint = catPoint2D3;
 
-            Line2D catLine2D3 = catFactory2D1.CreateLine(1.5, -100, -1.5, -100);
+            Line2D catLine2D3 = catFactory2D1.CreateLine(b, -100, -b, -100);
             catLine2D3.StartPoint = catPoint2D3;
             catLine2D3.EndPoint = catPoint2D4;
 
-            Line2D catLine2D4 = catFactory2D1.CreateLine(-1.5, -100, -1.5, 100);
+            Line2D catLine2D4 = catFactory2D1.CreateLine(-b, -100, -b, 100);
             catLine2D4.StartPoint = catPoint2D4;
             catLine2D4.EndPoint = catPoint2D1;
 
@@ -860,7 +862,7 @@ namespace Schrauben
             hsp_catiaPartDoc.Part.InWorkObject = hsp_catiaPartDoc.Part.MainBody;
 
             // Block(Balken) erzeugen
-            Pocket Loch = SF.AddNewPocket(mySchlitz, 3);
+            Pocket Loch = SF.AddNewPocket(mySchlitz, t);
             Loch.set_Name("Schlitz");
 
             // Part aktualisieren
