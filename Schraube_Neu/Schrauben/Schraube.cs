@@ -85,14 +85,24 @@ namespace Schrauben
                     kopfvolumen = 2.598 * Math.Pow((m.Schraubenkopfbreite / 2), 2) * m.Schraubenkopfhoehe;
                 }
 
-                else if (Wunschgewindeart == m.Gewindebezeichnung && Wunschschraubenkopf == "Zylinderkopf")  // Volumenberechnung Zylinderkopf
+                else if (Wunschgewindeart == m.Gewindebezeichnung && Wunschschraubenkopf == "Zylinderkopf mit Innensechskant")  // Volumenberechnung Zylinderkopf
                 {
                     kopfvolumen = m.KopfhoeheZ * Math.PI * Math.Pow((m.KopfdurchmesserZ / 2), 2) - (2.598 * Math.Pow((m.InnensechskantZ / 2), 2) * m.SechskanttiefeZ);
                 }
 
-                else if (Wunschgewindeart == m.Gewindebezeichnung && Wunschschraubenkopf == "Senkkopf")   // Volumenberechnung Senkkopf
+                else if (Wunschgewindeart == m.Gewindebezeichnung && Wunschschraubenkopf == "Zylinderkopf mit Schlitz")  // Volumenberechnung Zylinderkopf
+                {
+                    kopfvolumen = m.KopfhoeheZ * Math.PI * Math.Pow((m.KopfdurchmesserZ / 2), 2);
+                }
+
+                else if (Wunschgewindeart == m.Gewindebezeichnung && Wunschschraubenkopf == "Senkkopf mit Innensechskant")   // Volumenberechnung Senkkopf
                 {
                     kopfvolumen = (((Math.PI * (m.KopfhoeheS)) / 12) * (Math.Pow((m.KopfdurchmesserS), 2) + Math.Pow((m.Nenndurchmesser), 2) + ((m.KopfdurchmesserS) * (m.Nenndurchmesser)))) - (2.598 * Math.Pow((m.InnensechskantS / 2), 2) * m.SechskanttiefeS);
+                }
+
+                else if (Wunschgewindeart == m.Gewindebezeichnung && Wunschschraubenkopf == "Senkkopf mit Schlitz")   // Volumenberechnung Senkkopf
+                {
+                    kopfvolumen = (((Math.PI * (m.KopfhoeheS)) / 12) * (Math.Pow((m.KopfdurchmesserS), 2) + Math.Pow((m.Nenndurchmesser), 2) + ((m.KopfdurchmesserS) * (m.Nenndurchmesser))));
                 }
 
                 else if (Wunschgewindeart == m.Gewindebezeichnung && Wunschschraubenkopf == "Gewindestift")  // Volumenberechnung "Kopf" des Gewindestiftes, Volumen wird negativ, da "Kopf" im Gewinde
