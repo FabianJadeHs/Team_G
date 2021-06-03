@@ -81,35 +81,6 @@ namespace Schrauben
                         cc.InnensechskantGS(schraube);
                         cc.FaseGewindestift(schraube);
                     }
-
-                    //cc.Zylinderkopf(schraube);
-                    //Console.WriteLine("Zylinderkopf");
-
-                    //cc.InnensechskantZ(schraube);
-                    //Console.WriteLine("Innensechskant");
-                    /*
-                    cc.Sechskant(schraube);
-                    Console.WriteLine("Sechskant");
-                    
-                    cc.Senkkopf(schraube);
-                    Console.WriteLine("Senkkopf");
-
-                    cc.InnensechskantS(schraube);
-                    Console.WriteLine("Innensechskant");                
-                                       
-                    
-                    cc.Gewindestift(schraube);
-                    Console.WriteLine("Gewindestift");
-
-                    cc.InnensechskantGS(schraube);
-                    Console.WriteLine("Innensechskant");
-                    */
-                                       
-                    
-
-                    //Wann und wo den Schlitz anbinden
-                    //cc.Schlitz();
-                    //Console.WriteLine("Schlitz");
                 }
                 else
                 {
@@ -124,12 +95,6 @@ namespace Schrauben
             Console.ReadKey();
 
         }
-        /*
-        static void Main(string[] args)
-        {
-            new CatiaControl();
-        }
-        */
     }
 
 }
