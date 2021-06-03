@@ -979,7 +979,7 @@ namespace Schrauben
         internal void SechskantPlatte(Schraube mySchraube)
         {
             double b = mySchraube.KopfhoeheS() * 0.1;
-            double r = mySchraube.Absatzdurchmesser() ;
+            double r = mySchraube.Absatzdurchmesser()/ 2 ;
 
             OriginElements catOriginElements = hsp_catiaPartDoc.Part.OriginElements;
             Reference RefmyPlaneZX = (Reference)catOriginElements.PlaneZX;
