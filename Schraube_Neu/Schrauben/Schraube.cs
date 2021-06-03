@@ -194,12 +194,22 @@ namespace Schrauben
                     schwerpunkt = (kopfvolumen * (-m.Schraubenkopfhoehe / 2) + schaftvolumen * (gesamtlaenge / 2)) / (kopfvolumen + schaftvolumen);
                 }
 
-                else if (Wunschschraubenkopf == "Zylinderkopf")
+                else if (Wunschschraubenkopf == "Zylinderkopf mit Innensechskant")
                 {
                     schwerpunkt = (kopfvolumen * (-m.KopfhoeheZ / 2) + schaftvolumen * (gesamtlaenge / 2)) / (kopfvolumen + schaftvolumen);
                 }
 
-                else if (Wunschschraubenkopf == "Senkkopf")
+                else if (Wunschschraubenkopf == "Zylinderkopf mit Schlitz")
+                {
+                    schwerpunkt = (kopfvolumen * (-m.KopfhoeheZ / 2) + schaftvolumen * (gesamtlaenge / 2)) / (kopfvolumen + schaftvolumen);
+                }
+
+                else if (Wunschschraubenkopf == "Senkkopf mit Innensechskant")
+                {
+                    schwerpunkt = (kopfvolumen * (-m.KopfhoeheS / 2) + schaftvolumen * (gesamtlaenge / 2)) / (kopfvolumen + schaftvolumen);
+                }
+
+                else if (Wunschschraubenkopf == "Senkkopf mit Schlitz")
                 {
                     schwerpunkt = (kopfvolumen * (-m.KopfhoeheS / 2) + schaftvolumen * (gesamtlaenge / 2)) / (kopfvolumen + schaftvolumen);
                 }

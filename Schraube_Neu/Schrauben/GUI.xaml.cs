@@ -267,16 +267,17 @@ namespace Schrauben
             //Unterprogramme werden abgerufen und geben Werte aus
             //double rundung = test1.Rundung();
             //richTextBox.AppendText("Die Rundung beträgt " + Math.Round(rundung,3) + " mm." + Environment.NewLine+Environment.NewLine);
+                                   
 
-            double preis = test1.Preis();
-            richTextBox.AppendText("Preis gesamt: " + Math.Round(preis, 2) + " Euro" + Environment.NewLine+Environment.NewLine);
+            double volumen = test1.Volumen();
+            richTextBox.AppendText("Volumen einer Schraube: " + Math.Round(volumen,2) + " mm³." + Environment.NewLine + Environment.NewLine);
 
             double gewicht = test1.Gewicht();
             richTextBox.AppendText("Gewicht einer Schraube: " + Math.Round(gewicht, 2) + " g" + Environment.NewLine);
 
-            double volumen = test1.Volumen();
-            richTextBox.AppendText("Volumen einer Schraube: " + Math.Round(volumen,2) + " mm³." + Environment.NewLine);
-            
+            double preis = test1.Preis();
+            richTextBox.AppendText("Preis gesamt: " + Math.Round(preis, 2) + " Euro"  + Environment.NewLine);
+
             double schwerpunkt = test1.Schwerpunkt();
             richTextBox.AppendText("Schwerpunkt: " + Math.Round(schwerpunkt,2) + " mm unterhalb des Schraubenkopfes" + Environment.NewLine);
 
