@@ -37,7 +37,7 @@ namespace Schrauben
                 double KopfdurchmesserS = double.Parse(daten[13], CultureInfo.GetCultureInfo("de-DE").NumberFormat);
                 double InnensechskantGS = double.Parse(daten[14], CultureInfo.GetCultureInfo("de-DE").NumberFormat);
                 double SechskanttiefeGS = double.Parse(daten[15], CultureInfo.GetCultureInfo("de-DE").NumberFormat);
-                double Absatzdurchmesser = double.Parse(daten[15], CultureInfo.GetCultureInfo("de-DE").NumberFormat);
+                double Absatzdurchmesser = double.Parse(daten[16], CultureInfo.GetCultureInfo("de-DE").NumberFormat);
 
                 //liste wird einer Schraube angefügt
                 liste.Add(new Schraubenarray { Gewindebezeichnung = Gewindebezeichnung, Steigung = Steigung, Schluesselweite = Schluesselweite, Nenndurchmesser = Nenndurchmesser, Schraubenkopfhoehe = Schraubenkopfhoehe, 
